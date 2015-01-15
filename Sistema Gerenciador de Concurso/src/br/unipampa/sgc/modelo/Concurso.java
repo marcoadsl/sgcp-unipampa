@@ -1,9 +1,9 @@
 package br.unipampa.sgc.modelo;
 
-import java.util.ArrayList;
+import java.sql.SQLException;
 import java.util.LinkedList;
 
-public class Concurso {
+public class Concurso extends DML {
 
     private String ministerio;
     private String area;
@@ -15,12 +15,11 @@ public class Concurso {
     private Universidade universidade;
     private LinkedList<Candidato> candidatos;
     private Resolucao resolucao;
-    private Candidato[] candidato;
+    private Examinador[] examinador;
     private static Concurso myInstance;
 
-    private Examinador[] examinador;
-
     private Concurso() {
+        super.table = "concurso";
     }
 
     public static Concurso getMyInstance() {
@@ -28,6 +27,51 @@ public class Concurso {
             myInstance = new Concurso();
         }
         return myInstance;
+    }
+
+    @Override
+    public void inserir(Object objeto) {
+        if(objeto instanceof Concurso){
+            super.conecta= ConectaBD.getInstance();
+            Concurso concurso = (Concurso) objeto;
+            try {
+            String sql = "insert into " + super.table + "(ministerio,universidade,campus,area,data,edital,classe) values(?,?,?,?,?,?,?);";
+            super.conecta = ConectaBD.getInstance();
+            super.preparedStatement = super.conecta.getConnection().prepareStatement(sql);
+            super.preparedStatement.setString(1, concurso.getMinisterio());
+            super.preparedStatement.setString(2, concurso.getUniversidade().getNome());
+            super.preparedStatement.setString(3, concurso.getUniversidade().getCampus());
+            super.preparedStatement.setString(4, concurso.getArea());
+            super.preparedStatement.setString(5, concurso.getData());
+            super.preparedStatement.setString(6, concurso.getEdital());
+            super.preparedStatement.setString(7, concurso.getClasse());
+            super.preparedStatement.execute();
+            super.preparedStatement.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            super.conecta.encerrarConexao();
+          }
+        }
+    }
+
+    @Override
+    public void editar(int id, Object objeto) {
+    }
+
+    @Override
+    public boolean deletar(int id, Object objeto) {
+        return false;
+    }
+
+    @Override
+    public Object buscar(int id) {
+        return null;
+    }
+
+    @Override
+    public int recuperarId(Object objeto) {
+        return 0;
     }
 
     public String getMinisterio() {
@@ -109,15 +153,6 @@ public class Concurso {
     public void setResolucao(Resolucao resolucao) {
         this.resolucao = resolucao;
     }
-
-    public Candidato[] getCandidato() {
-        return candidato;
-    }
-
-    public void setCandidato(Candidato[] candidato) {
-        this.candidato = candidato;
-    }
-
     public Examinador[] getExaminador() {
         return examinador;
     }
@@ -125,5 +160,4 @@ public class Concurso {
     public void setExaminador(Examinador[] examinador) {
         this.examinador = examinador;
     }
-
 }

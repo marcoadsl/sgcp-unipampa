@@ -13,31 +13,21 @@ import java.sql.Statement;
  *
  * @author gabrielbmoro
  */
-public class DML {
-    
+public abstract class DML {
+
     protected ConectaBD conecta;
     protected Statement statement = null;
-    protected PreparedStatement preparedStatement= null;
+    protected PreparedStatement preparedStatement = null;
     protected ResultSet resultSet = null;
     protected String table;
-    
-    public void inserir(Object objeto){
-        
-    }
-    
-    public void editar(int id, Object objeto){
-        
-    }
-    
-    public boolean deletar(int id, Object objeto){
-        return false;
-    }
-    
-    public Object buscar(int id){
-        return null;
-    }
-        
-    public int recuperarId(Object objeto){
-        return 0;
-    }
+
+    public abstract void inserir(Object objeto);
+
+    public abstract void editar(int id, Object objeto);
+
+    public abstract boolean deletar(int id, Object objeto);
+
+    public abstract Object buscar(int id);
+
+    public abstract int recuperarId(Object objeto);
 }

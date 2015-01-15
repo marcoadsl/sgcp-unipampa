@@ -16,7 +16,7 @@ import java.sql.SQLException;
 public class ConectaBD {
 
     private static ConectaBD myInstance;
-    private static final String URL_DATABASE = "jdbc:mysql://localhost:3306/mydb";
+    private static final String URL_DATABASE = "jdbc:mysql://localhost:3306/sgc";
     private static final String USER_BANCO = "root";
     private static final String PASS_BANCO = "";
     private Connection con;

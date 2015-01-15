@@ -111,7 +111,7 @@ public class panelCriarConcurso extends javax.swing.JPanel {
         panelDataNascimentoCand = new javax.swing.JPanel();
         jDataNascimentoCandidatos = new javax.swing.JFormattedTextField();
         btnAnterior2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnSalvar = new javax.swing.JButton();
         jProgressBar1 = new javax.swing.JProgressBar();
 
         panelDadosGerais.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados Gerais"));
@@ -512,8 +512,8 @@ public class panelCriarConcurso extends javax.swing.JPanel {
         btnAnterior2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/anterior.png"))); // NOI18N
         btnAnterior2.setToolTipText("Anterior");
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/salvar.png"))); // NOI18N
-        jButton3.setToolTipText("Salvar");
+        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/salvar.png"))); // NOI18N
+        btnSalvar.setToolTipText("Salvar");
 
         javax.swing.GroupLayout paneCandidatosInscritosLayout = new javax.swing.GroupLayout(paneCandidatosInscritos);
         paneCandidatosInscritos.setLayout(paneCandidatosInscritosLayout);
@@ -537,7 +537,7 @@ public class panelCriarConcurso extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAnterior2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(90, 90, 90)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         paneCandidatosInscritosLayout.setVerticalGroup(
@@ -559,7 +559,7 @@ public class panelCriarConcurso extends javax.swing.JPanel {
                 .addComponent(btnAnterior2))
             .addGroup(paneCandidatosInscritosLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton3))
+                .addComponent(btnSalvar))
         );
 
         javax.swing.GroupLayout jPanelPrincipalLayout = new javax.swing.GroupLayout(jPanelPrincipal);
@@ -631,13 +631,13 @@ public class panelCriarConcurso extends javax.swing.JPanel {
     private javax.swing.JRadioButton btnMSexoCand;
     private javax.swing.JButton btnProximo;
     private javax.swing.JButton btnProximo2;
+    private javax.swing.JButton btnSalvar;
     private javax.swing.ButtonGroup btnSexoExaminador1;
     private javax.swing.ButtonGroup btnSexoExaminador2;
     private javax.swing.ButtonGroup btnSexoExaminador3;
     private javax.swing.ButtonGroup buttonGroupEventoSexoCandidato;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox jComboBoxClasseConcurso;
     private javax.swing.JComboBox jComboBoxEx1;
     private javax.swing.JComboBox jComboBoxEx2;
@@ -771,8 +771,8 @@ public class panelCriarConcurso extends javax.swing.JPanel {
         return jButton2;
     }
 
-    public JButton getjButton3() {
-        return jButton3;
+    public JButton getBtnSalvar() {
+        return btnSalvar;
     }
 
     public JComboBox getjComboBox1() {
