@@ -196,6 +196,8 @@ public class ControleCriarConcurso {
                         candidatos.add(new Candidato(nome, sexo, dataDeNascimento));
                         count += 2;
                     }
+                    Concurso.getMyInstance().setCandidatos(candidatos);
+                    Concurso.getMyInstance().inserir(Concurso.getMyInstance());
                 }
             }
         });
