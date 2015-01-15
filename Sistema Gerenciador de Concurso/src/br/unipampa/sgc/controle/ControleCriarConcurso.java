@@ -145,8 +145,26 @@ public class ControleCriarConcurso {
                 janelaCriarConcurso.getPanelCriarConcurso().getJProgressBar().setValue(JanelaCriarConcurso.STATUS_CRIACAO_CONCURSO);
             }
         });
-        janelaCriarConcurso.getPanelCriarConcurso().getBtnSalvar().addActionListener(new ActionListener() {
+        janelaCriarConcurso.getPanelCriarConcurso().getAddInscritos().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {       
+                                janelaCriarConcurso.getPanelCriarConcurso().getModeloTableCandidatos().addRow(new Object[]{null, null});
+            }
+        });
+        janelaCriarConcurso.getPanelCriarConcurso().getRemoveInscritos().addActionListener(new ActionListener() {
 
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                    int linhas = janelaCriarConcurso.getPanelCriarConcurso().getModeloTableCandidatos().getRowCount() - 1;
+                if (linhas != 0) {
+                    janelaCriarConcurso.getPanelCriarConcurso().getModeloTableCandidatos().removeRow(linhas);
+                } else {
+                    GeradorDeMensagens.exibirMensagemDeInformacao("Não é possível remover linhas...", "Alerta ao Usuário");
+                }
+            }
+            
+        });
+        janelaCriarConcurso.getPanelCriarConcurso().getBtnSalvar().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 LinkedList<String> dadosDeCandidatos = janelaCriarConcurso.getPanelCriarConcurso().recuperarDadosPanelCandidatos();

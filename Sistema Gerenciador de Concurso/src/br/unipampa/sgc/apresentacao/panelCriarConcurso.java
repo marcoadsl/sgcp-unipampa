@@ -104,8 +104,8 @@ public class panelCriarConcurso extends javax.swing.JPanel {
         paneCandidatosInscritos = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableCandidatos = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnAddInscritos = new javax.swing.JButton();
+        btnRemoveInscritos = new javax.swing.JButton();
         panelSexoCandidato = new javax.swing.JPanel();
         btnMSexoCand = new javax.swing.JRadioButton();
         btnFSexoCand = new javax.swing.JRadioButton();
@@ -459,11 +459,16 @@ public class panelCriarConcurso extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(jTableCandidatos);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/incluir.png"))); // NOI18N
-        jButton1.setToolTipText("Adicionar Candidato");
+        btnAddInscritos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/incluir.png"))); // NOI18N
+        btnAddInscritos.setToolTipText("Adicionar Candidato");
+        btnAddInscritos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddInscritosActionPerformed(evt);
+            }
+        });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/remover.png"))); // NOI18N
-        jButton2.setToolTipText("Remover Candidato");
+        btnRemoveInscritos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/remover.png"))); // NOI18N
+        btnRemoveInscritos.setToolTipText("Remover Candidato");
 
         panelSexoCandidato.setBorder(javax.swing.BorderFactory.createTitledBorder("Sexo"));
 
@@ -531,8 +536,8 @@ public class panelCriarConcurso extends javax.swing.JPanel {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 724, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(paneCandidatosInscritosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnAddInscritos, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRemoveInscritos, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneCandidatosInscritosLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -553,9 +558,9 @@ public class panelCriarConcurso extends javax.swing.JPanel {
                 .addGroup(paneCandidatosInscritosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(paneCandidatosInscritosLayout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnAddInscritos)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)))
+                        .addComponent(btnRemoveInscritos)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAnterior2))
             .addGroup(paneCandidatosInscritosLayout.createSequentialGroup()
@@ -618,8 +623,13 @@ public class panelCriarConcurso extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAddInscritosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddInscritosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddInscritosActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddInscritos;
     private javax.swing.JButton btnAnterior1;
     private javax.swing.JButton btnAnterior2;
     private javax.swing.JRadioButton btnFEx1;
@@ -632,13 +642,12 @@ public class panelCriarConcurso extends javax.swing.JPanel {
     private javax.swing.JRadioButton btnMSexoCand;
     private javax.swing.JButton btnProximo;
     private javax.swing.JButton btnProximo2;
+    private javax.swing.JButton btnRemoveInscritos;
     private javax.swing.JButton btnSalvar;
     private javax.swing.ButtonGroup btnSexoExaminador1;
     private javax.swing.ButtonGroup btnSexoExaminador2;
     private javax.swing.ButtonGroup btnSexoExaminador3;
     private javax.swing.ButtonGroup buttonGroupEventoSexoCandidato;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox jComboBoxClasseConcurso;
     private javax.swing.JComboBox jComboBoxEx1;
     private javax.swing.JComboBox jComboBoxEx2;
@@ -741,7 +750,6 @@ public class panelCriarConcurso extends javax.swing.JPanel {
         } else if (btnMEx3.getText() == (sexo3)) {
             btnMEx3.setSelected(true);
         }
-
     }
 
     public JButton getBtnAnterior1() {
@@ -808,12 +816,12 @@ public class panelCriarConcurso extends javax.swing.JPanel {
         return buttonGroupEventoSexoCandidato;
     }
 
-    public JButton getjButton1() {
-        return jButton1;
+    public JButton getAddInscritos() {
+        return btnAddInscritos;
     }
 
-    public JButton getjButton2() {
-        return jButton2;
+    public JButton getRemoveInscritos() {
+        return btnRemoveInscritos;
     }
 
     public JButton getBtnSalvar() {
@@ -926,6 +934,10 @@ public class panelCriarConcurso extends javax.swing.JPanel {
 
     public JFormattedTextField getTxtData() {
         return txtData;
+    }
+
+    public DefaultTableModel getModeloTableCandidatos() {
+        return modeloTableCandidatos;
     }
 
 }
