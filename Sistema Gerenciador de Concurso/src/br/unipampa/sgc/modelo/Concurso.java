@@ -1,4 +1,4 @@
-package Diagrama de Classes;
+package br.unipampa.sgc.modelo;
 
 import java.util.ArrayList;
 
@@ -25,12 +25,6 @@ public class Concurso {
 	private Resolucao resolucao;
 	 
 	private Candidato[] candidato;
-	 
-	private Banca banca;
-	 
-	private Universidade universidade;
-	 
-	private Resolucao resolucao;
 	 
 }
  

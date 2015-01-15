@@ -1,4 +1,4 @@
-package Diagrama de Classes;
+package br.unipampa.sgc.modelo;
 
 public class Prova {
  

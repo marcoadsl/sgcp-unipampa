@@ -5,6 +5,18 @@
  */
 package br.unipampa.sgc.apresentacao;
 
+import com.jcalendar.pane.calendar.CalendarPane;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JProgressBar;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author GabrielBMoro
@@ -540,12 +552,13 @@ public class panelCriarConcurso extends javax.swing.JPanel {
             .addGroup(jPanelPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelDadosGerais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelPrincipalLayout.createSequentialGroup()
+                        .addComponent(panelDadosGerais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(613, Short.MAX_VALUE))
                     .addGroup(jPanelPrincipalLayout.createSequentialGroup()
                         .addComponent(panelBanca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(paneCandidatosInscritos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(paneCandidatosInscritos, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
         );
         jPanelPrincipalLayout.setVerticalGroup(
             jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -569,10 +582,12 @@ public class panelCriarConcurso extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -651,4 +666,191 @@ public class panelCriarConcurso extends javax.swing.JPanel {
     private javax.swing.JTextField txtNome3;
     private javax.swing.JTextField txtUniversidade;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getBtnAnterior1() {
+        return btnAnterior1;
+    }
+
+    public JButton getBtnAnterior2() {
+        return btnAnterior2;
+    }
+
+    public JRadioButton getBtnFEx1() {
+        return btnFEx1;
+    }
+
+    public JRadioButton getBtnFEx2() {
+        return btnFEx2;
+    }
+
+    public JRadioButton getBtnFEx3() {
+        return btnFEx3;
+    }
+
+    public JRadioButton getBtnFSexoCand() {
+        return btnFSexoCand;
+    }
+
+    public JRadioButton getBtnMEx1() {
+        return btnMEx1;
+    }
+
+    public JRadioButton getBtnMEx2() {
+        return btnMEx2;
+    }
+
+    public JRadioButton getBtnMEx3() {
+        return btnMEx3;
+    }
+
+    public JRadioButton getBtnMSexoCand() {
+        return btnMSexoCand;
+    }
+
+    public JButton getBtnProximo() {
+        return btnProximo;
+    }
+
+    public JButton getBtnProximo2() {
+        return btnProximo2;
+    }
+
+    public ButtonGroup getBtnSexoExaminador1() {
+        return btnSexoExaminador1;
+    }
+
+    public ButtonGroup getBtnSexoExaminador2() {
+        return btnSexoExaminador2;
+    }
+
+    public ButtonGroup getBtnSexoExaminador3() {
+        return btnSexoExaminador3;
+    }
+
+    public ButtonGroup getButtonGroupEventoSexoCandidato() {
+        return buttonGroupEventoSexoCandidato;
+    }
+
+    public CalendarPane getCalendarPane1() {
+        return calendarPane1;
+    }
+
+    public CalendarPane getCalendarPane2() {
+        return calendarPane2;
+    }
+
+    public JButton getjButton1() {
+        return jButton1;
+    }
+
+    public JButton getjButton2() {
+        return jButton2;
+    }
+
+    public JButton getjButton3() {
+        return jButton3;
+    }
+
+    public JComboBox getjComboBox1() {
+        return jComboBox1;
+    }
+
+    public JComboBox getjComboBox2() {
+        return jComboBox2;
+    }
+
+    public JComboBox getjComboBoxEx1() {
+        return jComboBoxEx1;
+    }
+
+    public JComboBox getjComboBoxEx2() {
+        return jComboBoxEx2;
+    }
+
+    public JComboBox getjComboBoxEx3() {
+        return jComboBoxEx3;
+    }
+
+    public JPanel getjPanelExaminador1() {
+        return jPanelExaminador1;
+    }
+
+    public JPanel getjPanelExaminador2() {
+        return jPanelExaminador2;
+    }
+
+    public JPanel getjPanelExaminador3() {
+        return jPanelExaminador3;
+    }
+
+    public JPanel getjPanelPrincipal() {
+        return jPanelPrincipal;
+    }
+
+    public JProgressBar getjProgressBar1() {
+        return jProgressBar1;
+    }
+
+    public JScrollPane getjScrollPane2() {
+        return jScrollPane2;
+    }
+
+    public JTable getjTable1() {
+        return jTable1;
+    }
+
+    public JPanel getPaneCandidatosInscritos() {
+        return paneCandidatosInscritos;
+    }
+
+    public JPanel getPanelBanca() {
+        return panelBanca;
+    }
+
+    public JPanel getPanelDadosGerais() {
+        return panelDadosGerais;
+    }
+
+    public JPanel getPanelDataNascimentoCand() {
+        return panelDataNascimentoCand;
+    }
+
+    public JPanel getPanelSexoCandidato() {
+        return panelSexoCandidato;
+    }
+
+    public JTextField getTxtArea() {
+        return txtArea;
+    }
+
+    public JTextField getTxtCampus() {
+        return txtCampus;
+    }
+
+    public JTextField getTxtEdital() {
+        return txtEdital;
+    }
+
+    public JTextField getTxtMinisterio() {
+        return txtMinisterio;
+    }
+
+    public JTextField getTxtNome1() {
+        return txtNome1;
+    }
+
+    public JTextField getTxtNome2() {
+        return txtNome2;
+    }
+
+    public JTextField getTxtNome3() {
+        return txtNome3;
+    }
+
+    public JTextField getTxtUniversidade() {
+        return txtUniversidade;
+    }
+    public JProgressBar getJProgressBar(){
+        return jProgressBar1;
+    }
 }

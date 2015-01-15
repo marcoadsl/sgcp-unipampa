@@ -1,4 +1,4 @@
-package Diagrama de Classes;
+package br.unipampa.sgc.modelo;
 
 import java.util.Date;
 import java.util.ArrayList;
@@ -9,9 +9,8 @@ public class Prova_Escrita_Didatica extends Prova {
 	 
 	private int desistencia_recurso;
 	 
-	private ArrayList criterio;
+	private ArrayList<Criterio> criterio;
 	 
-	private Criterio[] criterio;
 	 
 	public boolean eliminarCandidato() {
 		return false;

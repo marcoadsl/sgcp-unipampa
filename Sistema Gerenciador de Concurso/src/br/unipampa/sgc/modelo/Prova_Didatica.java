@@ -1,4 +1,6 @@
-package Diagrama de Classes;
+package br.unipampa.sgc.modelo;
+
+import java.util.ArrayList;
 
 public class Prova_Didatica extends Prova {
  
@@ -6,9 +8,7 @@ public class Prova_Didatica extends Prova {
 	 
 	private int desistencia_recurso;
 	 
-	private Criterio[] criterio;
-	 
-	private Criterio[] criterio;
+	private ArrayList<Criterio> criterio;
 	 
 }
  

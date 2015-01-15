@@ -7,6 +7,7 @@ package br.unipampa.sgc.controle;
 
 import br.unipampa.sgc.apresentacao.ConfigurarFrame;
 import br.unipampa.sgc.apresentacao.GeradorDeMensagens;
+import br.unipampa.sgc.apresentacao.JanelaCriarConcurso;
 import br.unipampa.sgc.apresentacao.JanelaInicial;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,10 +17,19 @@ import java.awt.event.ActionListener;
  * @author GabrielBMoro
  */
 public class ControleInicial {
+private ControleCriarConcurso controlerCriarConcurso;
 
     public ControleInicial(JanelaInicial janelaInicial) {
         ConfigurarFrame.configurarJanelaPadrao(janelaInicial,340,373);
         janelaInicial.addWindowListener(new TrataListenerDaJanela());
+        janelaInicial.getBtnCriar().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                janelaInicial.dispose();
+                    controlerCriarConcurso= new ControleCriarConcurso(new JanelaCriarConcurso());
+            }
+        });
         janelaInicial.getBtnSair().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

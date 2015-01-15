@@ -1,4 +1,4 @@
-package Diagrama de Classes;
+package br.unipampa.sgc.modelo;
 
 import java.util.ArrayList;
 
@@ -18,7 +18,6 @@ public class Resolucao {
 	 
 	private Concurso[] concurso;
 	 
-	private Entrevista entrevista;
 	 
 }
  
