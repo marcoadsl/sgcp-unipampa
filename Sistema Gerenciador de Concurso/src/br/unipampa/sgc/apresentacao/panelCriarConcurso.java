@@ -24,8 +24,9 @@ import javax.swing.table.DefaultTableModel;
  * @author GabrielBMoro
  */
 public class panelCriarConcurso extends javax.swing.JPanel {
-    
+
     private DefaultTableModel modeloTableCandidatos;
+
     /**
      * Creates new form panelCriarConcurso
      */
@@ -37,8 +38,8 @@ public class panelCriarConcurso extends javax.swing.JPanel {
         btnSexoExaminador2.add(btnMEx2);
         btnSexoExaminador3.add(btnMEx3);
         btnSexoExaminador3.add(btnFEx3);
-        
-        this.modeloTableCandidatos=  (DefaultTableModel) this.jTableCandidatos.getModel();
+
+        this.modeloTableCandidatos = (DefaultTableModel) this.jTableCandidatos.getModel();
     }
 
     /**
@@ -684,25 +685,26 @@ public class panelCriarConcurso extends javax.swing.JPanel {
     private javax.swing.JTextField txtUniversidade;
     // End of variables declaration//GEN-END:variables
 
-    public LinkedList<String> recuperarDadosPanelCandidatos(){
-      LinkedList<String> dados= new LinkedList<>();
-        for(int row=0;row<this.modeloTableCandidatos.getRowCount();row++){
-                for(int col=0;col<this.modeloTableCandidatos.getColumnCount();col++){
-        if(this.modeloTableCandidatos.getValueAt(row,col)==null){
+    public LinkedList<String> recuperarDadosPanelCandidatos() {
+        LinkedList<String> dados = new LinkedList<>();
+        for (int row = 0; row < this.modeloTableCandidatos.getRowCount(); row++) {
+            for (int col = 0; col < this.modeloTableCandidatos.getColumnCount(); col++) {
+                if (this.modeloTableCandidatos.getValueAt(row, col) == null) {
                     return null;
-        }else{
-            Object value= this.modeloTableCandidatos.getValueAt(row, col);
-            String valueText= String.valueOf(value);
-            dados.add(valueText);
-        }
-    }
+                } else {
+                    Object value = this.modeloTableCandidatos.getValueAt(row, col);
+                    String valueText = String.valueOf(value);
+                    dados.add(valueText);
+                }
+            }
         }
         return dados;
     }
+
     public void restaurarDadosPanelDadosGerais(String ministerio,
             String universidade, String campus,
             String area, String edital,
-            String data, String regraDoConcurso, String classeDoConcurso){
+            String data, String regraDoConcurso, String classeDoConcurso) {
         this.txtMinisterio.setText(ministerio);
         this.txtUniversidade.setText(universidade);
         this.txtCampus.setText(campus);
@@ -712,6 +714,36 @@ public class panelCriarConcurso extends javax.swing.JPanel {
         this.jComboBoxRegraConcurso.setSelectedItem(regraDoConcurso);
         this.jComboBoxClasseConcurso.setSelectedItem(classeDoConcurso);
     }
+
+    public void restaurarDadosPanelBanca(String nome1, String nome2, String nome3,
+            String sexo1, String sexo2, String sexo3, String categoria1,
+            String categoria2, String categoria3) {
+        txtNome1.setText(nome1);
+        txtNome2.setText(nome2);
+        txtNome3.setText(nome3);
+
+        jComboBoxEx1.setSelectedItem(categoria1);
+        jComboBoxEx2.setSelectedItem(categoria2);
+        jComboBoxEx3.setSelectedItem(categoria3);
+
+        if (btnFEx1.getText() == (sexo1)) {
+            btnFEx1.setSelected(true);
+        } else if (btnMEx1.getText() == (sexo1)) {
+            btnMEx1.setSelected(true);
+        }
+        if (btnFEx2.getText() == (sexo2)) {
+            btnFEx2.setSelected(true);
+        } else if (btnMEx2.getText() == (sexo2)) {
+            btnMEx2.setSelected(true);
+        }
+        if (btnFEx3.getText() == (sexo3)) {
+            btnFEx3.setSelected(true);
+        } else if (btnMEx3.getText() == (sexo3)) {
+            btnMEx3.setSelected(true);
+        }
+
+    }
+
     public JButton getBtnAnterior1() {
         return btnAnterior1;
     }
@@ -887,12 +919,13 @@ public class panelCriarConcurso extends javax.swing.JPanel {
     public JTextField getTxtUniversidade() {
         return txtUniversidade;
     }
-    public JProgressBar getJProgressBar(){
+
+    public JProgressBar getJProgressBar() {
         return jProgressBar1;
     }
 
     public JFormattedTextField getTxtData() {
         return txtData;
     }
-    
+
 }
