@@ -11,7 +11,8 @@ package br.unipampa.sgc.apresentacao;
  */
 public class JanelaCriarConcurso extends javax.swing.JFrame {
 
-    public static int STATUS_CRIACAO_CONCURSO=0;
+    public static int STATUS_CRIACAO_CONCURSO = 0;
+
     /**
      * Creates new form JFrameCriarConcurso
      */
@@ -61,9 +62,8 @@ public class JanelaCriarConcurso extends javax.swing.JFrame {
     private br.unipampa.sgc.apresentacao.panelCriarConcurso panelCriarConcurso1;
     // End of variables declaration//GEN-END:variables
 
- public panelCriarConcurso getPanelCriarConcurso(){
-     return this.panelCriarConcurso1;
- }
+    public panelCriarConcurso getPanelCriarConcurso() {
+        return this.panelCriarConcurso1;
+    }
 
-    
 }

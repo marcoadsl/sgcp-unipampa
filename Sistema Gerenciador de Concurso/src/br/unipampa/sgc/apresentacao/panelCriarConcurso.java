@@ -5,7 +5,6 @@
  */
 package br.unipampa.sgc.apresentacao;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -39,6 +38,8 @@ public class panelCriarConcurso extends javax.swing.JPanel {
         btnSexoExaminador3.add(btnMEx3);
         btnSexoExaminador3.add(btnFEx3);
 
+        buttonGroupEventoSexoCandidato.add(btnFSexoCand);
+        buttonGroupEventoSexoCandidato.add(btnMSexoCand);
         this.modeloTableCandidatos = (DefaultTableModel) this.jTableCandidatos.getModel();
     }
 
@@ -113,6 +114,8 @@ public class panelCriarConcurso extends javax.swing.JPanel {
         jDataNascimentoCandidatos = new javax.swing.JFormattedTextField();
         btnAnterior2 = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
+        txtNomeCandidato = new javax.swing.JTextField();
         jProgressBar1 = new javax.swing.JProgressBar();
 
         panelDadosGerais.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados Gerais"));
@@ -439,11 +442,7 @@ public class panelCriarConcurso extends javax.swing.JPanel {
 
         jTableCandidatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Nome dos Candidatos", "Sexo", "Data de Nascimento"
@@ -452,9 +451,16 @@ public class panelCriarConcurso extends javax.swing.JPanel {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
+            boolean[] canEdit = new boolean [] {
+                true, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jScrollPane2.setViewportView(jTableCandidatos);
@@ -521,51 +527,67 @@ public class panelCriarConcurso extends javax.swing.JPanel {
         btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/salvar.png"))); // NOI18N
         btnSalvar.setToolTipText("Salvar");
 
+        jLabel18.setText("Nome:");
+
         javax.swing.GroupLayout paneCandidatosInscritosLayout = new javax.swing.GroupLayout(paneCandidatosInscritos);
         paneCandidatosInscritos.setLayout(paneCandidatosInscritosLayout);
         paneCandidatosInscritosLayout.setHorizontalGroup(
             paneCandidatosInscritosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(paneCandidatosInscritosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(paneCandidatosInscritosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(paneCandidatosInscritosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(paneCandidatosInscritosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(paneCandidatosInscritosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(paneCandidatosInscritosLayout.createSequentialGroup()
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 724, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnRemoveInscritos, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneCandidatosInscritosLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnAnterior2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(90, 90, 90)
+                                .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(paneCandidatosInscritosLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(paneCandidatosInscritosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(paneCandidatosInscritosLayout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txtNomeCandidato))
+                        .addGap(18, 18, 18)
                         .addComponent(panelSexoCandidato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panelDataNascimentoCand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(paneCandidatosInscritosLayout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 724, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(paneCandidatosInscritosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnAddInscritos, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRemoveInscritos, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneCandidatosInscritosLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAnterior2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(90, 90, 90)
-                .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(panelDataNascimentoCand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAddInscritos, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         paneCandidatosInscritosLayout.setVerticalGroup(
             paneCandidatosInscritosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(paneCandidatosInscritosLayout.createSequentialGroup()
+                .addContainerGap(12, Short.MAX_VALUE)
                 .addGroup(paneCandidatosInscritosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelDataNascimentoCand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelSexoCandidato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddInscritos)
                     .addGroup(paneCandidatosInscritosLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(panelSexoCandidato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(paneCandidatosInscritosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(paneCandidatosInscritosLayout.createSequentialGroup()
-                        .addComponent(btnAddInscritos)
+                        .addComponent(jLabel18)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnRemoveInscritos)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAnterior2))
-            .addGroup(paneCandidatosInscritosLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnSalvar))
+                        .addComponent(txtNomeCandidato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(paneCandidatosInscritosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(paneCandidatosInscritosLayout.createSequentialGroup()
+                        .addGroup(paneCandidatosInscritosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(paneCandidatosInscritosLayout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addComponent(btnRemoveInscritos)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAnterior2))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneCandidatosInscritosLayout.createSequentialGroup()
+                        .addGap(89, 89, 89)
+                        .addComponent(btnSalvar))))
         );
 
         javax.swing.GroupLayout jPanelPrincipalLayout = new javax.swing.GroupLayout(jPanelPrincipal);
@@ -619,7 +641,7 @@ public class panelCriarConcurso extends javax.swing.JPanel {
                 .addComponent(jPanelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -663,6 +685,7 @@ public class panelCriarConcurso extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -691,6 +714,7 @@ public class panelCriarConcurso extends javax.swing.JPanel {
     private javax.swing.JTextField txtNome1;
     private javax.swing.JTextField txtNome2;
     private javax.swing.JTextField txtNome3;
+    private javax.swing.JTextField txtNomeCandidato;
     private javax.swing.JTextField txtUniversidade;
     // End of variables declaration//GEN-END:variables
 
@@ -939,5 +963,14 @@ public class panelCriarConcurso extends javax.swing.JPanel {
     public DefaultTableModel getModeloTableCandidatos() {
         return modeloTableCandidatos;
     }
+    public JTable getJTableCandidatos(){
+        return jTableCandidatos;
+    }
 
+    public JFormattedTextField getjDataNascimentoCandidatos() {
+        return jDataNascimentoCandidatos;
+    }
+    public JTextField getTxtNomeCandidato(){
+        return this.txtNomeCandidato;
+    }
 }

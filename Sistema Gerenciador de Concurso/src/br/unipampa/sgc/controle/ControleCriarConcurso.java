@@ -16,6 +16,8 @@ import br.unipampa.sgc.modelo.Resolucao;
 import br.unipampa.sgc.modelo.Universidade;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.LinkedList;
 
 /**
@@ -147,22 +149,35 @@ public class ControleCriarConcurso {
         });
         janelaCriarConcurso.getPanelCriarConcurso().getAddInscritos().addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {       
-                                janelaCriarConcurso.getPanelCriarConcurso().getModeloTableCandidatos().addRow(new Object[]{null, null});
+            public void actionPerformed(ActionEvent e) {
+                String valorNomeCandidato = "", valorSexo = "", valorData = "";
+                valorNomeCandidato = janelaCriarConcurso.getPanelCriarConcurso().getTxtNomeCandidato().getText();
+                if (janelaCriarConcurso.getPanelCriarConcurso().getBtnMSexoCand().isSelected()) {
+                    valorSexo = janelaCriarConcurso.getPanelCriarConcurso().getBtnMSexoCand().getText();
+                } else if (janelaCriarConcurso.getPanelCriarConcurso().getBtnFSexoCand().isSelected()) {
+                    valorSexo = janelaCriarConcurso.getPanelCriarConcurso().getBtnFSexoCand().getText();
+                }
+                valorData = janelaCriarConcurso.getPanelCriarConcurso().getjDataNascimentoCandidatos().getText();
+                if (!valorData.isEmpty() || !valorSexo.isEmpty()) {
+
+                    janelaCriarConcurso.getPanelCriarConcurso().getModeloTableCandidatos().addRow(new Object[]{valorNomeCandidato, valorSexo, valorData});
+                } else {
+                    GeradorDeMensagens.exibirMensagemDeInformacao("Alerta ao Usuário", "Preencha os campos, pois eles são obrigatórios");
+                }
             }
         });
         janelaCriarConcurso.getPanelCriarConcurso().getRemoveInscritos().addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                    int linhas = janelaCriarConcurso.getPanelCriarConcurso().getModeloTableCandidatos().getRowCount() - 1;
+                int linhas = janelaCriarConcurso.getPanelCriarConcurso().getModeloTableCandidatos().getRowCount() - 1;
                 if (linhas != 0) {
                     janelaCriarConcurso.getPanelCriarConcurso().getModeloTableCandidatos().removeRow(linhas);
                 } else {
                     GeradorDeMensagens.exibirMensagemDeInformacao("Não é possível remover linhas...", "Alerta ao Usuário");
                 }
             }
-            
+
         });
         janelaCriarConcurso.getPanelCriarConcurso().getBtnSalvar().addActionListener(new ActionListener() {
             @Override
@@ -181,9 +196,43 @@ public class ControleCriarConcurso {
                         candidatos.add(new Candidato(nome, sexo, dataDeNascimento));
                         count += 2;
                     }
-
                 }
             }
         });
+        janelaCriarConcurso.getPanelCriarConcurso().getJTableCandidatos().addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                String valorNomeCandidato = "", valorSexo = "", valorData = "";
+                valorNomeCandidato = janelaCriarConcurso.getPanelCriarConcurso().getTxtNomeCandidato().getText();
+                if (janelaCriarConcurso.getPanelCriarConcurso().getBtnMSexoCand().isSelected()) {
+                    valorSexo = janelaCriarConcurso.getPanelCriarConcurso().getBtnMSexoCand().getText();
+                } else if (janelaCriarConcurso.getPanelCriarConcurso().getBtnFSexoCand().isSelected()) {
+                    valorSexo = janelaCriarConcurso.getPanelCriarConcurso().getBtnFSexoCand().getText();
+                }
+                valorData = janelaCriarConcurso.getPanelCriarConcurso().getjDataNascimentoCandidatos().getText();
+
+                int rowSelecionada = janelaCriarConcurso.getPanelCriarConcurso().getJTableCandidatos().getSelectedRow();
+                janelaCriarConcurso.getPanelCriarConcurso().getJTableCandidatos().setValueAt(valorNomeCandidato, rowSelecionada, 0);
+                janelaCriarConcurso.getPanelCriarConcurso().getJTableCandidatos().setValueAt(valorSexo, rowSelecionada, 1);
+                janelaCriarConcurso.getPanelCriarConcurso().getJTableCandidatos().setValueAt(valorData, rowSelecionada, 2);
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+            }
+        });
     }
+
 }
