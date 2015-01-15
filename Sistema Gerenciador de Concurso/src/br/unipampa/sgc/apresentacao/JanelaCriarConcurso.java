@@ -64,5 +64,6 @@ public class JanelaCriarConcurso extends javax.swing.JFrame {
  public panelCriarConcurso getPanelCriarConcurso(){
      return this.panelCriarConcurso1;
  }
+
     
 }

@@ -10,7 +10,7 @@ public class Concurso extends DML {
     private String data;
     private String edital;
     private int cabecalho;
-    private String classe;
+    private Classe classe;
     private Banca banca;
     private Universidade universidade;
     private LinkedList<Candidato> candidatos;
@@ -44,7 +44,7 @@ public class Concurso extends DML {
             super.preparedStatement.setString(4, concurso.getArea());
             super.preparedStatement.setString(5, concurso.getData());
             super.preparedStatement.setString(6, concurso.getEdital());
-            super.preparedStatement.setString(7, concurso.getClasse());
+            super.preparedStatement.setString(7, concurso.getClasse().getTitulo());
             super.preparedStatement.execute();
             super.preparedStatement.close();
         } catch (SQLException ex) {
@@ -114,11 +114,11 @@ public class Concurso extends DML {
         this.cabecalho = cabecalho;
     }
 
-    public String getClasse() {
+    public Classe getClasse() {
         return classe;
     }
 
-    public void setClasse(String classe) {
+    public void setClasse(Classe classe) {
         this.classe = classe;
     }
 

@@ -684,7 +684,7 @@ public class panelCriarConcurso extends javax.swing.JPanel {
     private javax.swing.JTextField txtUniversidade;
     // End of variables declaration//GEN-END:variables
 
-    public LinkedList<String> recuperarDadosDaTabela(){
+    public LinkedList<String> recuperarDadosPanelCandidatos(){
       LinkedList<String> dados= new LinkedList<>();
         for(int row=0;row<this.modeloTableCandidatos.getRowCount();row++){
                 for(int col=0;col<this.modeloTableCandidatos.getColumnCount();col++){
@@ -698,6 +698,19 @@ public class panelCriarConcurso extends javax.swing.JPanel {
     }
         }
         return dados;
+    }
+    public void restaurarDadosPanelDadosGerais(String ministerio,
+            String universidade, String campus,
+            String area, String edital,
+            String data, String regraDoConcurso, String classeDoConcurso){
+        this.txtMinisterio.setText(ministerio);
+        this.txtUniversidade.setText(universidade);
+        this.txtCampus.setText(campus);
+        this.txtArea.setText(area);
+        this.txtEdital.setText(edital);
+        this.txtData.setText(data);
+        this.jComboBoxRegraConcurso.setSelectedItem(regraDoConcurso);
+        this.jComboBoxClasseConcurso.setSelectedItem(classeDoConcurso);
     }
     public JButton getBtnAnterior1() {
         return btnAnterior1;
