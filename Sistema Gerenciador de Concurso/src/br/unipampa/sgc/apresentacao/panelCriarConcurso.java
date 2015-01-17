@@ -132,13 +132,21 @@ public class panelCriarConcurso extends javax.swing.JPanel {
 
         jLabel6.setText("Regras do Concurso:");
 
-        jComboBoxRegraConcurso.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        txtMinisterio.setText("Ministério da Educação");
+
+        txtUniversidade.setText("Universidade Federal do Pampa");
+
+        txtCampus.setText("Alegrete");
+
+        txtArea.setToolTipText("Por exemplo: \"Engenharia de Software - Algoritmos de Programação\"");
+
+        jComboBoxRegraConcurso.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-----------------------------------------------------------------------------------------------", "Professor substituto ou temporário - Resolução 64/2013 do CONSUNI", "Professor da carreira do magistério superior - Resolução 82/2014 do CONSUNI", "Professor titular-livre do magistério superior - Resolução 82/2014 do CONSUNI" }));
 
         jLabel7.setText("Data de Início:");
 
         jLabel8.setText("Classe do Concurso:");
 
-        jComboBoxClasseConcurso.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxClasseConcurso.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-----------------------------", "Adjunto", "Assistente", "do Magistério Superior", "Auxiliar", "Substituto", "Temporário", "Titular Livre" }));
 
         btnProximo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/proximo.png"))); // NOI18N
         btnProximo.setToolTipText("Próximo");
@@ -157,7 +165,7 @@ public class panelCriarConcurso extends javax.swing.JPanel {
                         .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jComboBoxRegraConcurso, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jComboBoxRegraConcurso, javax.swing.GroupLayout.Alignment.LEADING, 0, 443, Short.MAX_VALUE)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelDadosGeraisLayout.createSequentialGroup()
                                     .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel2)
@@ -236,7 +244,7 @@ public class panelCriarConcurso extends javax.swing.JPanel {
 
         jLabel11.setText("Categoria:");
 
-        jComboBoxEx1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxEx1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-----------", "Doutor", "Mestre", "Especialista", "Graduado" }));
 
         btnMEx1.setText("M");
 
@@ -295,7 +303,7 @@ public class panelCriarConcurso extends javax.swing.JPanel {
 
         jLabel14.setText("Categoria:");
 
-        jComboBoxEx2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxEx2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-----------", "Doutor", "Mestre", "Especialista", "Graduado" }));
 
         btnMEx2.setText("M");
 
@@ -351,7 +359,7 @@ public class panelCriarConcurso extends javax.swing.JPanel {
 
         jLabel17.setText("Categoria:");
 
-        jComboBoxEx3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxEx3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-----------", "Doutor", "Mestre", "Especialista", "Graduado" }));
 
         btnMEx3.setText("M");
 
