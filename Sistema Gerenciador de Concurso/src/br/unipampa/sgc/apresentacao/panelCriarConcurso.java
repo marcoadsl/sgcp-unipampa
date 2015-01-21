@@ -140,7 +140,7 @@ public class panelCriarConcurso extends javax.swing.JPanel {
 
         txtArea.setToolTipText("Por exemplo: \"Engenharia de Software - Algoritmos de Programação\"");
 
-        jComboBoxRegraConcurso.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-----------------------------------------------------------------------------------------------", "Professor substituto ou temporário - Resolução 64/2013 do CONSUNI", "Professor da carreira do magistério superior - Resolução 82/2014 do CONSUNI", "Professor titular-livre do magistério superior - Resolução 82/2014 do CONSUNI" }));
+        jComboBoxRegraConcurso.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-----------------------------------------------------------------------------------------------" }));
 
         jLabel7.setText("Data de Início:");
 

@@ -30,33 +30,60 @@ public class Concurso extends DML {
     }
 
     @Override
-    public void inserir(Object objeto) {
-        if(objeto instanceof Concurso){
-            super.conecta= ConectaBD.getInstance();
-            Concurso concurso = (Concurso) objeto;
-            try {
-            String sql = "insert into " + super.table + "(ministerio,universidade,campus,area,data,edital,classe) values(?,?,?,?,?,?,?);";
+    public boolean inserir(Object objeto) {
+        if (objeto instanceof Concurso) {
             super.conecta = ConectaBD.getInstance();
-            super.preparedStatement = super.conecta.getConnection().prepareStatement(sql);
-            super.preparedStatement.setString(1, concurso.getMinisterio());
-            super.preparedStatement.setString(2, concurso.getUniversidade().getNome());
-            super.preparedStatement.setString(3, concurso.getUniversidade().getCampus());
-            super.preparedStatement.setString(4, concurso.getArea());
-            super.preparedStatement.setString(5, concurso.getData());
-            super.preparedStatement.setString(6, concurso.getEdital());
-            super.preparedStatement.setString(7, concurso.getClasse().getTitulo());
-            super.preparedStatement.execute();
-            super.preparedStatement.close();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        } finally {
-            super.conecta.encerrarConexao();
-          }
+            Concurso concurso = (Concurso) objeto;
+            /*Adicionar Examinadores no Banco*/
+            Examinador[] examinadores = concurso.getExaminador();
+            for (Examinador examinador : examinadores) {
+                examinador.inserir(examinador);
+            }
+            /*Adicionar Banca no Banco*/
+            Banca banca = new Banca();
+            banca.inserir(examinadores);
+            int idBanca = banca.recuperarId(banca.getExaminadores());
+            /*Registrar Concurso*/
+            try {
+                String sql = "insert into " + super.table + "(ministerio,universidade,campus,area,data,edital,classe,Banca_idBanca) values(?,?,?,?,?,?,?,?);";
+                super.conecta = ConectaBD.getInstance();
+                super.preparedStatement = super.conecta.getConnection().prepareStatement(sql);
+                super.preparedStatement.setString(1, concurso.getMinisterio());
+                super.preparedStatement.setString(2, concurso.getUniversidade().getNome());
+                super.preparedStatement.setString(3, concurso.getUniversidade().getCampus());
+                super.preparedStatement.setString(4, concurso.getArea());
+                super.preparedStatement.setString(5, concurso.getData());
+                super.preparedStatement.setString(6, concurso.getEdital());
+                super.preparedStatement.setString(7, concurso.getClasse().getTitulo());
+                super.preparedStatement.setInt(8, idBanca);
+                super.preparedStatement.execute();
+                super.preparedStatement.close();
+            } catch (SQLException ex) {
+                return false;
+            } finally {
+                super.conecta.encerrarConexao();
+            }
+            int idConcurso = recuperarId(concurso);
+            if (idConcurso != 0) {
+                /*Cadastrar candidatos e setar o id do concurso*/
+                for (Candidato canditadoTemp : candidatos) {
+                    Object[] objetos = new Object[2];
+                    objetos[0] = idConcurso;
+                    objetos[1] = canditadoTemp;
+                    canditadoTemp.inserir(objetos);
+                }
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
         }
     }
 
     @Override
-    public void editar(int id, Object objeto) {
+    public boolean editar(int id, Object objeto) {
+        return false;
     }
 
     @Override
@@ -71,6 +98,28 @@ public class Concurso extends DML {
 
     @Override
     public int recuperarId(Object objeto) {
+        if (objeto instanceof Concurso) {
+            Concurso concurso = (Concurso) objeto;
+            int id = 0;
+            String sql = "select idConcurso from " + super.table + " where ministerio=\""
+                    + concurso.getMinisterio() + "\" and universidade=\"" + concurso.getUniversidade().getNome() + "\" and "
+                    + "campus= \"" + concurso.getUniversidade().getCampus() + "\" and area=\"" + concurso.getArea() + "\" and "
+                    + "data=\"" + concurso.getData() + "\";";
+            try {
+                this.conecta = ConectaBD.getInstance();
+                super.statement = this.conecta.getConnection().createStatement();
+                super.resultSet = super.statement.executeQuery(sql);
+                while (super.resultSet.next()) {
+                    id = super.resultSet.getInt(1);
+                }
+                super.resultSet.close();
+                super.statement.close();
+                return id;
+            } catch (SQLException sqlErro) {
+                sqlErro.printStackTrace();
+            }
+            return id;
+        }
         return 0;
     }
 
@@ -153,11 +202,17 @@ public class Concurso extends DML {
     public void setResolucao(Resolucao resolucao) {
         this.resolucao = resolucao;
     }
+
     public Examinador[] getExaminador() {
         return examinador;
     }
 
     public void setExaminador(Examinador[] examinador) {
         this.examinador = examinador;
+    }
+
+    @Override
+    public boolean verificarExistenciaDeRegistro(Object objeto) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

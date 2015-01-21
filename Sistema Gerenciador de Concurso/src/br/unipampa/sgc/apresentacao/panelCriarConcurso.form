@@ -264,11 +264,8 @@
             <Component class="javax.swing.JComboBox" name="jComboBoxRegraConcurso">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
+                  <StringArray count="1">
                     <StringItem index="0" value="-----------------------------------------------------------------------------------------------"/>
-                    <StringItem index="1" value="Professor substituto ou tempor&#xe1;rio - Resolu&#xe7;&#xe3;o 64/2013 do CONSUNI"/>
-                    <StringItem index="2" value="Professor da carreira do magist&#xe9;rio superior - Resolu&#xe7;&#xe3;o 82/2014 do CONSUNI"/>
-                    <StringItem index="3" value="Professor titular-livre do magist&#xe9;rio superior - Resolu&#xe7;&#xe3;o 82/2014 do CONSUNI"/>
                   </StringArray>
                 </Property>
               </Properties>

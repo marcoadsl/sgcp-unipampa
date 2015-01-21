@@ -39,7 +39,7 @@ public class ControleCriarConcurso {
                 String edital = janelaCriarConcurso.getPanelCriarConcurso().getTxtEdital().getText();
                 String dataString = janelaCriarConcurso.getPanelCriarConcurso().getTxtData().getText();
                 String regraDoConcurso = String.valueOf(janelaCriarConcurso.getPanelCriarConcurso().getjComboBox1().getSelectedItem());
-                String classeDoConcurso = String.valueOf(janelaCriarConcurso.getPanelCriarConcurso().getjComboBox2().getSelectedIndex());
+                String classeDoConcurso = String.valueOf(janelaCriarConcurso.getPanelCriarConcurso().getjComboBox2().getSelectedItem());
 
                 Concurso.getMyInstance().setMinisterio(ministerio);
                 Concurso.getMyInstance().setUniversidade(new Universidade(campus, universidade));
@@ -197,7 +197,12 @@ public class ControleCriarConcurso {
                         count += 2;
                     }
                     Concurso.getMyInstance().setCandidatos(candidatos);
-                    Concurso.getMyInstance().inserir(Concurso.getMyInstance());
+                    boolean resposta = Concurso.getMyInstance().inserir(Concurso.getMyInstance());
+                    if (resposta) {
+                        GeradorDeMensagens.exibirMensagemDeInformacao("Concurso registrado com sucesso!","Alerta de Usuário");
+                    } else {
+                        GeradorDeMensagens.exibirMensagemDeInformacao("Ocorreu um problema, por favor realize novamente a operação!","Alerta de Usuário");
+                    }
                 }
             }
         });

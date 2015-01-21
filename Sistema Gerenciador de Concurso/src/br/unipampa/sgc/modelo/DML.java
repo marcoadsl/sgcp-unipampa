@@ -21,13 +21,15 @@ public abstract class DML {
     protected ResultSet resultSet = null;
     protected String table;
 
-    public abstract void inserir(Object objeto);
+    public abstract boolean inserir(Object objeto);
 
-    public abstract void editar(int id, Object objeto);
+    public abstract boolean editar(int id, Object objeto);
 
     public abstract boolean deletar(int id, Object objeto);
 
     public abstract Object buscar(int id);
 
     public abstract int recuperarId(Object objeto);
+    
+    public abstract boolean verificarExistenciaDeRegistro(Object objeto);
 }
