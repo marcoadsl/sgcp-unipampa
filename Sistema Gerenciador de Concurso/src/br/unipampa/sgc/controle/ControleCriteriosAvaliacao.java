@@ -17,10 +17,11 @@ import java.util.LinkedList;
 
 /**
  *
- * @author GabrielBMoro
+ * @author Eduardo Bruning
  */
 public class ControleCriteriosAvaliacao {
 
+    
     public ControleCriteriosAvaliacao(final JanelaCriteriosAvaliacao janelaCriteriosAvaliacao) {
         ConfigurarFrame.configurarJanelaPadrao(janelaCriteriosAvaliacao, 950, 600);
         janelaCriteriosAvaliacao.addWindowListener(new TrataListenerDaJanela());
@@ -34,7 +35,7 @@ public class ControleCriteriosAvaliacao {
                 valorPeso = janelaCriteriosAvaliacao.getTxtPesoCriterio().getText();
                 if (!valorPeso.isEmpty() || !valorNomeCriterio.isEmpty()) {
 
-        //            janelaCriteriosAvaliacao.getjTableCriterios().addRow(new Object[]{valorNomeCriterio, valorPeso});
+                    janelaCriteriosAvaliacao.getModeloTableCandidatos().addRow(new Object[]{valorNomeCriterio, valorPeso});
                 } else {
                     GeradorDeMensagens.exibirMensagemDeInformacao("Alerta ao Usuário", "Preencha os campos, pois eles são obrigatórios");
                 }

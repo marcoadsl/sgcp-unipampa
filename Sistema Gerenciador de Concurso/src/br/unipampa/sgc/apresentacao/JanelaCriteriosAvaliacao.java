@@ -5,18 +5,22 @@
  */
 package br.unipampa.sgc.apresentacao;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Bruning
  */
 public class JanelaCriteriosAvaliacao extends javax.swing.JFrame {
 
+    private DefaultTableModel modeloTableCandidatos;
+
     /**
      * Creates new form JanelaCriteriosAvaliacao
      */
     public JanelaCriteriosAvaliacao() {
         initComponents();
-     
+      this.modeloTableCandidatos = (DefaultTableModel) this.jTableCriterios.getModel();
     }
 
     /**
@@ -377,5 +381,19 @@ public class JanelaCriteriosAvaliacao extends javax.swing.JFrame {
      */
     public void setBntSalvar(javax.swing.JButton bntSalvar) {
         this.bntSalvar = bntSalvar;
+    }
+
+    /**
+     * @return the modeloTableCandidatos
+     */
+    public DefaultTableModel getModeloTableCandidatos() {
+        return modeloTableCandidatos;
+    }
+
+    /**
+     * @param modeloTableCandidatos the modeloTableCandidatos to set
+     */
+    public void setModeloTableCandidatos(DefaultTableModel modeloTableCandidatos) {
+        this.modeloTableCandidatos = modeloTableCandidatos;
     }
 }

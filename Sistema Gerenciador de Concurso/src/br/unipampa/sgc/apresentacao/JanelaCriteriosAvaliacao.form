@@ -175,7 +175,6 @@
               <Image iconType="3" name="/br/unipampa/sgc/apresentacao/icones/incluir.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Adiconar Crit&#xe9;rio"/>
-            <Property name="label" type="java.lang.String" value=""/>
           </Properties>
           <AccessibilityProperties>
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="addCriterios"/>
