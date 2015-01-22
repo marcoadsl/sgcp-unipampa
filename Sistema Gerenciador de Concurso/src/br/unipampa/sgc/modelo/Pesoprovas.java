@@ -5,12 +5,15 @@
  */
 package br.unipampa.sgc.modelo;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
  *
  * @author Kezia
- */public class Pesoprovas extends DML{
+ */
+public class Pesoprovas extends DML {
+
     private int idPeso;
     private int pesoProvaDidatica;
     private int pesoProvaEntrevista;
@@ -85,10 +88,10 @@ import java.sql.SQLException;
 
     @Override
     public boolean inserir(Object objeto) {
-       if (objeto instanceof Pesoprovas) {
+        if (objeto instanceof Pesoprovas) {
             super.conecta = ConectaBD.getInstance();
             Pesoprovas pesoProvas = (Pesoprovas) objeto;
-            
+
             /*Registrar Concurso*/
             try {
                 String sql = "insert into " + super.table + "(pesoProva_Didatica, pesoProva_Entrevista, pesoProva_Escrita, pesoProva_Memorial, pesoProva_Titulo) values(?,?,?,?,?);";
@@ -114,7 +117,33 @@ import java.sql.SQLException;
 
     @Override
     public boolean editar(int id, Object objeto) {
-        return false;
+        if (objeto instanceof Pesoprovas) {
+            super.conecta = ConectaBD.getInstance();
+            Pesoprovas pesoProvas = (Pesoprovas) objeto;
+
+            /*Registrar Concurso*/
+            try {
+                String sql = "update " + super.table + " set pesoProva_Didatica = ?, pesoProva_Entrevista = ? "
+                        + ", pesoProva_Escrita = ?, pesoProva_Memorial = ?, pesoProva_Titulo = ? WHERE idPeso = ?;";
+                super.conecta = ConectaBD.getInstance();
+                super.preparedStatement = super.conecta.getConnection().prepareStatement(sql);
+                super.preparedStatement.setInt(1, pesoProvas.getPesoProvaDidatica());
+                super.preparedStatement.setInt(2, pesoProvas.getPesoProvaEntrevista());
+                super.preparedStatement.setInt(3, pesoProvas.getPesoProvaEscrita());
+                super.preparedStatement.setInt(4, pesoProvas.getPesoProvaMemorial());
+                super.preparedStatement.setInt(5, pesoProvas.getPesoProvaTitulo());
+                super.preparedStatement.setInt(6, pesoProvas.getIdPeso());
+                super.preparedStatement.execute();
+                super.preparedStatement.close();
+            } catch (SQLException ex) {
+                return false;
+            } finally {
+                super.conecta.encerrarConexao();
+            }
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
@@ -124,7 +153,41 @@ import java.sql.SQLException;
 
     @Override
     public Object buscar(int id) {
-        return null;
+        super.conecta = ConectaBD.getInstance();
+            Pesoprovas pesoProvas = null;
+        /*Registrar Concurso*/
+        try {
+            String sql = "SELECT * FROM " + super.table + " WHERE idPeso = 1;";
+            super.conecta = ConectaBD.getInstance();
+            super.preparedStatement = super.conecta.getConnection().prepareStatement(sql);
+            ResultSet rs = super.preparedStatement.executeQuery(sql);
+            //STEP 5: Extract data from result set
+
+            while (rs.next()) {
+                //Retrieve by column name
+                int idPeso = rs.getInt("idPeso");
+                int pesoProvaDidativa = rs.getInt("pesoProva_Didatica");
+                int pesoProvaEntrevista = rs.getInt("pesoProva_Entrevista");
+                int pesoProvaEscrita = rs.getInt("pesoProva_Escrita");
+                int pesoProvaMemorial = rs.getInt("pesoProva_Memorial");
+                int pesoProvaTitulo = rs.getInt("pesoProva_Titulo");
+                
+                pesoProvas = new Pesoprovas();
+                pesoProvas.setIdPeso(idPeso);
+                pesoProvas.setPesoProvaDidatica(pesoProvaDidativa);
+                pesoProvas.setPesoProvaEscrita(pesoProvaEscrita);
+                pesoProvas.setPesoProvaMemorial(pesoProvaMemorial);
+                pesoProvas.setPesoProvaTitulo(pesoProvaTitulo);
+                pesoProvas.setPesoProvaEntrevista(pesoProvaEntrevista);
+            }
+            super.preparedStatement.execute();
+            super.preparedStatement.close();
+        } catch (SQLException ex) {
+            return null;
+        } finally {
+            super.conecta.encerrarConexao();
+        }
+        return pesoProvas;
     }
 
     @Override
@@ -136,5 +199,5 @@ import java.sql.SQLException;
     public boolean verificarExistenciaDeRegistro(Object objeto) {
         return true;
     }
-    
+
 }
