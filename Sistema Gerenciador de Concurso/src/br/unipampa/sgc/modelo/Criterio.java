@@ -1,6 +1,11 @@
 package br.unipampa.sgc.modelo;
 
 public class Criterio {
+    
+    public Criterio(String nome, double nota){
+        this.nome = nome;
+        this.nota = nota;
+    }
  
 	private String nome;
 	 

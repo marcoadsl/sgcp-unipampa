@@ -5,6 +5,7 @@
  */
 package br.unipampa.sgc.apresentacao;
 
+import java.util.LinkedList;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -13,14 +14,14 @@ import javax.swing.table.DefaultTableModel;
  */
 public class JanelaCriteriosAvaliacao extends javax.swing.JFrame {
 
-    private DefaultTableModel modeloTableCandidatos;
+    private DefaultTableModel modeloTableCriterios;
 
     /**
      * Creates new form JanelaCriteriosAvaliacao
      */
     public JanelaCriteriosAvaliacao() {
         initComponents();
-      this.modeloTableCandidatos = (DefaultTableModel) this.jTableCriterios.getModel();
+      this.modeloTableCriterios = (DefaultTableModel) this.jTableCriterios.getModel();
     }
 
     /**
@@ -57,7 +58,7 @@ public class JanelaCriteriosAvaliacao extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Float.class
+                java.lang.String.class, java.lang.Double.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -87,7 +88,6 @@ public class JanelaCriteriosAvaliacao extends javax.swing.JFrame {
 
         bntAddCriterio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/incluir.png"))); // NOI18N
         bntAddCriterio.setToolTipText("Adiconar Critério");
-        bntAddCriterio.setLabel("");
 
         bntRemoverCriterio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/remover.png"))); // NOI18N
         bntRemoverCriterio.setToolTipText("Remover Critério");
@@ -99,7 +99,7 @@ public class JanelaCriteriosAvaliacao extends javax.swing.JFrame {
         jPanelDefinirCriterios.setLayout(jPanelDefinirCriteriosLayout);
         jPanelDefinirCriteriosLayout.setHorizontalGroup(
             jPanelDefinirCriteriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelDefinirCriteriosLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDefinirCriteriosLayout.createSequentialGroup()
                 .addGroup(jPanelDefinirCriteriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanelDefinirCriteriosLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -114,14 +114,14 @@ public class JanelaCriteriosAvaliacao extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(bntAddCriterio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelDefinirCriteriosLayout.createSequentialGroup()
-                        .addContainerGap()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
                         .addComponent(bntRemoverCriterio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(26, 26, 26))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDefinirCriteriosLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(bntSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bntSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanelDefinirCriteriosLayout.setVerticalGroup(
@@ -228,7 +228,23 @@ public class JanelaCriteriosAvaliacao extends javax.swing.JFrame {
     private javax.swing.JTextField txtPesoCriterio;
     // End of variables declaration//GEN-END:variables
    
-   
+    public LinkedList<String> recuperarDadosPanelCandidatos() {
+        LinkedList<String> dados = new LinkedList<>();
+        for (int row = 0; row < this.modeloTableCriterios.getRowCount(); row++) {
+            for (int col = 0; col < this.modeloTableCriterios.getColumnCount(); col++) {
+                if (this.modeloTableCriterios.getValueAt(row, col) == null) {
+                    return null;
+                } else {
+                    Object value = this.modeloTableCriterios.getValueAt(row, col);
+                    String valueText = String.valueOf(value);
+                    dados.add(valueText);
+                }
+            }
+        }
+        return dados;
+    }
+    
+    
     /**
      * @return the jLabel1
      */
@@ -386,14 +402,14 @@ public class JanelaCriteriosAvaliacao extends javax.swing.JFrame {
     /**
      * @return the modeloTableCandidatos
      */
-    public DefaultTableModel getModeloTableCandidatos() {
-        return modeloTableCandidatos;
+    public DefaultTableModel getModeloTableCriterios() {
+        return modeloTableCriterios;
     }
 
     /**
-     * @param modeloTableCandidatos the modeloTableCandidatos to set
+     * @param modeloTableCriterios the modeloTableCandidatos to set
      */
-    public void setModeloTableCandidatos(DefaultTableModel modeloTableCandidatos) {
-        this.modeloTableCandidatos = modeloTableCandidatos;
+    public void setModeloTableCriterios(DefaultTableModel modeloTableCriterios) {
+        this.modeloTableCriterios = modeloTableCriterios;
     }
 }
