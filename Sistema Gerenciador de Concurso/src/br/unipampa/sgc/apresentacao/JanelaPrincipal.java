@@ -27,17 +27,63 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        jMenuBarPrincipal = new javax.swing.JMenuBar();
+        jMenuInicio = new javax.swing.JMenu();
+        jMenuAbertura = new javax.swing.JMenu();
+        jMenuEscrita = new javax.swing.JMenu();
+        jMenuTitulos = new javax.swing.JMenu();
+        jMenuDidatica = new javax.swing.JMenu();
+        jMenuMemorial = new javax.swing.JMenu();
+        jMenuEntrevista = new javax.swing.JMenu();
+
+        jRadioButtonMenuItem1.setSelected(true);
+        jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jMenuBarPrincipal.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jMenuInicio.setText("Inicio");
+        jMenuInicio.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jMenuBarPrincipal.add(jMenuInicio);
+
+        jMenuAbertura.setText("Abertura");
+        jMenuAbertura.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jMenuBarPrincipal.add(jMenuAbertura);
+
+        jMenuEscrita.setText("Escrita");
+        jMenuEscrita.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jMenuBarPrincipal.add(jMenuEscrita);
+
+        jMenuTitulos.setText("Títulos");
+        jMenuTitulos.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jMenuBarPrincipal.add(jMenuTitulos);
+
+        jMenuDidatica.setText("Didática");
+        jMenuDidatica.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jMenuBarPrincipal.add(jMenuDidatica);
+
+        jMenuMemorial.setText("Memorial");
+        jMenuMemorial.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jMenuBarPrincipal.add(jMenuMemorial);
+
+        jMenuEntrevista.setText("Entrevista");
+        jMenuEntrevista.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jMenuBarPrincipal.add(jMenuEntrevista);
+
+        setJMenuBar(jMenuBarPrincipal);
+        jMenuBarPrincipal.getAccessibleContext().setAccessibleParent(this);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 385, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 275, Short.MAX_VALUE)
         );
 
         pack();
@@ -79,5 +125,14 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenuAbertura;
+    private javax.swing.JMenuBar jMenuBarPrincipal;
+    private javax.swing.JMenu jMenuDidatica;
+    private javax.swing.JMenu jMenuEntrevista;
+    private javax.swing.JMenu jMenuEscrita;
+    private javax.swing.JMenu jMenuInicio;
+    private javax.swing.JMenu jMenuMemorial;
+    private javax.swing.JMenu jMenuTitulos;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     // End of variables declaration//GEN-END:variables
 }

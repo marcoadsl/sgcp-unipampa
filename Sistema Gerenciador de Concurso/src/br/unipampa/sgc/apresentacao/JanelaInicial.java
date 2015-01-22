@@ -46,6 +46,11 @@ public class JanelaInicial extends javax.swing.JFrame {
         btnCriar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/criar_concurso.png"))); // NOI18N
         btnCriar.setText("Criar Concurso");
         btnCriar.setToolTipText("Criar Concurso");
+        btnCriar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCriarActionPerformed(evt);
+            }
+        });
 
         btnAbrirConcurso.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnAbrirConcurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/abrir_concurso.png"))); // NOI18N
@@ -93,6 +98,10 @@ public class JanelaInicial extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCriarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -8,6 +8,7 @@ package br.unipampa.sgc.controle;
 import br.unipampa.sgc.apresentacao.ConfigurarFrame;
 import br.unipampa.sgc.apresentacao.GeradorDeMensagens;
 import br.unipampa.sgc.apresentacao.JanelaCriarConcurso;
+import br.unipampa.sgc.apresentacao.JanelaPrincipal;
 import br.unipampa.sgc.modelo.Candidato;
 import br.unipampa.sgc.modelo.Classe;
 import br.unipampa.sgc.modelo.Concurso;
@@ -25,6 +26,8 @@ import java.util.LinkedList;
  * @author GabrielBMoro
  */
 public class ControleCriarConcurso {
+    private ControlePrincipal controlerPrincipal;
+
 
     public ControleCriarConcurso(final JanelaCriarConcurso janelaCriarConcurso) {
         ConfigurarFrame.configurarJanelaPadrao(janelaCriarConcurso, 950, 600);
@@ -200,6 +203,8 @@ public class ControleCriarConcurso {
                     boolean resposta = Concurso.getMyInstance().inserir(Concurso.getMyInstance());
                     if (resposta) {
                         GeradorDeMensagens.exibirMensagemDeInformacao("Concurso registrado com sucesso!","Alerta de Usuário");
+                        janelaCriarConcurso.dispose();
+                        controlerPrincipal= new ControlePrincipal(new JanelaPrincipal());
                     } else {
                         GeradorDeMensagens.exibirMensagemDeInformacao("Ocorreu um problema, por favor realize novamente a operação!","Alerta de Usuário");
                     }
