@@ -26,7 +26,7 @@ import java.util.LinkedList;
  */
 public class ControleCriarConcurso {
 
-    public ControleCriarConcurso(JanelaCriarConcurso janelaCriarConcurso) {
+    public ControleCriarConcurso(final JanelaCriarConcurso janelaCriarConcurso) {
         ConfigurarFrame.configurarJanelaPadrao(janelaCriarConcurso, 950, 600);
         janelaCriarConcurso.addWindowListener(new TrataListenerDaJanela());
         janelaCriarConcurso.getPanelCriarConcurso().getBtnProximo().addActionListener(new ActionListener() {

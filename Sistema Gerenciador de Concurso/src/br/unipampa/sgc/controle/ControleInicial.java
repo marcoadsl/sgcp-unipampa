@@ -19,7 +19,7 @@ import java.awt.event.ActionListener;
 public class ControleInicial {
 private ControleCriarConcurso controlerCriarConcurso;
 
-    public ControleInicial(JanelaInicial janelaInicial) {
+    public ControleInicial(final JanelaInicial janelaInicial) {
         ConfigurarFrame.configurarJanelaPadrao(janelaInicial,340,373);
         janelaInicial.addWindowListener(new TrataListenerDaJanela());
         janelaInicial.getBtnCriar().addActionListener(new ActionListener() {
