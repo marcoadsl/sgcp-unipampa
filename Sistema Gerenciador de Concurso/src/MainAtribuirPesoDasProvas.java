@@ -1,6 +1,6 @@
 
-import br.unipampa.sgc.apresentacao.JanelaInicial;
-import br.unipampa.sgc.controle.ControleInicial;
+import br.unipampa.sgc.apresentacao.JanelaAtribuirPeso;
+import br.unipampa.sgc.controle.ControleAtribuirPesoDasProvas;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -12,8 +12,8 @@ import br.unipampa.sgc.controle.ControleInicial;
  *
  * @author GabrielBMoro
  */
-public class Main {
+public class MainAtribuirPesoDasProvas {
     public static void main(String[] args){
-        new ControleInicial(new JanelaInicial());
+        new ControleAtribuirPesoDasProvas(new JanelaAtribuirPeso());
     }
 }

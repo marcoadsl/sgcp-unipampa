@@ -3,19 +3,22 @@ package br.unipampa.sgc.modelo;
 import java.util.ArrayList;
 
 public class Resolucao {
- 
-	private String descricao;
-	private int ver_minima;
-	private int normativa;
-	private ArrayList provas;
-	private Entrevista entrevista;
-	private Prova prova;
+
+    private String descricao;
+    private int ver_minima;
+    private int normativa;
+    private ArrayList<Prova> provas;
+    private Entrevista entrevista;
+    private Prova prova;
+
+    public Resolucao() {
+        this.provas = new ArrayList<>();
+    }
 
     public Resolucao(String descricao) {
         this.descricao = descricao;
+        this.provas = new ArrayList<>();
     }
-        
-        
 
     public String getDescricao() {
         return descricao;
@@ -64,9 +67,4 @@ public class Resolucao {
     public void setProva(Prova prova) {
         this.prova = prova;
     }
-	 
-        
-	 
-	 
 }
- 
