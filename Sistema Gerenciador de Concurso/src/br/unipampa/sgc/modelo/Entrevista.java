@@ -11,7 +11,7 @@ public class Entrevista extends DML {
     private int peso;
 
     public Entrevista(int peso) {
-        this.peso = this.peso;
+        this.peso = peso;
         super.table = "prova_entrevista";
     }
 

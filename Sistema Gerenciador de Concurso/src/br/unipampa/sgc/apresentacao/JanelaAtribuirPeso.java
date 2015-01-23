@@ -19,6 +19,11 @@ public class JanelaAtribuirPeso extends javax.swing.JFrame {
      */
     public JanelaAtribuirPeso() {
         initComponents();
+        this.txtDidatica.setEnabled(false);
+        this.txtEntrevista.setEnabled(false);
+        this.txtEscrita.setEnabled(false);
+        this.txtMemorial.setEnabled(false);
+        this.txtTitulo.setEnabled(false);
         ConfigurarFrame.configurarJanelaPadrao(this, 540, 407);
     }
 
@@ -264,31 +269,31 @@ public class JanelaAtribuirPeso extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
-
+        
         txtEscrita.setText(String.valueOf(jSlider1.getValue()));
         // TODO add your handling code here:
     }//GEN-LAST:event_jSlider1StateChanged
 
     private void jSlider3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider3StateChanged
-
+        
         txtMemorial.setText(String.valueOf(jSlider3.getValue()));
 // TODO add your handling code here:
     }//GEN-LAST:event_jSlider3StateChanged
 
     private void jSlider5StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider5StateChanged
-
+        
         txtEntrevista.setText(String.valueOf(jSlider5.getValue()));
 // TODO add your handling code here:
     }//GEN-LAST:event_jSlider5StateChanged
 
     private void jSlider2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider2StateChanged
-
+        
         txtDidatica.setText(String.valueOf(jSlider2.getValue()));
 // TODO add your handling code here:
     }//GEN-LAST:event_jSlider2StateChanged
 
     private void jSlider4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider4StateChanged
-
+        
         txtTitulo.setText(String.valueOf(jSlider4.getValue()));
 // TODO add your handling code here:
     }//GEN-LAST:event_jSlider4StateChanged
@@ -339,25 +344,25 @@ public class JanelaAtribuirPeso extends javax.swing.JFrame {
     public JButton getBtnProximo() {
         return btnProximo;
     }
-
+    
     public JFormattedTextField getTxtDidatica() {
         return txtDidatica;
     }
-
+    
     public JFormattedTextField getTxtEntrevista() {
         return txtEntrevista;
     }
-
+    
     public JFormattedTextField getTxtEscrita() {
         return txtEscrita;
     }
-
+    
     public JFormattedTextField getTxtMemorial() {
         return txtMemorial;
     }
-
+    
     public JFormattedTextField getTxtTitulo() {
         return txtTitulo;
     }
-
+    
 }

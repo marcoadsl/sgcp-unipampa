@@ -27,7 +27,7 @@ public class ControleAtribuirPesoDasProvas {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String pesoDidativa = janelaAtribuirPeso.getTxtDidatica().getText();
-                String pesoEntrevista = janelaAtribuirPeso.getTxtEntrevista().getText();
+                String pesoEntrevista = janelaAtribuirPeso.getTxtEntrevista().getText().toString();
                 String pesoEscrita = janelaAtribuirPeso.getTxtEscrita().getText();
                 String pesoMemorial = janelaAtribuirPeso.getTxtMemorial().getText();
                 String pesoTitulo = janelaAtribuirPeso.getTxtTitulo().getText();
