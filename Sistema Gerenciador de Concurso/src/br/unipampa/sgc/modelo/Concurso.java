@@ -100,7 +100,7 @@ public class Concurso extends DML {
     public boolean editar(int id, Object objeto) {
         return false;
     }
-    
+
     @Override
     public boolean deletar(int id, Object objeto) {
         return false;
@@ -117,10 +117,10 @@ public class Concurso extends DML {
         ArrayList<Object> dados = new ArrayList<Object>();
 
         try {
-            super.conecta= ConectaBD.getInstance();
+            super.conecta = ConectaBD.getInstance();
             super.statement = super.conecta.getConnection().createStatement();
             super.resultSet = super.statement.executeQuery(sql);
-            
+
             while (super.resultSet.next()) {
                 dados.add(super.resultSet.getInt("idConcurso"));
                 dados.add(super.resultSet.getString("ministerio"));
@@ -161,6 +161,24 @@ public class Concurso extends DML {
                 sqlErro.printStackTrace();
             }
             return id;
+        }
+        return 0;
+    }
+
+    public int recuperarIDSessao() {
+        String sql = "select sessaoInicialAbertura "
+                + "from concurso where idConcurso=" + ID_CONCURSO + ";";
+
+        try {
+            super.conecta = ConectaBD.getInstance();
+            super.statement = super.conecta.getConnection().createStatement();
+            super.resultSet = super.statement.executeQuery(sql);
+
+            while (super.resultSet.next()) {
+                return super.resultSet.getInt("sessaoInicialAbertura");
+
+            }
+        } catch (SQLException ex) {
         }
         return 0;
     }

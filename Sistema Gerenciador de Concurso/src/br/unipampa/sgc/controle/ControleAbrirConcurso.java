@@ -20,36 +20,37 @@ import javax.swing.table.DefaultTableModel;
 public class ControleAbrirConcurso {
 
     private ControlePrincipal controlePrincipal;
-    
+
     public ControleAbrirConcurso(JFrameAbrirConcurso frameAbrirConcurso) {
         frameAbrirConcurso.addWindowListener(new TrataListenerDaJanela());
         ArrayList<Object> dados = Concurso.getMyInstance().buscarTodosConcursos();
         DefaultTableModel modelo = (DefaultTableModel) frameAbrirConcurso.getjTableConcurso().getModel();
         System.err.printf("\n%d", dados.size());
         if (!dados.isEmpty()) {
-                for (int count = 0; count < dados.size(); count++) {
-                    modelo.addRow(new Object[]{
-                        dados.get(count),
-                        dados.get(count + 1),
-                        dados.get(count + 2),
-                        dados.get(count + 3),
-                        dados.get(count + 4),
-                        dados.get(count + 5),
-                        dados.get(count + 6),
-                        dados.get(count + 7)});                
-                    count+=7;
+            for (int count = 0; count < dados.size(); count++) {
+                modelo.addRow(new Object[]{
+                    dados.get(count),
+                    dados.get(count + 1),
+                    dados.get(count + 2),
+                    dados.get(count + 3),
+                    dados.get(count + 4),
+                    dados.get(count + 5),
+                    dados.get(count + 6),
+                    dados.get(count + 7)});
+                count += 7;
             }
         }
         frameAbrirConcurso.getBtnAbrirConcurso().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 DefaultTableModel modelo = (DefaultTableModel) frameAbrirConcurso.getjTableConcurso().getModel();
-                int linha= frameAbrirConcurso.getjTableConcurso().getSelectedRow();
-               Object objeto =  modelo.getValueAt(linha, 0);
-               int id= Integer.parseInt(objeto.toString());
-               
-               Concurso.ID_CONCURSO= id;
-               controlePrincipal= new ControlePrincipal(new JanelaPrincipal());
+                int linha = frameAbrirConcurso.getjTableConcurso().getSelectedRow();
+                Object objeto = modelo.getValueAt(linha, 0);
+                int id = Integer.parseInt(objeto.toString());
+
+                Concurso.ID_CONCURSO = id;
+                frameAbrirConcurso.dispose();
+                controlePrincipal = new ControlePrincipal(new JanelaPrincipal());
             }
         });
     }

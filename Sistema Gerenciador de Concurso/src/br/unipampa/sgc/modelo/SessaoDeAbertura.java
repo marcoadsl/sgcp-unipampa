@@ -6,6 +6,7 @@
 package br.unipampa.sgc.modelo;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -74,7 +75,26 @@ private void registrarEmRespectivoConcurso(int idDaSessao){
 
     @Override
     public Object buscar(int id) {
-        return null;
+        ID= id;
+          String sql = "select horaInicio,local,portariaDeNomeacao,emissorDePortaria from sessao_abertura"
+                  + " where Id="+id+";";
+        ArrayList<String> dados = new ArrayList<>();
+        
+        try {
+            super.conecta= ConectaBD.getInstance();
+            super.statement = super.conecta.getConnection().createStatement();
+            super.resultSet = super.statement.executeQuery(sql);
+            
+            while (super.resultSet.next()) {
+                dados.add(super.resultSet.getString("horaInicio"));
+                dados.add(super.resultSet.getString("local"));
+                dados.add(super.resultSet.getString("portariaDeNomeacao"));
+                dados.add(super.resultSet.getString("emissorDePortaria"));
+            }
+            return dados;
+        } catch (SQLException ex) {
+        }
+        return dados;
     }
 
 @Override
