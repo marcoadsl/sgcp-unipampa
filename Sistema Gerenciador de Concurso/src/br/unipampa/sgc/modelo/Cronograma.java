@@ -6,6 +6,7 @@
 package br.unipampa.sgc.modelo;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
@@ -71,6 +72,24 @@ public class Cronograma extends DML {
 
     @Override
     public Object buscar(int id) {
+        String sql = "select atividade,data,horario,local from cronograma where sessaoRespectivai="+
+                id+ ";";
+        ArrayList<String> dados = new ArrayList<>();
+
+        try {
+            super.conecta = ConectaBD.getInstance();
+            super.statement = super.conecta.getConnection().createStatement();
+            super.resultSet = super.statement.executeQuery(sql);
+
+            while (super.resultSet.next()) {
+                dados.add(super.resultSet.getString("atividade"));
+                dados.add(super.resultSet.getString("data"));
+                dados.add(super.resultSet.getString("horario"));
+                dados.add(super.resultSet.getString("local"));
+            }
+            return dados;
+        } catch (SQLException ex) {
+        }
         return null;
     }
 

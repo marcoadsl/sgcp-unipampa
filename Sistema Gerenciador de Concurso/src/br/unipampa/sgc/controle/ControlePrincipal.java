@@ -27,19 +27,6 @@ import javax.swing.table.DefaultTableModel;
 public class ControlePrincipal {
 
     private ControleCriarConcurso controleCriarConcurso;
-//horaInicio, local, portariaDeNomeacao, emissorDePortaria
-
-    private void enviarDadosJaArmazenados(JanelaPrincipal janelaPrincipal) {
-        SessaoDeAbertura sessao = new SessaoDeAbertura();
-        ArrayList<String> dados = (ArrayList<String>) sessao.buscar(Concurso.getMyInstance().recuperarIDSessao());
-        if (dados != null) {
-            janelaPrincipal.getTxtHoraInicioSessaoInstalacao().setText(dados.get(0));
-            janelaPrincipal.getTxtLocalSessaoInstalacao().setText(dados.get(1));
-            janelaPrincipal.getTxtPortariaNomeacaoDaBanca().setText(dados.get(2));
-            janelaPrincipal.getTxtEmissor().setText(dados.get(3));
-            janelaPrincipal.getjPaneInstalacaoSessaoAbertura().revalidate();
-        }
-    }
 
     public ControlePrincipal(final JanelaPrincipal janelaPrincipal) {
         ConfigurarFrame.configurarJanelaPadrao(janelaPrincipal, 950, 600);
@@ -268,6 +255,30 @@ public class ControlePrincipal {
             }
         });
 
+    }
+
+    private void enviarDadosJaArmazenados(JanelaPrincipal janelaPrincipal) {
+        SessaoDeAbertura sessao = new SessaoDeAbertura();
+        ArrayList<String> dados = (ArrayList<String>) sessao.buscar(Concurso.getMyInstance().recuperarIDSessao());
+        if (dados != null) {
+            janelaPrincipal.getTxtHoraInicioSessaoInstalacao().setText(dados.get(0));
+            janelaPrincipal.getTxtLocalSessaoInstalacao().setText(dados.get(1));
+            janelaPrincipal.getTxtPortariaNomeacaoDaBanca().setText(dados.get(2));
+            janelaPrincipal.getTxtEmissor().setText(dados.get(3));
+            janelaPrincipal.getjPaneInstalacaoSessaoAbertura().revalidate();
+        }
+
+        Cronograma cronograma = new Cronograma();
+        ArrayList<String> dados2 = (ArrayList<String>) cronograma.buscar(SessaoDeAbertura.ID);
+
+        DefaultTableModel modelo1 = (DefaultTableModel) janelaPrincipal.getjTableCronograma().getModel();
+
+        int sizeCronograma = (int) dados2.size() / 4;
+        for (int count = 0; count < sizeCronograma; count++) {
+            modelo1.addRow(new Object[]{dados2.get(count), dados2.get(count + 1), dados2.get(count + 2),
+                dados.get(count + 3)});
+            count+=3;
+        }
     }
 
 }
