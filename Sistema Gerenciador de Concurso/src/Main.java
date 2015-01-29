@@ -15,5 +15,6 @@ import br.unipampa.sgc.controle.ControleInicial;
 public class Main {
     public static void main(String[] args){
         new ControleInicial(new JanelaInicial());
+//        new ControlePrincipal(new JanelaPrincipal());
     }
 }

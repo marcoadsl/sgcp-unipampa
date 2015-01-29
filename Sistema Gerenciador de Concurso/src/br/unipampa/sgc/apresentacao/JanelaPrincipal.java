@@ -59,7 +59,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtPortariaNomeacaoDaBanca = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtPortariaNomeacaoBanca = new javax.swing.JTextField();
+        txtEmissor = new javax.swing.JTextField();
         btnSalvarInstalacaoSessao = new javax.swing.JButton();
         btnGerarAtaInstalacaoSessaoAbertura = new javax.swing.JButton();
         jPanelCronograma = new javax.swing.JPanel();
@@ -77,8 +77,6 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         btnAddCandidatoAbertura1 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jListCandidatosTotais1 = new javax.swing.JList();
-        txtHOraInicioDaSessao = new javax.swing.JFormattedTextField();
-        jLabel6 = new javax.swing.JLabel();
         btnSalvarCandPresente = new javax.swing.JButton();
         btnExportarAtaDeDefesa = new javax.swing.JButton();
         jPanelPesosDasProvas = new javax.swing.JPanel();
@@ -171,7 +169,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
 
         jLabel4.setText("Emissor da Portaria de Nomeação da Banca:");
 
-        txtPortariaNomeacaoBanca.setToolTipText("Exemplo: \"Reitoria da Universidade Federal do Pampa\" (esta informação constará na ata)");
+        txtEmissor.setToolTipText("Exemplo: \"Reitoria da Universidade Federal do Pampa\" (esta informação constará na ata)");
 
         btnSalvarInstalacaoSessao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/salvar.png"))); // NOI18N
         btnSalvarInstalacaoSessao.setToolTipText("Salvar Registro de Instalação");
@@ -194,7 +192,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addComponent(txtPortariaNomeacaoDaBanca)
                         .addComponent(jLabel4)
-                        .addComponent(txtPortariaNomeacaoBanca))
+                        .addComponent(txtEmissor))
                     .addGroup(jPaneInstalacaoSessaoAberturaLayout.createSequentialGroup()
                         .addComponent(btnSalvarInstalacaoSessao, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -219,7 +217,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtPortariaNomeacaoBanca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtEmissor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPaneInstalacaoSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnGerarAtaInstalacaoSessaoAbertura, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -328,8 +326,6 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(jListCandidatosTotais1);
 
-        jLabel6.setText("Hora de Início da Sessão de Abertura do Concurso:");
-
         btnSalvarCandPresente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/salvar.png"))); // NOI18N
         btnSalvarCandPresente.setToolTipText("Salvar Registro de Instalação");
         btnSalvarCandPresente.addActionListener(new java.awt.event.ActionListener() {
@@ -363,9 +359,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                                 .addComponent(btnRemoveCandidatodaPresenca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnAddCandidatoAbertura, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabel6)
-                        .addComponent(txtHOraInicioDaSessao)))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanelAberturaSessaoAberturaLayout.setVerticalGroup(
@@ -388,11 +382,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                         .addGroup(jPanelAberturaSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
                             .addComponent(jScrollPane2))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtHOraInicioDaSessao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(jPanelAberturaSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnSalvarCandPresente)
                     .addComponent(btnExportarAtaDeDefesa, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -710,7 +700,6 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JList jListCandidatosTotais;
     private javax.swing.JList jListCandidatosTotais1;
@@ -745,13 +734,12 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel textMemorial;
     private javax.swing.JLabel textTitulos;
     private javax.swing.JFormattedTextField txtDidatica;
+    private javax.swing.JTextField txtEmissor;
     private javax.swing.JFormattedTextField txtEntrevista;
     private javax.swing.JFormattedTextField txtEscrita;
-    private javax.swing.JFormattedTextField txtHOraInicioDaSessao;
     private javax.swing.JFormattedTextField txtHoraInicioSessaoInstalacao;
     private javax.swing.JTextField txtLocalSessaoInstalacao;
     private javax.swing.JFormattedTextField txtPesoMemorial;
-    private javax.swing.JTextField txtPortariaNomeacaoBanca;
     private javax.swing.JTextField txtPortariaNomeacaoDaBanca;
     private javax.swing.JFormattedTextField txtTitulo;
     // End of variables declaration//GEN-END:variables
@@ -875,7 +863,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     public JPanel getjPanelProvaDeTitulos() {
         return jPanelProvaDeTitulos;
     }
-
+    
     public JPanel getjPanelProvaDidatica() {
         return jPanelProvaDidatica;
     }
@@ -908,10 +896,6 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         return txtEscrita;
     }
 
-    public JFormattedTextField getTxtHOraInicioDaSessao() {
-        return txtHOraInicioDaSessao;
-    }
-
     public JFormattedTextField getTxtHoraInicioSessaoInstalacao() {
         return txtHoraInicioSessaoInstalacao;
     }
@@ -924,8 +908,8 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         return txtPesoMemorial;
     }
 
-    public JTextField getTxtPortariaNomeacaoBanca() {
-        return txtPortariaNomeacaoBanca;
+    public JTextField getTxtEmissor() {
+        return txtEmissor;
     }
 
     public JTextField getTxtPortariaNomeacaoDaBanca() {
@@ -935,8 +919,4 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     public JFormattedTextField getTxtTitulo() {
         return txtTitulo;
     }
-
-
-    
-
 }

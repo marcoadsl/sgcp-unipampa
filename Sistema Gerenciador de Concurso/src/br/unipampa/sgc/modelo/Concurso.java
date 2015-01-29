@@ -5,6 +5,7 @@ import java.util.LinkedList;
 
 public class Concurso extends DML {
 
+    public static int ID_CONCURSO;
     private String ministerio;
     private String area;
     private String data;
@@ -81,6 +82,19 @@ public class Concurso extends DML {
         }
     }
 
+    public void registrarSessao(int idDaSessao) {
+        String sql = "update " + super.table + " set sessaoInicialAbertura=? where idConcurso=" + ID_CONCURSO + ";";
+//        update aluno set tcc_idtcc= 25 where idaluno=1;
+        super.conecta = ConectaBD.getInstance();
+        try {
+            super.preparedStatement = super.conecta.getConnection().prepareStatement(sql);
+            super.preparedStatement.setInt(1, idDaSessao);
+            super.preparedStatement.execute();
+            super.preparedStatement.close();
+        } catch (SQLException ex) {
+        }
+    }
+
     @Override
     public boolean editar(int id, Object objeto) {
         return false;
@@ -111,6 +125,7 @@ public class Concurso extends DML {
                 super.resultSet = super.statement.executeQuery(sql);
                 while (super.resultSet.next()) {
                     id = super.resultSet.getInt(1);
+                    Concurso.ID_CONCURSO = id;
                 }
                 super.resultSet.close();
                 super.statement.close();

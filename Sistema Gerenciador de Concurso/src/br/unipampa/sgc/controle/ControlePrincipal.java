@@ -9,9 +9,9 @@ import br.unipampa.sgc.apresentacao.ConfigurarFrame;
 import br.unipampa.sgc.apresentacao.GeradorDeMensagens;
 import br.unipampa.sgc.apresentacao.JanelaCriarConcurso;
 import br.unipampa.sgc.apresentacao.JanelaPrincipal;
+import br.unipampa.sgc.modelo.SessaoDeAbertura;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.Action;
 
 /**
  *
@@ -90,6 +90,28 @@ public class ControlePrincipal {
                 janelaPrincipal.getjPanelCronograma().setVisible(false);
                 janelaPrincipal.getjPanelPesosDasProvas().setVisible(false);
                 janelaPrincipal.getjPanelInternoSessaoAbertura().revalidate();
+            }
+        });
+        janelaPrincipal.getBtnSalvarInstalacaoSessao().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String local = janelaPrincipal.getTxtLocalSessaoInstalacao().getText();
+                String horaInicio = janelaPrincipal.getTxtHoraInicioSessaoInstalacao().getText();
+                String txtEmissor = janelaPrincipal.getTxtEmissor().getText();
+                String txtPortaria = janelaPrincipal.getTxtPortariaNomeacaoDaBanca().getText();
+
+                SessaoDeAbertura sessaoDeAbertura = new SessaoDeAbertura(horaInicio, local, txtPortaria, txtEmissor);
+                boolean resposta = sessaoDeAbertura.inserir(sessaoDeAbertura);
+                if (resposta) {
+                    GeradorDeMensagens.exibirMensagemDeInformacao("Foi registrado com sucesso!", "Alerta ao Usuário");
+                } else {
+                    GeradorDeMensagens.exibirMensagemDeInformacao("Não foi possível realizar essa operação, realize-a novamente!", "Alerta ao Usuário");
+                }
+            }
+        });
+        janelaPrincipal.getBtnSalvarCronograma().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
             }
         });
     }

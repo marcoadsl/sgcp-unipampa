@@ -247,7 +247,7 @@
                                       <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="txtPortariaNomeacaoDaBanca" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtPortariaNomeacaoBanca" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtEmissor" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="btnSalvarInstalacaoSessao" min="-2" pref="48" max="-2" attributes="0"/>
@@ -277,7 +277,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtPortariaNomeacaoBanca" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtEmissor" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="btnGerarAtaInstalacaoSessaoAbertura" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
@@ -321,7 +321,7 @@
                         <Property name="text" type="java.lang.String" value="Emissor da Portaria de Nomea&#xe7;&#xe3;o da Banca:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtPortariaNomeacaoBanca">
+                    <Component class="javax.swing.JTextField" name="txtEmissor">
                       <Properties>
                         <Property name="toolTipText" type="java.lang.String" value="Exemplo: &quot;Reitoria da Universidade Federal do Pampa&quot; (esta informa&#xe7;&#xe3;o constar&#xe1; na ata)"/>
                       </Properties>
@@ -448,8 +448,6 @@
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Component id="jScrollPane3" min="-2" pref="126" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtHOraInicioDaSessao" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace pref="27" max="32767" attributes="0"/>
@@ -480,11 +478,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtHOraInicioDaSessao" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                              <EmptySpace pref="24" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="btnSalvarCandPresente" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnExportarAtaDeDefesa" min="-2" pref="41" max="-2" attributes="0"/>
@@ -572,13 +566,6 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Component class="javax.swing.JFormattedTextField" name="txtHOraInicioDaSessao">
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel6">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Hora de In&#xed;cio da Sess&#xe3;o de Abertura do Concurso:"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JButton" name="btnSalvarCandPresente">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
