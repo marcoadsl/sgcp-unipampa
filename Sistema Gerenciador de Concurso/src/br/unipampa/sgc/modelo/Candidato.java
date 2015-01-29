@@ -1,6 +1,7 @@
 package br.unipampa.sgc.modelo;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Candidato extends DML {
 
@@ -17,30 +18,6 @@ public class Candidato extends DML {
         this.sexo = sexo;
         this.data_nasc = data_nasc;
         super.table = "candidato";
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
-
-    public String getData_nasc() {
-        return data_nasc;
-    }
-
-    public void setData_nasc(String data_nasc) {
-        this.data_nasc = data_nasc;
     }
 
     @Override
@@ -93,10 +70,51 @@ public class Candidato extends DML {
     public int recuperarId(Object objeto) {
         return 0;
     }
+    public ArrayList<String> buscarTodosNomesCandidatos(){
+         String sql = "select nome from " + super.table + " where Concurso_ministerio= "+ Concurso.ID_CONCURSO+";";
+        try {
+            this.conecta = ConectaBD.getInstance();
+            super.statement = this.conecta.getConnection().createStatement();
+            super.resultSet = super.statement.executeQuery(sql);
+            ArrayList<String> resultado = new ArrayList<>();
+            while (super.resultSet.next()) {
+                resultado.add(super.resultSet.getString(1));
+            }
+            super.resultSet.close();
+            super.statement.close();
+            return resultado;
+        } catch (SQLException sqlErro) {
+            sqlErro.printStackTrace();
+        }
+        return null;
+    }
 
     @Override
     public boolean verificarExistenciaDeRegistro(Object objeto) {
         return false;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getData_nasc() {
+        return data_nasc;
+    }
+
+    public void setData_nasc(String data_nasc) {
+        this.data_nasc = data_nasc;
+    }
 }

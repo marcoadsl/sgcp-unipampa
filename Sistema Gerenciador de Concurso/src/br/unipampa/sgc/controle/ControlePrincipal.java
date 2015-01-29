@@ -10,10 +10,13 @@ import br.unipampa.sgc.apresentacao.GeradorDeMensagens;
 import br.unipampa.sgc.apresentacao.JanelaCriarConcurso;
 import br.unipampa.sgc.apresentacao.JanelaPrincipal;
 import br.unipampa.sgc.modelo.Atividade;
+import br.unipampa.sgc.modelo.Candidato;
 import br.unipampa.sgc.modelo.Cronograma;
 import br.unipampa.sgc.modelo.SessaoDeAbertura;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -156,5 +159,97 @@ public class ControlePrincipal {
                 }
             }
         });
+        janelaPrincipal.getBtnAbertura().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DefaultListModel modeloLista = new DefaultListModel();
+                janelaPrincipal.getjListCandidatosTotais().setModel(modeloLista);
+                Candidato candidato = new Candidato();
+                ArrayList<String> nomes = candidato.buscarTodosNomesCandidatos();
+                for (String nomeTemp : nomes) {
+                    modeloLista.addElement(nomeTemp);
+                }
+            }
+        });
+        janelaPrincipal.getBtnAddCandidatoAbertura().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int indice= janelaPrincipal.getjListCandidatosTotais().getSelectedIndex();
+                
+                DefaultListModel modelo = new DefaultListModel();
+                janelaPrincipal.getjListCandidatosTotais().setModel(modelo);
+                String nomeCandidato = String.valueOf(modelo.get(indice));
+                
+                if(nomeCandidato!=null){
+                modelo.remove(indice);
+                DefaultListModel modelo2= new DefaultListModel();
+                janelaPrincipal.getjListCandidatosTotais1().setModel(modelo2);
+                modelo2.addElement(nomeCandidato);
+                }
+            }
+        });
+        janelaPrincipal.getBtnRemoveCandidatodaPresenca().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int indice= janelaPrincipal.getjListCandidatosTotais1().getSelectedIndex();
+                DefaultListModel modelo = new DefaultListModel();
+                String nomeDoCandidato = String.valueOf(modelo.get(indice));
+                
+                if(nomeDoCandidato!=null){
+                    DefaultListModel modelo1= new DefaultListModel();
+                    janelaPrincipal.getjListCandidatosTotais().setModel(modelo1);
+                    modelo1.addElement(nomeDoCandidato);
+                }
+            }
+        });
+        janelaPrincipal.getBtnAddCandidatoAbertura1().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+                DefaultListModel modelo = new DefaultListModel();
+                janelaPrincipal.getjListCandidatosTotais().setModel(modelo);
+                
+                DefaultListModel modelo2= new DefaultListModel();
+                janelaPrincipal.getjListCandidatosTotais1().setModel(modelo2);
+                
+                for(int count=0;count<modelo.size();count++){
+                    modelo2.addElement(String.valueOf(modelo.get(count)));
+                    modelo.remove(count);
+                }
+            }
+        });
+        janelaPrincipal.getBtnRemoveCandidatodaPresenca1().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DefaultListModel modelo = new DefaultListModel();
+                janelaPrincipal.getjListCandidatosTotais1().setModel(modelo);
+                
+                DefaultListModel modelo2= new DefaultListModel();
+                janelaPrincipal.getjListCandidatosTotais().setModel(modelo2);
+                
+                for(int count=0;count<modelo.size();count++){
+                    modelo2.addElement(String.valueOf(modelo.get(count)));
+                    modelo.remove(count);
+                }
+            }
+        });
+        
+        janelaPrincipal.getBtnRemoveCandidatodaPresenca().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int indice= janelaPrincipal.getjListCandidatosTotais1().getSelectedIndex();
+                DefaultListModel modelo = new DefaultListModel();
+                String nomeDoCandidato = String.valueOf(modelo.get(indice));
+                
+                if(nomeDoCandidato!=null){
+                    DefaultListModel modelo1= new DefaultListModel();
+                    janelaPrincipal.getjListCandidatosTotais().setModel(modelo1);
+                    modelo1.addElement(nomeDoCandidato);
+                }
+            }
+        });
+    
     }
+    
 }

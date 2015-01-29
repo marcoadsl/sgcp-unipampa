@@ -305,11 +305,6 @@ public class JanelaPrincipal extends javax.swing.JFrame {
 
         jLabel5.setText("Marque os candidatos presentes na sessão de abertura do concurso:");
 
-        jListCandidatosTotais.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane2.setViewportView(jListCandidatosTotais);
 
         btnAddCandidatoAbertura.setText(">");
@@ -335,11 +330,6 @@ public class JanelaPrincipal extends javax.swing.JFrame {
 
         btnAddCandidatoAbertura1.setText(">>");
 
-        jListCandidatosTotais1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane3.setViewportView(jListCandidatosTotais1);
 
         btnSalvarCandPresente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/salvar.png"))); // NOI18N
@@ -668,10 +658,6 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRemoveCandidatodaPresencaActionPerformed
 
-    private void btnRemoveCandidatodaPresenca1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveCandidatodaPresenca1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRemoveCandidatodaPresenca1ActionPerformed
-
     private void btnAddCandidatoAberturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCandidatoAberturaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddCandidatoAberturaActionPerformed
@@ -695,14 +681,17 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     private void txtTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTituloActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTituloActionPerformed
+
+    private void btnRemoveCandidatodaPresenca1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveCandidatodaPresenca1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRemoveCandidatodaPresenca1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoSalvar;
     private javax.swing.JButton btnAbertura;
     private javax.swing.JButton btnAddAtividadeCronograma;
     private javax.swing.JButton btnAddCandidatoAbertura;
     private javax.swing.JButton btnAddCandidatoAbertura1;
-    private javax.swing.JButton btnAddInscritos;
-    private javax.swing.JButton btnAddInscritos1;
     private javax.swing.JButton btnCronograma;
     private javax.swing.JButton btnExportarAtaDeDefesa;
     private javax.swing.JButton btnExportarCronograma;
