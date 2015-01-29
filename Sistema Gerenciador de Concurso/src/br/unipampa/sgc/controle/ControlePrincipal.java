@@ -11,6 +11,7 @@ import br.unipampa.sgc.apresentacao.JanelaCriarConcurso;
 import br.unipampa.sgc.apresentacao.JanelaPrincipal;
 import br.unipampa.sgc.modelo.Atividade;
 import br.unipampa.sgc.modelo.Candidato;
+import br.unipampa.sgc.modelo.Concurso;
 import br.unipampa.sgc.modelo.Cronograma;
 import br.unipampa.sgc.modelo.SessaoDeAbertura;
 import java.awt.event.ActionEvent;
@@ -27,6 +28,11 @@ public class ControlePrincipal {
 
     private ControleCriarConcurso controleCriarConcurso;
 
+    private void enviarDadosJaArmazenados(){
+        SessaoDeAbertura sessao= new SessaoDeAbertura();
+
+    }
+    
     public ControlePrincipal(final JanelaPrincipal janelaPrincipal) {
         ConfigurarFrame.configurarJanelaPadrao(janelaPrincipal, 950, 600);
         janelaPrincipal.addWindowListener(new TrataListenerDaJanela());
@@ -175,7 +181,7 @@ public class ControlePrincipal {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int indice= janelaPrincipal.getjListCandidatosTotais().getSelectedIndex();
-                
+               
                 DefaultListModel modelo = new DefaultListModel();
                 janelaPrincipal.getjListCandidatosTotais().setModel(modelo);
                 String nomeCandidato = String.valueOf(modelo.get(indice));
