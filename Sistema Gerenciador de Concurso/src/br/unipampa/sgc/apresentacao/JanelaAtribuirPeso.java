@@ -5,8 +5,8 @@
  */
 package br.unipampa.sgc.apresentacao;
 
-import javax.swing.JButton;
-import javax.swing.JFormattedTextField;
+//import br.unipampa.sgc.modelo.Pesoprovas;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,12 +19,7 @@ public class JanelaAtribuirPeso extends javax.swing.JFrame {
      */
     public JanelaAtribuirPeso() {
         initComponents();
-        this.txtDidatica.setEnabled(false);
-        this.txtEntrevista.setEnabled(false);
-        this.txtEscrita.setEnabled(false);
-        this.txtMemorial.setEnabled(false);
-        this.txtTitulo.setEnabled(false);
-        ConfigurarFrame.configurarJanelaPadrao(this, 540, 407);
+        //buscar();
     }
 
     /**
@@ -37,119 +32,161 @@ public class JanelaAtribuirPeso extends javax.swing.JFrame {
     private void initComponents() {
 
         panelDadosGerais = new javax.swing.JPanel();
-        btnProximo = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        botaoSalvar = new javax.swing.JButton();
+        textEscrita = new javax.swing.JLabel();
+        texDidática = new javax.swing.JLabel();
+        textMemorial = new javax.swing.JLabel();
+        textTitulos = new javax.swing.JLabel();
+        textEntrevista = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jSlider1 = new javax.swing.JSlider();
-        jSlider2 = new javax.swing.JSlider();
-        jSlider3 = new javax.swing.JSlider();
-        jSlider4 = new javax.swing.JSlider();
-        jSlider5 = new javax.swing.JSlider();
-        txtEscrita = new javax.swing.JFormattedTextField();
-        txtDidatica = new javax.swing.JFormattedTextField();
-        txtMemorial = new javax.swing.JFormattedTextField();
-        txtTitulo = new javax.swing.JFormattedTextField();
-        txtEntrevista = new javax.swing.JFormattedTextField();
+        campoEscrita = new javax.swing.JFormattedTextField();
+        campoDidatica = new javax.swing.JFormattedTextField();
+        campoMemorial = new javax.swing.JFormattedTextField();
+        campoTitulos = new javax.swing.JFormattedTextField();
+        campoEntrevista = new javax.swing.JFormattedTextField();
+        textCodigo = new javax.swing.JLabel();
+        campoCodigo = new javax.swing.JFormattedTextField();
+        slideEscrita = new javax.swing.JSlider();
+        slideDidatica = new javax.swing.JSlider();
+        slideMemorial = new javax.swing.JSlider();
+        slideTitulos = new javax.swing.JSlider();
+        slideEntrevista = new javax.swing.JSlider();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("Atribuição de Peso para as Provas");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panelDadosGerais.setBorder(javax.swing.BorderFactory.createTitledBorder("Atribuir pesos para as provas"));
 
-        btnProximo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/proximo.png"))); // NOI18N
-        btnProximo.setToolTipText("Atribuir Pesos");
+        botaoSalvar.setText("Salvar");
+        botaoSalvar.setToolTipText("Atribuir Pesos");
+        botaoSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoSalvarActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setText("Escrita:");
+        textEscrita.setText("Escrita");
 
-        jLabel2.setText("Didática");
+        texDidática.setText("Didática");
 
-        jLabel3.setText("Memorial");
+        textMemorial.setText("Memorial");
 
-        jLabel4.setText("Títulos");
+        textTitulos.setText("Títulos");
 
-        jLabel5.setText("Entrevista");
+        textEntrevista.setText("Entrevista");
 
         jLabel6.setText("Determine os pesos das provas, de acordo com o edital do concurso.");
 
         jLabel9.setText("PESO DAS PROVAS (de 0 a 10):");
 
-        jSlider1.setMaximum(10);
-        jSlider1.setValue(5);
-        jSlider1.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jSlider1StateChanged(evt);
-            }
-        });
-
-        jSlider2.setMaximum(10);
-        jSlider2.setValue(5);
-        jSlider2.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jSlider2StateChanged(evt);
-            }
-        });
-
-        jSlider3.setMaximum(10);
-        jSlider3.setValue(5);
-        jSlider3.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jSlider3StateChanged(evt);
-            }
-        });
-
-        jSlider4.setMaximum(10);
-        jSlider4.setValue(5);
-        jSlider4.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jSlider4StateChanged(evt);
-            }
-        });
-
-        jSlider5.setMaximum(10);
-        jSlider5.setValue(5);
-        jSlider5.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jSlider5StateChanged(evt);
-            }
-        });
-
-        txtEscrita.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
-        txtEscrita.addActionListener(new java.awt.event.ActionListener() {
+        campoEscrita.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        campoEscrita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEscritaActionPerformed(evt);
+                campoEscritaActionPerformed(evt);
+            }
+        });
+        campoEscrita.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                campoEscritaPropertyChange(evt);
+            }
+        });
+        campoEscrita.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                campoEscritaKeyReleased(evt);
             }
         });
 
-        txtDidatica.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
-        txtDidatica.addActionListener(new java.awt.event.ActionListener() {
+        campoDidatica.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        campoDidatica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDidaticaActionPerformed(evt);
+                campoDidaticaActionPerformed(evt);
+            }
+        });
+        campoDidatica.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                campoDidaticaKeyReleased(evt);
             }
         });
 
-        txtMemorial.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
-        txtMemorial.addActionListener(new java.awt.event.ActionListener() {
+        campoMemorial.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        campoMemorial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMemorialActionPerformed(evt);
+                campoMemorialActionPerformed(evt);
+            }
+        });
+        campoMemorial.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                campoMemorialKeyReleased(evt);
             }
         });
 
-        txtTitulo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
-        txtTitulo.addActionListener(new java.awt.event.ActionListener() {
+        campoTitulos.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        campoTitulos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTituloActionPerformed(evt);
+                campoTitulosActionPerformed(evt);
+            }
+        });
+        campoTitulos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                campoTitulosKeyReleased(evt);
             }
         });
 
-        txtEntrevista.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
-        txtEntrevista.addActionListener(new java.awt.event.ActionListener() {
+        campoEntrevista.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        campoEntrevista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEntrevistaActionPerformed(evt);
+                campoEntrevistaActionPerformed(evt);
+            }
+        });
+        campoEntrevista.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                campoEntrevistaKeyReleased(evt);
+            }
+        });
+
+        textCodigo.setText("Codigo");
+
+        campoCodigo.setEditable(false);
+        campoCodigo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        campoCodigo.setText("0");
+        campoCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoCodigoActionPerformed(evt);
+            }
+        });
+
+        slideEscrita.setMaximum(10);
+        slideEscrita.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                slideEscritaStateChanged(evt);
+            }
+        });
+
+        slideDidatica.setMaximum(10);
+        slideDidatica.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                slideDidaticaStateChanged(evt);
+            }
+        });
+
+        slideMemorial.setMaximum(10);
+        slideMemorial.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                slideMemorialStateChanged(evt);
+            }
+        });
+
+        slideTitulos.setMaximum(10);
+        slideTitulos.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                slideTitulosStateChanged(evt);
+            }
+        });
+
+        slideEntrevista.setMaximum(10);
+        slideEntrevista.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                slideEntrevistaStateChanged(evt);
             }
         });
 
@@ -160,92 +197,90 @@ public class JanelaAtribuirPeso extends javax.swing.JFrame {
             .addGroup(panelDadosGeraisLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
                     .addGroup(panelDadosGeraisLayout.createSequentialGroup()
-                        .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(14, 14, 14)
+                        .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(textMemorial)
+                            .addComponent(textTitulos)
+                            .addComponent(texDidática)
+                            .addComponent(textEscrita)
+                            .addComponent(textEntrevista)
+                            .addComponent(textCodigo))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(panelDadosGeraisLayout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtEntrevista, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDadosGeraisLayout.createSequentialGroup()
-                                .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDadosGeraisLayout.createSequentialGroup()
-                                                .addComponent(jLabel3)
-                                                .addGap(18, 18, 18))
-                                            .addGroup(panelDadosGeraisLayout.createSequentialGroup()
-                                                .addComponent(jLabel4)
-                                                .addGap(33, 33, 33)))
-                                        .addGroup(panelDadosGeraisLayout.createSequentialGroup()
-                                            .addComponent(jLabel1)
-                                            .addGap(28, 28, 28)))
-                                    .addGroup(panelDadosGeraisLayout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(26, 26, 26)))
-                                .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtDidatica, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtEscrita, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-                                        .addComponent(txtMemorial)
-                                        .addComponent(txtTitulo)))))
-                        .addGap(34, 34, 34)
-                        .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSlider4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSlider5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSlider3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(campoEntrevista, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                                .addComponent(slideEntrevista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelDadosGeraisLayout.createSequentialGroup()
+                                .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(campoEscrita)
+                                    .addComponent(campoMemorial, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(campoTitulos)
+                                    .addComponent(campoCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+                                    .addComponent(campoDidatica))
+                                .addGap(53, 53, 53)
+                                .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(slideEscrita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(slideDidatica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(slideMemorial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(slideTitulos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addComponent(jLabel9))
+                .addGap(0, 201, Short.MAX_VALUE))
             .addGroup(panelDadosGeraisLayout.createSequentialGroup()
+                .addComponent(botaoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDadosGeraisLayout.createSequentialGroup()
+                .addGap(0, 113, Short.MAX_VALUE)
                 .addComponent(jLabel6)
-                .addGap(35, 35, 35)
-                .addComponent(btnProximo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 91, Short.MAX_VALUE))
+                .addGap(92, 92, 92))
         );
         panelDadosGeraisLayout.setVerticalGroup(
             panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDadosGeraisLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
                 .addComponent(jLabel9)
+                .addGap(17, 17, 17)
+                .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textCodigo)
+                    .addComponent(campoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(txtEscrita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
-                .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2)
-                        .addComponent(txtDidatica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
-                .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(txtMemorial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSlider3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel4)
-                        .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSlider4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel5)
-                        .addComponent(txtEntrevista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSlider5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelDadosGeraisLayout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(btnProximo))
-                    .addGroup(panelDadosGeraisLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel6)))
-                .addGap(18, 18, 18))
+                        .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panelDadosGeraisLayout.createSequentialGroup()
+                                .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(panelDadosGeraisLayout.createSequentialGroup()
+                                        .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(panelDadosGeraisLayout.createSequentialGroup()
+                                                .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(campoEscrita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(textEscrita))
+                                                    .addComponent(slideEscrita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                    .addComponent(campoDidatica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(texDidática)))
+                                            .addComponent(slideDidatica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(8, 8, 8)
+                                        .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(textMemorial)
+                                            .addComponent(campoMemorial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(slideMemorial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(campoTitulos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(textTitulos)))
+                            .addComponent(slideTitulos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(campoEntrevista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textEntrevista)))
+                    .addComponent(slideEntrevista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(botaoSalvar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addComponent(jLabel6))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -260,109 +295,202 @@ public class JanelaAtribuirPeso extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(panelDadosGerais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 21, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
-        
-        txtEscrita.setText(String.valueOf(jSlider1.getValue()));
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jSlider1StateChanged
+    private void campoEscritaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEscritaActionPerformed
 
-    private void jSlider3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider3StateChanged
         
-        txtMemorial.setText(String.valueOf(jSlider3.getValue()));
 // TODO add your handling code here:
-    }//GEN-LAST:event_jSlider3StateChanged
+    }//GEN-LAST:event_campoEscritaActionPerformed
 
-    private void jSlider5StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider5StateChanged
+    private void campoDidaticaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoDidaticaActionPerformed
         
-        txtEntrevista.setText(String.valueOf(jSlider5.getValue()));
-// TODO add your handling code here:
-    }//GEN-LAST:event_jSlider5StateChanged
-
-    private void jSlider2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider2StateChanged
         
-        txtDidatica.setText(String.valueOf(jSlider2.getValue()));
 // TODO add your handling code here:
-    }//GEN-LAST:event_jSlider2StateChanged
+    }//GEN-LAST:event_campoDidaticaActionPerformed
 
-    private void jSlider4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider4StateChanged
-        
-        txtTitulo.setText(String.valueOf(jSlider4.getValue()));
+    private void campoMemorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoMemorialActionPerformed
+     
 // TODO add your handling code here:
-    }//GEN-LAST:event_jSlider4StateChanged
+    }//GEN-LAST:event_campoMemorialActionPerformed
 
-    private void txtEscritaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEscritaActionPerformed
+    private void campoTitulosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoTitulosActionPerformed
+// TODO add your handling code here:
+    }//GEN-LAST:event_campoTitulosActionPerformed
+
+    private void campoEntrevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEntrevistaActionPerformed
+// TODO add your handling code here:
+    }//GEN-LAST:event_campoEntrevistaActionPerformed
+
+    private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
+//        try {
+//            int pesoProvaEscrita = Integer.parseInt(campoEscrita.getText());
+//            int pesoProvaProvaDidática = Integer.parseInt(campoDidatica.getText());
+//            int pesoProvaMemorial = Integer.parseInt(campoMemorial.getText());
+//            int pesoProvaTitulo = Integer.parseInt(campoTitulos.getText());
+//            int pesoProvaEntrevista = Integer.parseInt(campoEntrevista.getText());
+//            int idPeso = Integer.parseInt(campoCodigo.getText());
+
+//            Pesoprovas pesoProvas = new Pesoprovas();
+//            pesoProvas.setPesoProvaEscrita(pesoProvaEscrita);
+//            pesoProvas.setPesoProvaDidatica(pesoProvaProvaDidática);
+//            pesoProvas.setPesoProvaMemorial(pesoProvaMemorial);
+//            pesoProvas.setPesoProvaTitulo(pesoProvaTitulo);
+//            pesoProvas.setPesoProvaEntrevista(pesoProvaEntrevista);
+//            pesoProvas.setIdPeso(idPeso);
+//
+//            int totalPeso = pesoProvaEscrita + pesoProvaProvaDidática + pesoProvaMemorial + pesoProvaTitulo + pesoProvaEntrevista;
+//            if (totalPeso != 10) {
+//                JOptionPane.showMessageDialog(null, "A soma do peso das provas deve ser igual a 10.");
+//            } else {
+//                if (pesoProvas.getIdPeso() == 0) {
+//                    if (pesoProvas.inserir(pesoProvas)) {
+//                        JOptionPane.showMessageDialog(null, "Peso das provas foi salvo com sucesso!");
+//                    }
+//                } else {
+//                    if (pesoProvas.editar(pesoProvas.getIdPeso(), pesoProvas)) {
+//                        JOptionPane.showMessageDialog(null, "Peso das provas foi atualizado com sucesso!");
+//                    }
+//                }
+//            }
+//        } catch (NumberFormatException e) {
+//            JOptionPane.showMessageDialog(null, "Digite apenas numeros para os pesos.");
+//        }
+
+    }//GEN-LAST:event_botaoSalvarActionPerformed
+
+    private void campoCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCodigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEscritaActionPerformed
+    }//GEN-LAST:event_campoCodigoActionPerformed
 
-    private void txtDidaticaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDidaticaActionPerformed
+    private void slideEscritaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_slideEscritaStateChanged
+        campoEscrita.setText(String.valueOf(slideEscrita.getValue()));
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDidaticaActionPerformed
+    }//GEN-LAST:event_slideEscritaStateChanged
 
-    private void txtMemorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMemorialActionPerformed
+    private void campoEscritaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_campoEscritaPropertyChange
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtMemorialActionPerformed
+    }//GEN-LAST:event_campoEscritaPropertyChange
 
-    private void txtTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTituloActionPerformed
+    private void campoEscritaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoEscritaKeyReleased
+        slideEscrita.setValue(Integer.parseInt(campoEscrita.getText()));
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTituloActionPerformed
+    }//GEN-LAST:event_campoEscritaKeyReleased
 
-    private void txtEntrevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntrevistaActionPerformed
+    private void campoDidaticaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoDidaticaKeyReleased
+        slideDidatica.setValue(Integer.parseInt(campoDidatica.getText()));        
+// TODO add your handling code here:
+    }//GEN-LAST:event_campoDidaticaKeyReleased
+
+    private void campoTitulosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoTitulosKeyReleased
+        slideTitulos.setValue(Integer.parseInt(campoTitulos.getText()));
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEntrevistaActionPerformed
+    }//GEN-LAST:event_campoTitulosKeyReleased
 
+    private void campoMemorialKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoMemorialKeyReleased
+        slideMemorial.setValue(Integer.parseInt(campoMemorial.getText()));
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoMemorialKeyReleased
+
+    private void campoEntrevistaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoEntrevistaKeyReleased
+        slideEntrevista.setValue(Integer.parseInt(campoEntrevista.getText()));
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoEntrevistaKeyReleased
+
+    private void slideDidaticaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_slideDidaticaStateChanged
+        campoDidatica.setText(String.valueOf(slideDidatica.getValue()));
+        // TODO add your handling code here:
+    }//GEN-LAST:event_slideDidaticaStateChanged
+
+    private void slideMemorialStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_slideMemorialStateChanged
+        campoMemorial.setText(String.valueOf(slideMemorial.getValue()));
+        // TODO add your handling code here:
+    }//GEN-LAST:event_slideMemorialStateChanged
+
+    private void slideTitulosStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_slideTitulosStateChanged
+        campoTitulos.setText(String.valueOf(slideTitulos.getValue()));
+        // TODO add your handling code here:
+    }//GEN-LAST:event_slideTitulosStateChanged
+
+    private void slideEntrevistaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_slideEntrevistaStateChanged
+        campoEntrevista.setText(String.valueOf(slideEntrevista.getValue()));
+        // TODO add your handling code here:
+    }//GEN-LAST:event_slideEntrevistaStateChanged
+
+    private void buscar() {
+//        Pesoprovas pesoProvas = new Pesoprovas();
+//        Pesoprovas pesoProvasPesquisado = (Pesoprovas) pesoProvas.buscar(1);
+//        if (pesoProvasPesquisado != null) {
+//            campoCodigo.setText(pesoProvasPesquisado.getIdPeso() + "");
+//            campoDidatica.setText(pesoProvasPesquisado.getPesoProvaDidatica() + "");
+//            campoEntrevista.setText(pesoProvasPesquisado.getPesoProvaEntrevista() + "");
+//            campoEscrita.setText(pesoProvasPesquisado.getPesoProvaEscrita() + "");
+//            campoMemorial.setText(pesoProvasPesquisado.getPesoProvaMemorial() + "");
+//            campoTitulos.setText(pesoProvasPesquisado.getPesoProvaTitulo() + "");
+//        }
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(JanelaAtribuirPeso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(JanelaAtribuirPeso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(JanelaAtribuirPeso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(JanelaAtribuirPeso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new JanelaAtribuirPeso().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnProximo;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JButton botaoSalvar;
+    private javax.swing.JFormattedTextField campoCodigo;
+    private javax.swing.JFormattedTextField campoDidatica;
+    private javax.swing.JFormattedTextField campoEntrevista;
+    private javax.swing.JFormattedTextField campoEscrita;
+    private javax.swing.JFormattedTextField campoMemorial;
+    private javax.swing.JFormattedTextField campoTitulos;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JSlider jSlider1;
-    private javax.swing.JSlider jSlider2;
-    private javax.swing.JSlider jSlider3;
-    private javax.swing.JSlider jSlider4;
-    private javax.swing.JSlider jSlider5;
     private javax.swing.JPanel panelDadosGerais;
-    private javax.swing.JFormattedTextField txtDidatica;
-    private javax.swing.JFormattedTextField txtEntrevista;
-    private javax.swing.JFormattedTextField txtEscrita;
-    private javax.swing.JFormattedTextField txtMemorial;
-    private javax.swing.JFormattedTextField txtTitulo;
+    private javax.swing.JSlider slideDidatica;
+    private javax.swing.JSlider slideEntrevista;
+    private javax.swing.JSlider slideEscrita;
+    private javax.swing.JSlider slideMemorial;
+    private javax.swing.JSlider slideTitulos;
+    private javax.swing.JLabel texDidática;
+    private javax.swing.JLabel textCodigo;
+    private javax.swing.JLabel textEntrevista;
+    private javax.swing.JLabel textEscrita;
+    private javax.swing.JLabel textMemorial;
+    private javax.swing.JLabel textTitulos;
     // End of variables declaration//GEN-END:variables
-
-    public JButton getBtnProximo() {
-        return btnProximo;
-    }
-    
-    public JFormattedTextField getTxtDidatica() {
-        return txtDidatica;
-    }
-    
-    public JFormattedTextField getTxtEntrevista() {
-        return txtEntrevista;
-    }
-    
-    public JFormattedTextField getTxtEscrita() {
-        return txtEscrita;
-    }
-    
-    public JFormattedTextField getTxtMemorial() {
-        return txtMemorial;
-    }
-    
-    public JFormattedTextField getTxtTitulo() {
-        return txtTitulo;
-    }
-    
 }
