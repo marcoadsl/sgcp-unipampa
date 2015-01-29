@@ -1,10 +1,12 @@
 package br.unipampa.sgc.modelo;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Concurso extends DML {
 
+    public static int ID_CONCURSO;
     private String ministerio;
     private String area;
     private String data;
@@ -81,11 +83,24 @@ public class Concurso extends DML {
         }
     }
 
+    public void registrarSessao(int idDaSessao) {
+        String sql = "update " + super.table + " set sessaoInicialAbertura=? where idConcurso=" + ID_CONCURSO + ";";
+//        update aluno set tcc_idtcc= 25 where idaluno=1;
+        super.conecta = ConectaBD.getInstance();
+        try {
+            super.preparedStatement = super.conecta.getConnection().prepareStatement(sql);
+            super.preparedStatement.setInt(1, idDaSessao);
+            super.preparedStatement.execute();
+            super.preparedStatement.close();
+        } catch (SQLException ex) {
+        }
+    }
+
     @Override
     public boolean editar(int id, Object objeto) {
         return false;
     }
-
+    
     @Override
     public boolean deletar(int id, Object objeto) {
         return false;
@@ -93,6 +108,32 @@ public class Concurso extends DML {
 
     @Override
     public Object buscar(int id) {
+        return null;
+    }
+
+    public ArrayList<Object> buscarTodosConcursos() {
+        String sql = "select idConcurso, ministerio, universidade, campus, area, data, edital, classe "
+                + "from concurso;";
+        ArrayList<Object> dados = new ArrayList<Object>();
+
+        try {
+            super.conecta= ConectaBD.getInstance();
+            super.statement = super.conecta.getConnection().createStatement();
+            super.resultSet = super.statement.executeQuery(sql);
+            
+            while (super.resultSet.next()) {
+                dados.add(super.resultSet.getInt("idConcurso"));
+                dados.add(super.resultSet.getString("ministerio"));
+                dados.add(super.resultSet.getString("universidade"));
+                dados.add(super.resultSet.getString("campus"));
+                dados.add(super.resultSet.getString("area"));
+                dados.add(super.resultSet.getString("data"));
+                dados.add(super.resultSet.getString("edital"));
+                dados.add(super.resultSet.getString("classe"));
+            }
+            return dados;
+        } catch (SQLException ex) {
+        }
         return null;
     }
 
@@ -111,6 +152,7 @@ public class Concurso extends DML {
                 super.resultSet = super.statement.executeQuery(sql);
                 while (super.resultSet.next()) {
                     id = super.resultSet.getInt(1);
+                    Concurso.ID_CONCURSO = id;
                 }
                 super.resultSet.close();
                 super.statement.close();

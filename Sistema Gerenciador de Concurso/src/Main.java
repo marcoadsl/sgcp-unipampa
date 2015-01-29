@@ -1,6 +1,8 @@
 
 import br.unipampa.sgc.apresentacao.JanelaInicial;
+import br.unipampa.sgc.apresentacao.JanelaPrincipal;
 import br.unipampa.sgc.controle.ControleInicial;
+import br.unipampa.sgc.controle.ControlePrincipal;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -12,8 +14,9 @@ import br.unipampa.sgc.controle.ControleInicial;
  *
  * @author GabrielBMoro
  */
-public class MainCriarConcurso {
+public class Main {
     public static void main(String[] args){
         new ControleInicial(new JanelaInicial());
+//        new ControlePrincipal(new JanelaPrincipal());
     }
 }

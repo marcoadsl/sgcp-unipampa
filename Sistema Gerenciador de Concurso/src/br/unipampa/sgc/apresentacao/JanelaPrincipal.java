@@ -5,6 +5,15 @@
  */
 package br.unipampa.sgc.apresentacao;
 
+import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
+import javax.swing.JList;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author GabrielBMoro
@@ -17,6 +26,11 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     public JanelaPrincipal() {
         initComponents();
         ConfigurarFrame.configurarJanelaPadrao(this, 950, 681);
+        jPaneInstalacaoSessaoAbertura.setVisible(false);
+        jPanelAberturaSessaoAbertura.setVisible(false);
+        jPanelCronograma.setVisible(false);
+        jPanelPesosDasProvas.setVisible(false);
+        jPanelInternoSessaoAbertura.revalidate();
     }
 
     /**
@@ -31,6 +45,55 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
         jTabbedPaneInternoDinamico = new javax.swing.JTabbedPane();
         jPanelSessaoDeAbertura = new javax.swing.JPanel();
+        jPanelButtonsSessaoAbertura = new javax.swing.JPanel();
+        btnInstalacao = new javax.swing.JButton();
+        btnCronograma = new javax.swing.JButton();
+        btnAbertura = new javax.swing.JButton();
+        btnPeso = new javax.swing.JButton();
+        jPanelInternoSessaoAbertura = new javax.swing.JPanel();
+        jPaneInstalacaoSessaoAbertura = new javax.swing.JPanel();
+        txtHoraInicioSessaoInstalacao = new javax.swing.JFormattedTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtLocalSessaoInstalacao = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtPortariaNomeacaoDaBanca = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txtEmissor = new javax.swing.JTextField();
+        btnSalvarInstalacaoSessao = new javax.swing.JButton();
+        btnGerarAtaInstalacaoSessaoAbertura = new javax.swing.JButton();
+        jPanelCronograma = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableCronograma = new javax.swing.JTable();
+        btnSalvarCronograma = new javax.swing.JButton();
+        btnExportarCronograma = new javax.swing.JButton();
+        btnAddAtividadeCronograma = new javax.swing.JButton();
+        btnRemoverAtividadeCronograma = new javax.swing.JButton();
+        jPanelAberturaSessaoAbertura = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jListCandidatosTotais = new javax.swing.JList();
+        btnAddCandidatoAbertura = new javax.swing.JButton();
+        btnRemoveCandidatodaPresenca = new javax.swing.JButton();
+        btnRemoveCandidatodaPresenca1 = new javax.swing.JButton();
+        btnAddCandidatoAbertura1 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jListCandidatosTotais1 = new javax.swing.JList();
+        btnSalvarCandPresente = new javax.swing.JButton();
+        btnExportarAtaDeDefesa = new javax.swing.JButton();
+        jPanelPesosDasProvas = new javax.swing.JPanel();
+        botaoSalvar = new javax.swing.JButton();
+        textEscrita = new javax.swing.JLabel();
+        texDidática = new javax.swing.JLabel();
+        textMemorial = new javax.swing.JLabel();
+        textTitulos = new javax.swing.JLabel();
+        textEntrevista = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txtPesoMemorial = new javax.swing.JFormattedTextField();
+        txtEscrita = new javax.swing.JFormattedTextField();
+        txtDidatica = new javax.swing.JFormattedTextField();
+        txtTitulo = new javax.swing.JFormattedTextField();
+        txtEntrevista = new javax.swing.JFormattedTextField();
         jPanelProvaEscrita = new javax.swing.JPanel();
         jPanelProvaDeTitulos = new javax.swing.JPanel();
         jPanelProvaDidatica = new javax.swing.JPanel();
@@ -38,11 +101,11 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         jPanelResultadoFinal = new javax.swing.JPanel();
         jMenuBarPrincipal = new javax.swing.JMenuBar();
         jMenuAcoes = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItemReiniciar = new javax.swing.JMenuItem();
+        jMenuItemSair = new javax.swing.JMenuItem();
         jMenuSuport = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItemManualSistema = new javax.swing.JMenuItem();
+        jMenuItemFaleConosco = new javax.swing.JMenuItem();
 
         jRadioButtonMenuItem1.setSelected(true);
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
@@ -51,15 +114,416 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         setTitle("Sistema Gerenciador de Concurso");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnInstalacao.setText("Instalação");
+
+        btnCronograma.setText("Cronograma");
+
+        btnAbertura.setText("Abertura");
+        btnAbertura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAberturaActionPerformed(evt);
+            }
+        });
+
+        btnPeso.setText("Pesos");
+        btnPeso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelButtonsSessaoAberturaLayout = new javax.swing.GroupLayout(jPanelButtonsSessaoAbertura);
+        jPanelButtonsSessaoAbertura.setLayout(jPanelButtonsSessaoAberturaLayout);
+        jPanelButtonsSessaoAberturaLayout.setHorizontalGroup(
+            jPanelButtonsSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelButtonsSessaoAberturaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelButtonsSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnCronograma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnInstalacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAbertura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelButtonsSessaoAberturaLayout.setVerticalGroup(
+            jPanelButtonsSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelButtonsSessaoAberturaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnInstalacao)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCronograma)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAbertura)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnPeso)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jLabel1.setText("Instalação:");
+
+        jLabel2.setText("Local de Sessão de Instalação da Comissão Examinadora:");
+
+        txtLocalSessaoInstalacao.setToolTipText("Exemplo: sala cento e doze do Campus Alegrete");
+
+        jLabel3.setText("Portaria de Nomeação da Banca:");
+
+        txtPortariaNomeacaoDaBanca.setToolTipText("Exemplo: 005/2008 (esta informação constará na ata)");
+
+        jLabel4.setText("Emissor da Portaria de Nomeação da Banca:");
+
+        txtEmissor.setToolTipText("Exemplo: \"Reitoria da Universidade Federal do Pampa\" (esta informação constará na ata)");
+
+        btnSalvarInstalacaoSessao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/salvar.png"))); // NOI18N
+        btnSalvarInstalacaoSessao.setToolTipText("Salvar Registro de Instalação");
+
+        btnGerarAtaInstalacaoSessaoAbertura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/exportar.png"))); // NOI18N
+        btnGerarAtaInstalacaoSessaoAbertura.setToolTipText("Gerar Ata de Instalação");
+
+        javax.swing.GroupLayout jPaneInstalacaoSessaoAberturaLayout = new javax.swing.GroupLayout(jPaneInstalacaoSessaoAbertura);
+        jPaneInstalacaoSessaoAbertura.setLayout(jPaneInstalacaoSessaoAberturaLayout);
+        jPaneInstalacaoSessaoAberturaLayout.setHorizontalGroup(
+            jPaneInstalacaoSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPaneInstalacaoSessaoAberturaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPaneInstalacaoSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPaneInstalacaoSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel1)
+                        .addComponent(txtHoraInicioSessaoInstalacao, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
+                        .addComponent(jLabel2)
+                        .addComponent(txtLocalSessaoInstalacao)
+                        .addComponent(jLabel3)
+                        .addComponent(txtPortariaNomeacaoDaBanca)
+                        .addComponent(jLabel4)
+                        .addComponent(txtEmissor))
+                    .addGroup(jPaneInstalacaoSessaoAberturaLayout.createSequentialGroup()
+                        .addComponent(btnSalvarInstalacaoSessao, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnGerarAtaInstalacaoSessaoAbertura, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
+        jPaneInstalacaoSessaoAberturaLayout.setVerticalGroup(
+            jPaneInstalacaoSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPaneInstalacaoSessaoAberturaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(4, 4, 4)
+                .addComponent(txtHoraInicioSessaoInstalacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtLocalSessaoInstalacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtPortariaNomeacaoDaBanca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtEmissor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPaneInstalacaoSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnGerarAtaInstalacaoSessaoAbertura, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSalvarInstalacaoSessao))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        jPanelInternoSessaoAbertura.add(jPaneInstalacaoSessaoAbertura);
+
+        jTableCronograma.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Atividade", "Data", "Horário", "Local"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTableCronograma);
+
+        btnSalvarCronograma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/salvar.png"))); // NOI18N
+        btnSalvarCronograma.setToolTipText("Salvar Cronograma");
+
+        btnExportarCronograma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/exportar.png"))); // NOI18N
+        btnExportarCronograma.setToolTipText("Exportar Cronograma");
+        btnExportarCronograma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExportarCronogramaActionPerformed(evt);
+            }
+        });
+
+        btnAddAtividadeCronograma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/incluir.png"))); // NOI18N
+        btnAddAtividadeCronograma.setToolTipText("Adicionar linha");
+
+        btnRemoverAtividadeCronograma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/remover.png"))); // NOI18N
+        btnRemoverAtividadeCronograma.setToolTipText("Romover atividade do cronograma");
+
+        javax.swing.GroupLayout jPanelCronogramaLayout = new javax.swing.GroupLayout(jPanelCronograma);
+        jPanelCronograma.setLayout(jPanelCronogramaLayout);
+        jPanelCronogramaLayout.setHorizontalGroup(
+            jPanelCronogramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCronogramaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelCronogramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelCronogramaLayout.createSequentialGroup()
+                        .addComponent(btnSalvarCronograma, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnExportarCronograma, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(388, Short.MAX_VALUE))
+                    .addGroup(jPanelCronogramaLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelCronogramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnRemoverAtividadeCronograma, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAddAtividadeCronograma, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20))))
+        );
+        jPanelCronogramaLayout.setVerticalGroup(
+            jPanelCronogramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCronogramaLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanelCronogramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelCronogramaLayout.createSequentialGroup()
+                        .addComponent(btnAddAtividadeCronograma)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnRemoverAtividadeCronograma))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelCronogramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSalvarCronograma)
+                    .addComponent(btnExportarCronograma))
+                .addContainerGap(41, Short.MAX_VALUE))
+        );
+
+        jPanelInternoSessaoAbertura.add(jPanelCronograma);
+
+        jLabel5.setText("Marque os candidatos presentes na sessão de abertura do concurso:");
+
+        jScrollPane2.setViewportView(jListCandidatosTotais);
+
+        btnAddCandidatoAbertura.setText(">");
+        btnAddCandidatoAbertura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddCandidatoAberturaActionPerformed(evt);
+            }
+        });
+
+        btnRemoveCandidatodaPresenca.setText("<");
+        btnRemoveCandidatodaPresenca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveCandidatodaPresencaActionPerformed(evt);
+            }
+        });
+
+        btnRemoveCandidatodaPresenca1.setText("<<");
+        btnRemoveCandidatodaPresenca1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveCandidatodaPresenca1ActionPerformed(evt);
+            }
+        });
+
+        btnAddCandidatoAbertura1.setText(">>");
+
+        jScrollPane3.setViewportView(jListCandidatosTotais1);
+
+        btnSalvarCandPresente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/salvar.png"))); // NOI18N
+        btnSalvarCandPresente.setToolTipText("Salvar Registro de Instalação");
+        btnSalvarCandPresente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarCandPresenteActionPerformed(evt);
+            }
+        });
+
+        btnExportarAtaDeDefesa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/exportar.png"))); // NOI18N
+        btnExportarAtaDeDefesa.setToolTipText("Gerar Ata de Instalação");
+
+        javax.swing.GroupLayout jPanelAberturaSessaoAberturaLayout = new javax.swing.GroupLayout(jPanelAberturaSessaoAbertura);
+        jPanelAberturaSessaoAbertura.setLayout(jPanelAberturaSessaoAberturaLayout);
+        jPanelAberturaSessaoAberturaLayout.setHorizontalGroup(
+            jPanelAberturaSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelAberturaSessaoAberturaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelAberturaSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelAberturaSessaoAberturaLayout.createSequentialGroup()
+                        .addComponent(btnSalvarCandPresente, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnExportarAtaDeDefesa, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelAberturaSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanelAberturaSessaoAberturaLayout.createSequentialGroup()
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanelAberturaSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnAddCandidatoAbertura1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnRemoveCandidatodaPresenca1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnRemoveCandidatodaPresenca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnAddCandidatoAbertura, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+        jPanelAberturaSessaoAberturaLayout.setVerticalGroup(
+            jPanelAberturaSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelAberturaSessaoAberturaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addGroup(jPanelAberturaSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelAberturaSessaoAberturaLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(btnAddCandidatoAbertura)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnRemoveCandidatodaPresenca)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnAddCandidatoAbertura1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnRemoveCandidatodaPresenca1))
+                    .addGroup(jPanelAberturaSessaoAberturaLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelAberturaSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addGroup(jPanelAberturaSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnSalvarCandPresente)
+                    .addComponent(btnExportarAtaDeDefesa, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        jPanelInternoSessaoAbertura.add(jPanelAberturaSessaoAbertura);
+
+        botaoSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/salvar.png"))); // NOI18N
+        botaoSalvar.setToolTipText("Atribuir Pesos");
+        botaoSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoSalvarActionPerformed(evt);
+            }
+        });
+
+        textEscrita.setText("Escrita");
+
+        texDidática.setText("Didática");
+
+        textMemorial.setText("Memorial");
+
+        textTitulos.setText("Títulos");
+
+        textEntrevista.setText("Entrevista");
+
+        jLabel7.setText("Determine os pesos das provas, de acordo com o edital do concurso.");
+
+        txtPesoMemorial.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        txtPesoMemorial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPesoMemorialActionPerformed(evt);
+            }
+        });
+
+        txtEscrita.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+
+        txtDidatica.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        txtDidatica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDidaticaActionPerformed(evt);
+            }
+        });
+
+        txtTitulo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        txtTitulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTituloActionPerformed(evt);
+            }
+        });
+
+        txtEntrevista.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+
+        javax.swing.GroupLayout jPanelPesosDasProvasLayout = new javax.swing.GroupLayout(jPanelPesosDasProvas);
+        jPanelPesosDasProvas.setLayout(jPanelPesosDasProvasLayout);
+        jPanelPesosDasProvasLayout.setHorizontalGroup(
+            jPanelPesosDasProvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPesosDasProvasLayout.createSequentialGroup()
+                .addGroup(jPanelPesosDasProvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelPesosDasProvasLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanelPesosDasProvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addGroup(jPanelPesosDasProvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelPesosDasProvasLayout.createSequentialGroup()
+                                    .addComponent(textEntrevista)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtEntrevista))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelPesosDasProvasLayout.createSequentialGroup()
+                                    .addGroup(jPanelPesosDasProvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(textMemorial)
+                                        .addComponent(textEscrita)
+                                        .addComponent(texDidática)
+                                        .addComponent(textTitulos))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(jPanelPesosDasProvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(txtDidatica, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+                                        .addComponent(txtEscrita, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtPesoMemorial, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtTitulo))))))
+                    .addGroup(jPanelPesosDasProvasLayout.createSequentialGroup()
+                        .addGap(222, 222, 222)
+                        .addComponent(botaoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+        jPanelPesosDasProvasLayout.setVerticalGroup(
+            jPanelPesosDasProvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPesosDasProvasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanelPesosDasProvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textMemorial)
+                    .addComponent(txtPesoMemorial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3)
+                .addGroup(jPanelPesosDasProvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textEscrita)
+                    .addComponent(txtEscrita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelPesosDasProvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(texDidática)
+                    .addComponent(txtDidatica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelPesosDasProvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textTitulos)
+                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelPesosDasProvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textEntrevista)
+                    .addComponent(txtEntrevista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(4, 4, 4)
+                .addComponent(botaoSalvar)
+                .addGap(28, 28, 28))
+        );
+
+        jPanelInternoSessaoAbertura.add(jPanelPesosDasProvas);
+
         javax.swing.GroupLayout jPanelSessaoDeAberturaLayout = new javax.swing.GroupLayout(jPanelSessaoDeAbertura);
         jPanelSessaoDeAbertura.setLayout(jPanelSessaoDeAberturaLayout);
         jPanelSessaoDeAberturaLayout.setHorizontalGroup(
             jPanelSessaoDeAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 875, Short.MAX_VALUE)
+            .addGroup(jPanelSessaoDeAberturaLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jPanelButtonsSessaoAbertura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanelInternoSessaoAbertura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelSessaoDeAberturaLayout.setVerticalGroup(
             jPanelSessaoDeAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 254, Short.MAX_VALUE)
+            .addGroup(jPanelSessaoDeAberturaLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(jPanelSessaoDeAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelInternoSessaoAbertura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelButtonsSessaoAbertura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPaneInternoDinamico.addTab("Sessão de Abertura", new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/sessaoDeAbertura.png")), jPanelSessaoDeAbertura); // NOI18N
@@ -68,11 +532,11 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         jPanelProvaEscrita.setLayout(jPanelProvaEscritaLayout);
         jPanelProvaEscritaLayout.setHorizontalGroup(
             jPanelProvaEscritaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 875, Short.MAX_VALUE)
+            .addGap(0, 1803, Short.MAX_VALUE)
         );
         jPanelProvaEscritaLayout.setVerticalGroup(
             jPanelProvaEscritaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 254, Short.MAX_VALUE)
+            .addGap(0, 394, Short.MAX_VALUE)
         );
 
         jTabbedPaneInternoDinamico.addTab("Prova Escrita", new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/provaEscrita.png")), jPanelProvaEscrita); // NOI18N
@@ -81,11 +545,11 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         jPanelProvaDeTitulos.setLayout(jPanelProvaDeTitulosLayout);
         jPanelProvaDeTitulosLayout.setHorizontalGroup(
             jPanelProvaDeTitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 875, Short.MAX_VALUE)
+            .addGap(0, 1803, Short.MAX_VALUE)
         );
         jPanelProvaDeTitulosLayout.setVerticalGroup(
             jPanelProvaDeTitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 254, Short.MAX_VALUE)
+            .addGap(0, 394, Short.MAX_VALUE)
         );
 
         jTabbedPaneInternoDinamico.addTab("Prova de Títulos", new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/provaTitulos.png")), jPanelProvaDeTitulos); // NOI18N
@@ -94,11 +558,11 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         jPanelProvaDidatica.setLayout(jPanelProvaDidaticaLayout);
         jPanelProvaDidaticaLayout.setHorizontalGroup(
             jPanelProvaDidaticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 875, Short.MAX_VALUE)
+            .addGap(0, 1803, Short.MAX_VALUE)
         );
         jPanelProvaDidaticaLayout.setVerticalGroup(
             jPanelProvaDidaticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 254, Short.MAX_VALUE)
+            .addGap(0, 394, Short.MAX_VALUE)
         );
 
         jTabbedPaneInternoDinamico.addTab("Prova de Didática", new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/provaDidatica.png")), jPanelProvaDidatica); // NOI18N
@@ -107,11 +571,11 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         jPanelDefesaMemorial.setLayout(jPanelDefesaMemorialLayout);
         jPanelDefesaMemorialLayout.setHorizontalGroup(
             jPanelDefesaMemorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 875, Short.MAX_VALUE)
+            .addGap(0, 1803, Short.MAX_VALUE)
         );
         jPanelDefesaMemorialLayout.setVerticalGroup(
             jPanelDefesaMemorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 254, Short.MAX_VALUE)
+            .addGap(0, 394, Short.MAX_VALUE)
         );
 
         jTabbedPaneInternoDinamico.addTab("Defesa de Memorial", new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/defesaMemorial.png")), jPanelDefesaMemorial); // NOI18N
@@ -120,51 +584,51 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         jPanelResultadoFinal.setLayout(jPanelResultadoFinalLayout);
         jPanelResultadoFinalLayout.setHorizontalGroup(
             jPanelResultadoFinalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 875, Short.MAX_VALUE)
+            .addGap(0, 1803, Short.MAX_VALUE)
         );
         jPanelResultadoFinalLayout.setVerticalGroup(
             jPanelResultadoFinalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 254, Short.MAX_VALUE)
+            .addGap(0, 394, Short.MAX_VALUE)
         );
 
         jTabbedPaneInternoDinamico.addTab("Resultado Final", new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/resultadoFinal.png")), jPanelResultadoFinal); // NOI18N
 
-        getContentPane().add(jTabbedPaneInternoDinamico, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 880, 300));
+        getContentPane().add(jTabbedPaneInternoDinamico, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 880, 440));
 
         jMenuBarPrincipal.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jMenuAcoes.setText("Ações");
         jMenuAcoes.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/reiniciar.png"))); // NOI18N
-        jMenuItem1.setText("Reiniciar");
-        jMenuAcoes.add(jMenuItem1);
+        jMenuItemReiniciar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItemReiniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/reiniciar.png"))); // NOI18N
+        jMenuItemReiniciar.setText("Reiniciar");
+        jMenuAcoes.add(jMenuItemReiniciar);
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/desligar.png"))); // NOI18N
-        jMenuItem2.setText("Sair");
-        jMenuAcoes.add(jMenuItem2);
+        jMenuItemSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItemSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/desligar.png"))); // NOI18N
+        jMenuItemSair.setText("Sair");
+        jMenuAcoes.add(jMenuItemSair);
 
         jMenuBarPrincipal.add(jMenuAcoes);
 
         jMenuSuport.setText("Suporte");
         jMenuSuport.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.ALT_MASK));
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/manualDoSistema.png"))); // NOI18N
-        jMenuItem3.setText("Manual do Sistema");
-        jMenuSuport.add(jMenuItem3);
+        jMenuItemManualSistema.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.ALT_MASK));
+        jMenuItemManualSistema.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/manualDoSistema.png"))); // NOI18N
+        jMenuItemManualSistema.setText("Manual do Sistema");
+        jMenuSuport.add(jMenuItemManualSistema);
 
-        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.ALT_MASK));
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/faleConosco.png"))); // NOI18N
-        jMenuItem4.setText("Fale Conosco");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemFaleConosco.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.ALT_MASK));
+        jMenuItemFaleConosco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/faleConosco.png"))); // NOI18N
+        jMenuItemFaleConosco.setText("Fale Conosco");
+        jMenuItemFaleConosco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                jMenuItemFaleConoscoActionPerformed(evt);
             }
         });
-        jMenuSuport.add(jMenuItem4);
+        jMenuSuport.add(jMenuItemFaleConosco);
 
         jMenuBarPrincipal.add(jMenuSuport);
 
@@ -174,60 +638,303 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void jMenuItemFaleConoscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFaleConoscoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_jMenuItemFaleConoscoActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JanelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JanelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JanelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JanelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void btnAberturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAberturaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAberturaActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new JanelaPrincipal().setVisible(true);
-            }
-        });
-    }
+    private void btnPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPesoActionPerformed
+
+    private void btnExportarCronogramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarCronogramaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExportarCronogramaActionPerformed
+
+    private void btnRemoveCandidatodaPresencaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveCandidatodaPresencaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRemoveCandidatodaPresencaActionPerformed
+
+    private void btnAddCandidatoAberturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCandidatoAberturaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddCandidatoAberturaActionPerformed
+
+    private void btnSalvarCandPresenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarCandPresenteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSalvarCandPresenteActionPerformed
+
+    private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
+      
+    }//GEN-LAST:event_botaoSalvarActionPerformed
+
+    private void txtPesoMemorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesoMemorialActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPesoMemorialActionPerformed
+
+    private void txtDidaticaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDidaticaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDidaticaActionPerformed
+
+    private void txtTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTituloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTituloActionPerformed
+
+    private void btnRemoveCandidatodaPresenca1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveCandidatodaPresenca1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRemoveCandidatodaPresenca1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaoSalvar;
+    private javax.swing.JButton btnAbertura;
+    private javax.swing.JButton btnAddAtividadeCronograma;
+    private javax.swing.JButton btnAddCandidatoAbertura;
+    private javax.swing.JButton btnAddCandidatoAbertura1;
+    private javax.swing.JButton btnCronograma;
+    private javax.swing.JButton btnExportarAtaDeDefesa;
+    private javax.swing.JButton btnExportarCronograma;
+    private javax.swing.JButton btnGerarAtaInstalacaoSessaoAbertura;
+    private javax.swing.JButton btnInstalacao;
+    private javax.swing.JButton btnPeso;
+    private javax.swing.JButton btnRemoveCandidatodaPresenca;
+    private javax.swing.JButton btnRemoveCandidatodaPresenca1;
+    private javax.swing.JButton btnRemoverAtividadeCronograma;
+    private javax.swing.JButton btnSalvarCandPresente;
+    private javax.swing.JButton btnSalvarCronograma;
+    private javax.swing.JButton btnSalvarInstalacaoSessao;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JList jListCandidatosTotais;
+    private javax.swing.JList jListCandidatosTotais1;
     private javax.swing.JMenu jMenuAcoes;
     private javax.swing.JMenuBar jMenuBarPrincipal;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItemFaleConosco;
+    private javax.swing.JMenuItem jMenuItemManualSistema;
+    private javax.swing.JMenuItem jMenuItemReiniciar;
+    private javax.swing.JMenuItem jMenuItemSair;
     private javax.swing.JMenu jMenuSuport;
+    private javax.swing.JPanel jPaneInstalacaoSessaoAbertura;
+    private javax.swing.JPanel jPanelAberturaSessaoAbertura;
+    private javax.swing.JPanel jPanelButtonsSessaoAbertura;
+    private javax.swing.JPanel jPanelCronograma;
     private javax.swing.JPanel jPanelDefesaMemorial;
+    private javax.swing.JPanel jPanelInternoSessaoAbertura;
+    private javax.swing.JPanel jPanelPesosDasProvas;
     private javax.swing.JPanel jPanelProvaDeTitulos;
     private javax.swing.JPanel jPanelProvaDidatica;
     private javax.swing.JPanel jPanelProvaEscrita;
     private javax.swing.JPanel jPanelResultadoFinal;
     private javax.swing.JPanel jPanelSessaoDeAbertura;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPaneInternoDinamico;
+    private javax.swing.JTable jTableCronograma;
+    private javax.swing.JLabel texDidática;
+    private javax.swing.JLabel textEntrevista;
+    private javax.swing.JLabel textEscrita;
+    private javax.swing.JLabel textMemorial;
+    private javax.swing.JLabel textTitulos;
+    private javax.swing.JFormattedTextField txtDidatica;
+    private javax.swing.JTextField txtEmissor;
+    private javax.swing.JFormattedTextField txtEntrevista;
+    private javax.swing.JFormattedTextField txtEscrita;
+    private javax.swing.JFormattedTextField txtHoraInicioSessaoInstalacao;
+    private javax.swing.JTextField txtLocalSessaoInstalacao;
+    private javax.swing.JFormattedTextField txtPesoMemorial;
+    private javax.swing.JTextField txtPortariaNomeacaoDaBanca;
+    private javax.swing.JFormattedTextField txtTitulo;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getBotaoSalvar() {
+        return botaoSalvar;
+    }
+
+    public JButton getBtnAbertura() {
+        return btnAbertura;
+    }
+
+    public JButton getBtnAddCandidatoAbertura() {
+        return btnAddCandidatoAbertura;
+    }
+
+    public JButton getBtnAddCandidatoAbertura1() {
+        return btnAddCandidatoAbertura1;
+    }
+
+    public JButton getBtnCronograma() {
+        return btnCronograma;
+    }
+
+    public JButton getBtnExportarAtaDeDefesa() {
+        return btnExportarAtaDeDefesa;
+    }
+
+    public JButton getBtnExportarCronograma() {
+        return btnExportarCronograma;
+    }
+
+    public JButton getBtnGerarAtaInstalacaoSessaoAbertura() {
+        return btnGerarAtaInstalacaoSessaoAbertura;
+    }
+
+    public JButton getBtnInstalacao() {
+        return btnInstalacao;
+    }
+
+    public JButton getBtnPeso() {
+        return btnPeso;
+    }
+
+    public JButton getBtnRemoveCandidatodaPresenca() {
+        return btnRemoveCandidatodaPresenca;
+    }
+
+    public JButton getBtnRemoveCandidatodaPresenca1() {
+        return btnRemoveCandidatodaPresenca1;
+    }
+
+    public JButton getBtnSalvarCandPresente() {
+        return btnSalvarCandPresente;
+    }
+
+    public JButton getBtnSalvarCronograma() {
+        return btnSalvarCronograma;
+    }
+
+    public JButton getBtnSalvarInstalacaoSessao() {
+        return btnSalvarInstalacaoSessao;
+    }
+
+    public JList getjListCandidatosTotais() {
+        return jListCandidatosTotais;
+    }
+
+    public JList getjListCandidatosTotais1() {
+        return jListCandidatosTotais1;
+    }
+
+    public JMenuItem getjMenuItemFaleConosco() {
+        return jMenuItemFaleConosco;
+    }
+
+    public JMenuItem getjMenuItemManualSistema() {
+        return jMenuItemManualSistema;
+    }
+
+    public JMenuItem getjMenuItemReiniciar() {
+        return jMenuItemReiniciar;
+    }
+
+    public JMenuItem getjMenuItemSair() {
+        return jMenuItemSair;
+    }
+
+    public JMenu getjMenuSuport() {
+        return jMenuSuport;
+    }
+
+    public JPanel getjPaneInstalacaoSessaoAbertura() {
+        return jPaneInstalacaoSessaoAbertura;
+    }
+
+    public JPanel getjPanelAberturaSessaoAbertura() {
+        return jPanelAberturaSessaoAbertura;
+    }
+
+    public JPanel getjPanelButtonsSessaoAbertura() {
+        return jPanelButtonsSessaoAbertura;
+    }
+
+    public JPanel getjPanelCronograma() {
+        return jPanelCronograma;
+    }
+
+    public JPanel getjPanelDefesaMemorial() {
+        return jPanelDefesaMemorial;
+    }
+
+    public JPanel getjPanelInternoSessaoAbertura() {
+        return jPanelInternoSessaoAbertura;
+    }
+
+    public JPanel getjPanelPesosDasProvas() {
+        return jPanelPesosDasProvas;
+    }
+
+    public JPanel getjPanelProvaDeTitulos() {
+        return jPanelProvaDeTitulos;
+    }
+    
+    public JPanel getjPanelProvaDidatica() {
+        return jPanelProvaDidatica;
+    }
+
+    public JPanel getjPanelProvaEscrita() {
+        return jPanelProvaEscrita;
+    }
+
+    public JPanel getjPanelResultadoFinal() {
+        return jPanelResultadoFinal;
+    }
+
+    public JPanel getjPanelSessaoDeAbertura() {
+        return jPanelSessaoDeAbertura;
+    }
+
+    public JTable getjTableCronograma() {
+        return jTableCronograma;
+    }
+
+    public JFormattedTextField getTxtDidatica() {
+        return txtDidatica;
+    }
+
+    public JFormattedTextField getTxtEntrevista() {
+        return txtEntrevista;
+    }
+
+    public JFormattedTextField getTxtEscrita() {
+        return txtEscrita;
+    }
+
+    public JFormattedTextField getTxtHoraInicioSessaoInstalacao() {
+        return txtHoraInicioSessaoInstalacao;
+    }
+
+    public JTextField getTxtLocalSessaoInstalacao() {
+        return txtLocalSessaoInstalacao;
+    }
+
+    public JFormattedTextField getTxtPesoMemorial() {
+        return txtPesoMemorial;
+    }
+
+    public JTextField getTxtEmissor() {
+        return txtEmissor;
+    }
+
+    public JTextField getTxtPortariaNomeacaoDaBanca() {
+        return txtPortariaNomeacaoDaBanca;
+    }
+
+    public JFormattedTextField getTxtTitulo() {
+        return txtTitulo;
+    }
+
+    public JButton getBtnAddAtividadeCronograma() {
+        return btnAddAtividadeCronograma;
+    }
+
+    public JButton getBtnRemoverAtividadeCronograma() {
+        return btnRemoverAtividadeCronograma;
+    }
+    
 }
