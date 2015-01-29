@@ -23,7 +23,6 @@ private ControleCriarConcurso controlerCriarConcurso;
         ConfigurarFrame.configurarJanelaPadrao(janelaInicial,340,373);
         janelaInicial.addWindowListener(new TrataListenerDaJanela());
         janelaInicial.getBtnCriar().addActionListener(new ActionListener() {
-
             @Override
             public void actionPerformed(ActionEvent e) {
                 janelaInicial.dispose();

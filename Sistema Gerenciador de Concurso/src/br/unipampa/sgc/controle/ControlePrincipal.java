@@ -17,5 +17,6 @@ public class ControlePrincipal {
     public ControlePrincipal(final JanelaPrincipal janelaPrincipal) {
         ConfigurarFrame.configurarJanelaPadrao(janelaPrincipal, 950, 600);
         janelaPrincipal.addWindowListener(new TrataListenerDaJanela());
+        
     }
 }

@@ -12,7 +12,7 @@ import br.unipampa.sgc.controle.ControleInicial;
  *
  * @author GabrielBMoro
  */
-public class MainCriarConcurso {
+public class Main {
     public static void main(String[] args){
         new ControleInicial(new JanelaInicial());
     }
