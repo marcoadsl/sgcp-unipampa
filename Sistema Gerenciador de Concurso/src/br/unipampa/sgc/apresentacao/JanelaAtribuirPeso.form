@@ -34,7 +34,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="panelDadosGerais" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="22" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="21" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -66,20 +66,33 @@
                               <Component id="textCodigo" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="campoEntrevista" min="-2" pref="59" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="campoEscrita" max="32767" attributes="0"/>
-                                  <Component id="campoMemorial" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="campoTitulos" max="32767" attributes="0"/>
-                                  <Component id="campoCodigo" alignment="0" pref="59" max="32767" attributes="0"/>
-                                  <Component id="campoDidatica" alignment="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="campoEntrevista" min="-2" pref="59" max="-2" attributes="0"/>
+                                  <EmptySpace pref="53" max="32767" attributes="0"/>
+                                  <Component id="slideEntrevista" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="campoEscrita" max="32767" attributes="0"/>
+                                      <Component id="campoMemorial" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="campoTitulos" max="32767" attributes="0"/>
+                                      <Component id="campoCodigo" alignment="0" pref="59" max="32767" attributes="0"/>
+                                      <Component id="campoDidatica" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="slideEscrita" min="-2" max="-2" attributes="0"/>
+                                      <Component id="slideDidatica" min="-2" max="-2" attributes="0"/>
+                                      <Component id="slideMemorial" min="-2" max="-2" attributes="0"/>
+                                      <Component id="slideTitulos" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
                       <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="201" max="32767" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <Component id="botaoSalvar" min="-2" pref="136" max="-2" attributes="0"/>
@@ -102,29 +115,52 @@
                       <Component id="campoCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="campoEscrita" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="textEscrita" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="campoDidatica" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="texDidática" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="textMemorial" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="campoMemorial" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="campoTitulos" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="textTitulos" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="campoEntrevista" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="textEntrevista" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Group type="103" groupAlignment="1" attributes="0">
+                                                      <Group type="103" groupAlignment="3" attributes="0">
+                                                          <Component id="campoEscrita" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="textEscrita" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Component id="slideEscrita" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="campoDidatica" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="texDidática" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Component id="slideDidatica" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="textMemorial" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="campoMemorial" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Component id="slideMemorial" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="campoTitulos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textTitulos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Component id="slideTitulos" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="campoEntrevista" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="textEntrevista" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Component id="slideEntrevista" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="botaoSalvar" min="-2" max="-2" attributes="0"/>
@@ -182,51 +218,57 @@
         <Component class="javax.swing.JFormattedTextField" name="campoEscrita">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-              <Format format="#0" subtype="-1" type="0"/>
+              <Format format="#0.00" subtype="-1" type="0"/>
             </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoEscritaActionPerformed"/>
+            <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="campoEscritaPropertyChange"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campoEscritaKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="campoDidatica">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-              <Format format="#0" subtype="-1" type="0"/>
+              <Format format="#0.00" subtype="-1" type="0"/>
             </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoDidaticaActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campoDidaticaKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="campoMemorial">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-              <Format format="#0" subtype="-1" type="0"/>
+              <Format format="#0.00" subtype="-1" type="0"/>
             </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoMemorialActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campoMemorialKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="campoTitulos">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-              <Format format="#0" subtype="-1" type="0"/>
+              <Format format="#0.00" subtype="-1" type="0"/>
             </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoTitulosActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campoTitulosKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="campoEntrevista">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-              <Format format="#0" subtype="-1" type="0"/>
+              <Format format="#0.00" subtype="-1" type="0"/>
             </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoEntrevistaActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campoEntrevistaKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="textCodigo">
@@ -244,6 +286,46 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoCodigoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JSlider" name="slideEscrita">
+          <Properties>
+            <Property name="maximum" type="int" value="10"/>
+          </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="slideEscritaStateChanged"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JSlider" name="slideDidatica">
+          <Properties>
+            <Property name="maximum" type="int" value="10"/>
+          </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="slideDidaticaStateChanged"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JSlider" name="slideMemorial">
+          <Properties>
+            <Property name="maximum" type="int" value="10"/>
+          </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="slideMemorialStateChanged"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JSlider" name="slideTitulos">
+          <Properties>
+            <Property name="maximum" type="int" value="10"/>
+          </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="slideTitulosStateChanged"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JSlider" name="slideEntrevista">
+          <Properties>
+            <Property name="maximum" type="int" value="10"/>
+          </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="slideEntrevistaStateChanged"/>
           </Events>
         </Component>
       </SubComponents>
