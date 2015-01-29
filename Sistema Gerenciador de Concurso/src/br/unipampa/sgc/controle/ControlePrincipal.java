@@ -27,15 +27,25 @@ import javax.swing.table.DefaultTableModel;
 public class ControlePrincipal {
 
     private ControleCriarConcurso controleCriarConcurso;
+//horaInicio, local, portariaDeNomeacao, emissorDePortaria
 
-    private void enviarDadosJaArmazenados(){
-        SessaoDeAbertura sessao= new SessaoDeAbertura();
-
+    private void enviarDadosJaArmazenados(JanelaPrincipal janelaPrincipal) {
+        SessaoDeAbertura sessao = new SessaoDeAbertura();
+        ArrayList<String> dados = (ArrayList<String>) sessao.buscar(Concurso.getMyInstance().recuperarIDSessao());
+        if (dados != null) {
+            janelaPrincipal.getTxtHoraInicioSessaoInstalacao().setText(dados.get(0));
+            janelaPrincipal.getTxtLocalSessaoInstalacao().setText(dados.get(1));
+            janelaPrincipal.getTxtPortariaNomeacaoDaBanca().setText(dados.get(2));
+            janelaPrincipal.getTxtEmissor().setText(dados.get(3));
+            janelaPrincipal.getjPaneInstalacaoSessaoAbertura().revalidate();
+        }
     }
-    
+
     public ControlePrincipal(final JanelaPrincipal janelaPrincipal) {
         ConfigurarFrame.configurarJanelaPadrao(janelaPrincipal, 950, 600);
         janelaPrincipal.addWindowListener(new TrataListenerDaJanela());
+
+        enviarDadosJaArmazenados(janelaPrincipal);
         janelaPrincipal.getjMenuItemFaleConosco().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -180,29 +190,31 @@ public class ControlePrincipal {
         janelaPrincipal.getBtnAddCandidatoAbertura().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int indice= janelaPrincipal.getjListCandidatosTotais().getSelectedIndex();
-               
-                DefaultListModel modelo = new DefaultListModel();
-                janelaPrincipal.getjListCandidatosTotais().setModel(modelo);
-                String nomeCandidato = String.valueOf(modelo.get(indice));
-                
-                if(nomeCandidato!=null){
-                modelo.remove(indice);
-                DefaultListModel modelo2= new DefaultListModel();
-                janelaPrincipal.getjListCandidatosTotais1().setModel(modelo2);
-                modelo2.addElement(nomeCandidato);
+                int indice = janelaPrincipal.getjListCandidatosTotais().getSelectedIndex();
+                String nomeDoCandidato = String.valueOf(janelaPrincipal.getjListCandidatosTotais().getSelectedValue());
+
+                DefaultListModel listModel = new DefaultListModel();
+
+                if (nomeDoCandidato != null) {
+                    janelaPrincipal.getjListCandidatosTotais().remove(indice);
+//                    DefaultListModel modelo2 = new DefaultListModel();
+//                    modelo2.addElement(nomeDoCandidato);
+//                    janelaPrincipal.getjListCandidatosTotais1().setModel(modelo2);
+                    listModel.addElement(nomeDoCandidato);
+                    janelaPrincipal.getjListCandidatosTotais().setModel(listModel);
+                    janelaPrincipal.getjListCandidatosTotais1().repaint();
                 }
             }
         });
         janelaPrincipal.getBtnRemoveCandidatodaPresenca().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int indice= janelaPrincipal.getjListCandidatosTotais1().getSelectedIndex();
+                int indice = janelaPrincipal.getjListCandidatosTotais1().getSelectedIndex();
                 DefaultListModel modelo = new DefaultListModel();
                 String nomeDoCandidato = String.valueOf(modelo.get(indice));
-                
-                if(nomeDoCandidato!=null){
-                    DefaultListModel modelo1= new DefaultListModel();
+
+                if (nomeDoCandidato != null) {
+                    DefaultListModel modelo1 = new DefaultListModel();
                     janelaPrincipal.getjListCandidatosTotais().setModel(modelo1);
                     modelo1.addElement(nomeDoCandidato);
                 }
@@ -211,14 +223,14 @@ public class ControlePrincipal {
         janelaPrincipal.getBtnAddCandidatoAbertura1().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+
                 DefaultListModel modelo = new DefaultListModel();
                 janelaPrincipal.getjListCandidatosTotais().setModel(modelo);
-                
-                DefaultListModel modelo2= new DefaultListModel();
+
+                DefaultListModel modelo2 = new DefaultListModel();
                 janelaPrincipal.getjListCandidatosTotais1().setModel(modelo2);
-                
-                for(int count=0;count<modelo.size();count++){
+
+                for (int count = 0; count < modelo.size(); count++) {
                     modelo2.addElement(String.valueOf(modelo.get(count)));
                     modelo.remove(count);
                 }
@@ -230,32 +242,32 @@ public class ControlePrincipal {
             public void actionPerformed(ActionEvent e) {
                 DefaultListModel modelo = new DefaultListModel();
                 janelaPrincipal.getjListCandidatosTotais1().setModel(modelo);
-                
-                DefaultListModel modelo2= new DefaultListModel();
+
+                DefaultListModel modelo2 = new DefaultListModel();
                 janelaPrincipal.getjListCandidatosTotais().setModel(modelo2);
-                
-                for(int count=0;count<modelo.size();count++){
+
+                for (int count = 0; count < modelo.size(); count++) {
                     modelo2.addElement(String.valueOf(modelo.get(count)));
                     modelo.remove(count);
                 }
             }
         });
-        
+
         janelaPrincipal.getBtnRemoveCandidatodaPresenca().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int indice= janelaPrincipal.getjListCandidatosTotais1().getSelectedIndex();
+                int indice = janelaPrincipal.getjListCandidatosTotais1().getSelectedIndex();
                 DefaultListModel modelo = new DefaultListModel();
                 String nomeDoCandidato = String.valueOf(modelo.get(indice));
-                
-                if(nomeDoCandidato!=null){
-                    DefaultListModel modelo1= new DefaultListModel();
+
+                if (nomeDoCandidato != null) {
+                    DefaultListModel modelo1 = new DefaultListModel();
                     janelaPrincipal.getjListCandidatosTotais().setModel(modelo1);
                     modelo1.addElement(nomeDoCandidato);
                 }
             }
         });
-    
+
     }
-    
+
 }

@@ -164,6 +164,24 @@ public class Concurso extends DML {
         }
         return 0;
     }
+    
+    public int recuperarIDSessao(){
+          String sql = "select sessaoInicialAbertura "
+                + "from concurso where idConcurso="+ID_CONCURSO+";";
+
+        try {
+            super.conecta= ConectaBD.getInstance();
+            super.statement = super.conecta.getConnection().createStatement();
+            super.resultSet = super.statement.executeQuery(sql);
+            
+            while (super.resultSet.next()) {
+return super.resultSet.getInt("sessaoInicialAbertura");
+        
+        }
+        } catch (SQLException ex) {
+        }
+        return 0;
+    }
 
     public String getMinisterio() {
         return ministerio;
