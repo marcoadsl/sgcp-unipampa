@@ -67,6 +67,8 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         jTableCronograma = new javax.swing.JTable();
         btnSalvarCronograma = new javax.swing.JButton();
         btnExportarCronograma = new javax.swing.JButton();
+        btnAddAtividadeCronograma = new javax.swing.JButton();
+        btnRemoverAtividadeCronograma = new javax.swing.JButton();
         jPanelAberturaSessaoAbertura = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -229,10 +231,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
 
         jTableCronograma.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Atividade", "Data", "Horário", "Local"
@@ -259,6 +258,12 @@ public class JanelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnAddAtividadeCronograma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/incluir.png"))); // NOI18N
+        btnAddAtividadeCronograma.setToolTipText("Adicionar linha");
+
+        btnRemoverAtividadeCronograma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/remover.png"))); // NOI18N
+        btnRemoverAtividadeCronograma.setToolTipText("Romover atividade do cronograma");
+
         javax.swing.GroupLayout jPanelCronogramaLayout = new javax.swing.GroupLayout(jPanelCronograma);
         jPanelCronograma.setLayout(jPanelCronogramaLayout);
         jPanelCronogramaLayout.setHorizontalGroup(
@@ -266,19 +271,30 @@ public class JanelaPrincipal extends javax.swing.JFrame {
             .addGroup(jPanelCronogramaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelCronogramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelCronogramaLayout.createSequentialGroup()
                         .addComponent(btnSalvarCronograma, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnExportarCronograma, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(92, Short.MAX_VALUE))
+                        .addComponent(btnExportarCronograma, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(388, Short.MAX_VALUE))
+                    .addGroup(jPanelCronogramaLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelCronogramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnRemoverAtividadeCronograma, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAddAtividadeCronograma, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20))))
         );
         jPanelCronogramaLayout.setVerticalGroup(
             jPanelCronogramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCronogramaLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGroup(jPanelCronogramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelCronogramaLayout.createSequentialGroup()
+                        .addComponent(btnAddAtividadeCronograma)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnRemoverAtividadeCronograma))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelCronogramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSalvarCronograma)
                     .addComponent(btnExportarCronograma))
@@ -682,8 +698,11 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoSalvar;
     private javax.swing.JButton btnAbertura;
+    private javax.swing.JButton btnAddAtividadeCronograma;
     private javax.swing.JButton btnAddCandidatoAbertura;
     private javax.swing.JButton btnAddCandidatoAbertura1;
+    private javax.swing.JButton btnAddInscritos;
+    private javax.swing.JButton btnAddInscritos1;
     private javax.swing.JButton btnCronograma;
     private javax.swing.JButton btnExportarAtaDeDefesa;
     private javax.swing.JButton btnExportarCronograma;
@@ -692,6 +711,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnPeso;
     private javax.swing.JButton btnRemoveCandidatodaPresenca;
     private javax.swing.JButton btnRemoveCandidatodaPresenca1;
+    private javax.swing.JButton btnRemoverAtividadeCronograma;
     private javax.swing.JButton btnSalvarCandPresente;
     private javax.swing.JButton btnSalvarCronograma;
     private javax.swing.JButton btnSalvarInstalacaoSessao;
@@ -919,4 +939,13 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     public JFormattedTextField getTxtTitulo() {
         return txtTitulo;
     }
+
+    public JButton getBtnAddAtividadeCronograma() {
+        return btnAddAtividadeCronograma;
+    }
+
+    public JButton getBtnRemoverAtividadeCronograma() {
+        return btnRemoverAtividadeCronograma;
+    }
+    
 }

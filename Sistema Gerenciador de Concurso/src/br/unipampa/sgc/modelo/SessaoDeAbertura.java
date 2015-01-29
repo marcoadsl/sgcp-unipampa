@@ -13,6 +13,7 @@ import java.sql.SQLException;
  */
 public class SessaoDeAbertura extends DML {
 
+    public static int ID;
     private String horario_de_inicio;
     private String local;
     private String portaria_de_nomeacao;
@@ -91,6 +92,7 @@ private void registrarEmRespectivoConcurso(int idDaSessao){
                 super.resultSet = super.statement.executeQuery(sql);
                 while (super.resultSet.next()) {
                     id = super.resultSet.getInt(1);
+                    ID= id;
                 }
                 super.resultSet.close();
                 super.statement.close();

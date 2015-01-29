@@ -1,6 +1,8 @@
 
 import br.unipampa.sgc.apresentacao.JanelaInicial;
+import br.unipampa.sgc.apresentacao.JanelaPrincipal;
 import br.unipampa.sgc.controle.ControleInicial;
+import br.unipampa.sgc.controle.ControlePrincipal;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

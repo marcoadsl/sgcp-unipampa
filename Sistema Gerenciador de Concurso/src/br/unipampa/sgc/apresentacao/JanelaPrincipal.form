@@ -352,14 +352,22 @@
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane1" min="-2" pref="398" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Component id="btnSalvarCronograma" min="-2" pref="46" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="btnExportarCronograma" min="-2" pref="47" max="-2" attributes="0"/>
+                                      <EmptySpace pref="388" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="btnRemoverAtividadeCronograma" min="-2" pref="36" max="-2" attributes="0"/>
+                                          <Component id="btnAddAtividadeCronograma" min="-2" pref="36" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="92" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -367,8 +375,15 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" min="-2" pref="94" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="btnAddAtividadeCronograma" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="btnRemoverAtividadeCronograma" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jScrollPane1" min="-2" pref="118" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="btnSalvarCronograma" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnExportarCronograma" min="-2" max="-2" attributes="0"/>
@@ -389,7 +404,7 @@
                         <Component class="javax.swing.JTable" name="jTableCronograma">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="4" rowCount="4">
+                              <Table columnCount="4" rowCount="0">
                                 <Column editable="true" title="Atividade" type="java.lang.String"/>
                                 <Column editable="true" title="Data" type="java.lang.String"/>
                                 <Column editable="true" title="Hor&#xe1;rio" type="java.lang.String"/>
@@ -418,6 +433,22 @@
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExportarCronogramaActionPerformed"/>
                       </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnAddAtividadeCronograma">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/br/unipampa/sgc/apresentacao/icones/incluir.png"/>
+                        </Property>
+                        <Property name="toolTipText" type="java.lang.String" value="Adicionar linha"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnRemoverAtividadeCronograma">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/br/unipampa/sgc/apresentacao/icones/remover.png"/>
+                        </Property>
+                        <Property name="toolTipText" type="java.lang.String" value="Romover atividade do cronograma"/>
+                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
