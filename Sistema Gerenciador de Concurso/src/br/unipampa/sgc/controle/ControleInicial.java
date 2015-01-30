@@ -17,13 +17,23 @@ import java.awt.event.ActionListener;
  *
  * @author GabrielBMoro
  */
-public class ControleInicial {
+public class ControleInicial extends Controle{
     
 private ControleCriarConcurso controlerCriarConcurso;
 private ControleAbrirConcurso controleAbrirConcurso;
+private JanelaInicial janelaInicial;
 
-    public ControleInicial(final JanelaInicial janelaInicial) {
-        ConfigurarFrame.configurarJanelaPadrao(janelaInicial,340,373);
+    public ControleInicial(JanelaInicial janelaInicial) {
+        this.janelaInicial= janelaInicial;
+        registrarListeners();
+    }
+
+    @Override
+    public void inicializarComponentes() {
+    }
+
+    @Override
+    public void registrarListeners() {
         janelaInicial.addWindowListener(new TrataListenerDaJanela());
         janelaInicial.getBtnCriar().addActionListener(new ActionListener() {
             @Override

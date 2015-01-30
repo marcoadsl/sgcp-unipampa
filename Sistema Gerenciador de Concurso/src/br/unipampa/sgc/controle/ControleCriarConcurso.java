@@ -5,7 +5,6 @@
  */
 package br.unipampa.sgc.controle;
 
-import br.unipampa.sgc.apresentacao.ConfigurarFrame;
 import br.unipampa.sgc.apresentacao.GeradorDeMensagens;
 import br.unipampa.sgc.apresentacao.JanelaCriarConcurso;
 import br.unipampa.sgc.apresentacao.JanelaPrincipal;
@@ -25,12 +24,22 @@ import java.util.LinkedList;
  *
  * @author GabrielBMoro
  */
-public class ControleCriarConcurso {
+public class ControleCriarConcurso extends Controle{
     private ControlePrincipal controlerPrincipal;
+private JanelaCriarConcurso janelaCriarConcurso;
 
+    public ControleCriarConcurso(JanelaCriarConcurso janelaCriarConcurso) {
+        this.janelaCriarConcurso= janelaCriarConcurso;
+        registrarListeners();
+    }
 
-    public ControleCriarConcurso(final JanelaCriarConcurso janelaCriarConcurso) {
-        ConfigurarFrame.configurarJanelaPadrao(janelaCriarConcurso, 950, 600);
+    @Override
+    public void inicializarComponentes() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void registrarListeners() {
         janelaCriarConcurso.addWindowListener(new TrataListenerDaJanela());
         janelaCriarConcurso.getPanelCriarConcurso().getBtnProximo().addActionListener(new ActionListener() {
             @Override
@@ -44,6 +53,16 @@ public class ControleCriarConcurso {
                 String regraDoConcurso = String.valueOf(janelaCriarConcurso.getPanelCriarConcurso().getjComboBox1().getSelectedItem());
                 String classeDoConcurso = String.valueOf(janelaCriarConcurso.getPanelCriarConcurso().getjComboBox2().getSelectedItem());
 
+                if(ministerio.isEmpty()||
+                        universidade.isEmpty()||
+                        campus.isEmpty()||
+                        area.isEmpty()||
+                        dataString.isEmpty()||
+                        classeDoConcurso.isEmpty()){
+                    GeradorDeMensagens.exibirMensagemDeInformacao("Preencha todos os campos, pois os mesmos são obrigatórios pelo sistema.", "Alerta ao Usuário");
+                }
+                else{
+                
                 Concurso.getMyInstance().setMinisterio(ministerio);
                 Concurso.getMyInstance().setUniversidade(new Universidade(campus, universidade));
                 Concurso.getMyInstance().setArea(area);
@@ -58,6 +77,7 @@ public class ControleCriarConcurso {
                 janelaCriarConcurso.revalidate();
                 JanelaCriarConcurso.STATUS_CRIACAO_CONCURSO = 30;
                 janelaCriarConcurso.getPanelCriarConcurso().getJProgressBar().setValue(JanelaCriarConcurso.STATUS_CRIACAO_CONCURSO);
+            }
             }
         });
         janelaCriarConcurso.getPanelCriarConcurso().getBtnAnterior1().addActionListener(new ActionListener() {
@@ -84,7 +104,7 @@ public class ControleCriarConcurso {
                 String nome2 = janelaCriarConcurso.getPanelCriarConcurso().getTxtNome2().getText();
                 String nome3 = janelaCriarConcurso.getPanelCriarConcurso().getTxtNome3().getText();
                 String sexo1 = null, sexo2 = null, sexo3 = null;
-
+                
                 if (janelaCriarConcurso.getPanelCriarConcurso().getBtnFEx1().isSelected()) {
                     sexo1 = "F";
                 }
@@ -107,8 +127,11 @@ public class ControleCriarConcurso {
                 String categoria2 = String.valueOf(janelaCriarConcurso.getPanelCriarConcurso().getjComboBoxEx2().getSelectedItem());
                 String categoria3 = String.valueOf(janelaCriarConcurso.getPanelCriarConcurso().getjComboBoxEx3().getSelectedItem());
 
-                if (nome1 != null && nome2 != null && nome3 != null) {
-
+                if((nome1.isEmpty()|| nome2.isEmpty()|| nome3.isEmpty())&&
+                        (sexo1.isEmpty()||sexo2.isEmpty()||sexo3.isEmpty())&&
+                        (categoria1.isEmpty()||categoria2.isEmpty()||categoria3.isEmpty())){
+                    GeradorDeMensagens.exibirMensagemDeInformacao("È necessário o preenchimento de todos os campos.", "Alerta ao Usuário");
+                }else{
                     Examinador[] examinador = new Examinador[]{new Examinador(nome1, sexo1, categoria1),
                         new Examinador(nome2, sexo2, categoria2),
                         new Examinador(nome3, sexo3, categoria3)};
@@ -119,8 +142,6 @@ public class ControleCriarConcurso {
                     janelaCriarConcurso.revalidate();
                     JanelaCriarConcurso.STATUS_CRIACAO_CONCURSO += 40;
                     janelaCriarConcurso.getPanelCriarConcurso().getJProgressBar().setValue(JanelaCriarConcurso.STATUS_CRIACAO_CONCURSO);
-                } else {
-                    GeradorDeMensagens.exibirMensagemDeInformacao("Por favor preencha todos os campos sobre os dados dos examinadores.", "Alerta ao Usuário");
                 }
             }
         });

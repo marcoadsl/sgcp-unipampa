@@ -1,5 +1,6 @@
 package br.unipampa.sgc.modelo;
 
+import static br.unipampa.sgc.modelo.Concurso.ID_CONCURSO;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -55,7 +56,20 @@ public class Candidato extends DML {
     public boolean editar(int id, Object objeto) {
         return false;
     }
-
+    
+    public boolean editar(String nome){
+        String sql = "update " + super.table + " set presenca=? where nome=\"" + nome + "\";";
+        super.conecta = ConectaBD.getInstance();
+        try {
+            super.preparedStatement = super.conecta.getConnection().prepareStatement(sql);
+            super.preparedStatement.setInt(1, 4);
+            super.preparedStatement.execute();
+            super.preparedStatement.close();
+            return true;
+        } catch (SQLException ex) {
+        }
+        return false;
+    }
     @Override
     public boolean deletar(int id, Object objeto) {
         return false;

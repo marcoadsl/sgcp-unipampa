@@ -5,6 +5,7 @@
  */
 package br.unipampa.sgc.modelo;
 
+import br.unipampa.sgc.apresentacao.GeradorDeMensagens;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -20,15 +21,17 @@ public class ConectaBD {
     private static final String USER_BANCO = "root";
     private static final String PASS_BANCO = "";
     private Connection con;
-            
+
     private ConectaBD() {
         try {
-            Class.forName("com.mysql.jdbc.Driver");  
+            Class.forName("com.mysql.jdbc.Driver");
             this.con = DriverManager.getConnection(URL_DATABASE, USER_BANCO, PASS_BANCO);
         } catch (SQLException sql) {
-            sql.printStackTrace();
-        }catch (ClassNotFoundException classNotException){
-            classNotException.printStackTrace();
+            GeradorDeMensagens.exibirMensagemDeInformacao("A conexão com o banco de dados não pode ser estabelecida!", "Alerta ao Usuário");
+            System.exit(0);
+        } catch (ClassNotFoundException classNotException) {
+            GeradorDeMensagens.exibirMensagemDeInformacao("A conexão com o banco de dados não pode ser estabelecida!", "Alerta ao Usuário");
+            System.exit(0);
         }
     }
 
@@ -43,7 +46,7 @@ public class ConectaBD {
         try {
             if (this.con != null) {
                 this.con.close();
-                myInstance= null;
+                myInstance = null;
             }
         } catch (SQLException sql) {
             sql.printStackTrace();

@@ -21,10 +21,21 @@ import java.util.LinkedList;
  *
  * @author Eduardo Bruning
  */
-public class ControleCriteriosAvaliacao {
+public class ControleCriteriosAvaliacao extends Controle{
+    
+    private JanelaCriteriosAvaliacao janelaCriteriosAvaliacao;
+    
+    public ControleCriteriosAvaliacao(JanelaCriteriosAvaliacao janelaCriteriosAvaliacao) {
+        this.janelaCriteriosAvaliacao= janelaCriteriosAvaliacao;
+        registrarListeners();
+    }
 
-    public ControleCriteriosAvaliacao(final JanelaCriteriosAvaliacao janelaCriteriosAvaliacao) {
-        ConfigurarFrame.configurarJanelaPadrao(janelaCriteriosAvaliacao, 950, 600);
+    @Override
+    public void inicializarComponentes() {
+    }
+
+    @Override
+    public void registrarListeners() {
         janelaCriteriosAvaliacao.addWindowListener(new TrataListenerDaJanela());
 
         janelaCriteriosAvaliacao.getBntAddCriterio().addActionListener(new ActionListener() {

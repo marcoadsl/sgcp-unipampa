@@ -17,6 +17,7 @@ import br.unipampa.sgc.modelo.SessaoDeAbertura;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.Action;
 import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 
@@ -24,15 +25,57 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author GabrielBMoro
  */
-public class ControlePrincipal {
+public class ControlePrincipal extends Controle {
 
     private ControleCriarConcurso controleCriarConcurso;
+    private JanelaPrincipal janelaPrincipal;
 
-    public ControlePrincipal(final JanelaPrincipal janelaPrincipal) {
-        ConfigurarFrame.configurarJanelaPadrao(janelaPrincipal, 950, 600);
+    public ControlePrincipal(JanelaPrincipal janelaPrincipal) {
+        this.janelaPrincipal = janelaPrincipal;
+        inicializarComponentes();
+        registrarListeners();
+        enviarDadosJaArmazenados(janelaPrincipal);
+
+    }
+
+    private void enviarDadosJaArmazenados(JanelaPrincipal janelaPrincipal) {
+        SessaoDeAbertura sessao = new SessaoDeAbertura();
+        ArrayList<String> dados = (ArrayList<String>) sessao.buscar(Concurso.getMyInstance().recuperarIDSessao());
+        if (dados != null) {
+            janelaPrincipal.getTxtHoraInicioSessaoInstalacao().setText(dados.get(0));
+            janelaPrincipal.getTxtLocalSessaoInstalacao().setText(dados.get(1));
+            janelaPrincipal.getTxtPortariaNomeacaoDaBanca().setText(dados.get(2));
+            janelaPrincipal.getTxtEmissor().setText(dados.get(3));
+            janelaPrincipal.getjPaneInstalacaoSessaoAbertura().revalidate();
+        }
+
+        Cronograma cronograma = new Cronograma();
+        ArrayList<String> dados2 = (ArrayList<String>) cronograma.buscar(SessaoDeAbertura.ID);
+
+        DefaultTableModel modelo1 = (DefaultTableModel) janelaPrincipal.getjTableCronograma().getModel();
+
+        int sizeCronograma = (int) dados2.size() / 4;
+        for (int count = 0; count < sizeCronograma; count++) {
+            modelo1.addRow(new Object[]{dados2.get(count), dados2.get(count + 1), dados2.get(count + 2),
+                dados.get(count + 3)});
+            count += 3;
+        }
+    }
+
+    @Override
+    public void inicializarComponentes() {
+        Candidato candidato = new Candidato();
+        ArrayList<String> nomes = candidato.buscarTodosNomesCandidatos();
+        for (String nomeTemp : nomes) {
+            janelaPrincipal.getjComboBoxCandidatosTotais().addItem(nomeTemp);
+        }
+    }
+
+    @Override
+    public void registrarListeners() {
+
         janelaPrincipal.addWindowListener(new TrataListenerDaJanela());
 
-        enviarDadosJaArmazenados(janelaPrincipal);
         janelaPrincipal.getjMenuItemFaleConosco().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -162,123 +205,72 @@ public class ControlePrincipal {
                 }
             }
         });
-        janelaPrincipal.getBtnAbertura().addActionListener(new ActionListener() {
+        janelaPrincipal.getBtnAdicionarCandidato().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DefaultListModel modeloLista = new DefaultListModel();
-                janelaPrincipal.getjListCandidatosTotais().setModel(modeloLista);
-                Candidato candidato = new Candidato();
-                ArrayList<String> nomes = candidato.buscarTodosNomesCandidatos();
-                for (String nomeTemp : nomes) {
-                    modeloLista.addElement(nomeTemp);
+                DefaultTableModel modeloTabela = (DefaultTableModel) janelaPrincipal.getTabelaCandidatosPresentesNaAbertura().getModel();
+                int index = janelaPrincipal.getjComboBoxCandidatosTotais().getSelectedIndex();
+                modeloTabela.addRow(new Object[]{janelaPrincipal.getjComboBoxCandidatosTotais().getSelectedItem()});
+                janelaPrincipal.getjComboBoxCandidatosTotais().removeItemAt(index);
+            }
+        });
+        janelaPrincipal.getBtnRemoverCandidato().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DefaultTableModel modeloTabela = (DefaultTableModel) janelaPrincipal.getTabelaCandidatosPresentesNaAbertura().getModel();
+                int rowSelecionada = janelaPrincipal.getTabelaCandidatosPresentesNaAbertura().getSelectedRow();
+                String nome = String.valueOf(modeloTabela.getValueAt(rowSelecionada, 0));
+
+                janelaPrincipal.getjComboBoxCandidatosTotais().addItem(nome);
+                modeloTabela.removeRow(rowSelecionada);
+            }
+        });
+        janelaPrincipal.getBtnAdicionarTodosCandidatos().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DefaultTableModel modeloTabela = (DefaultTableModel) janelaPrincipal.getTabelaCandidatosPresentesNaAbertura().getModel();
+
+                int count = 0, size = janelaPrincipal.getjComboBoxCandidatosTotais().getItemCount();
+                while (count < size) {
+                    modeloTabela.addRow(new Object[]{janelaPrincipal.getjComboBoxCandidatosTotais().getItemAt(count)});
+                    count++;
+                }
+                janelaPrincipal.getjComboBoxCandidatosTotais().removeAllItems();
+            }
+        });
+        janelaPrincipal.getBtnRemoverTodosCandidatos().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ArrayList<String> nomes = new ArrayList<>();
+                DefaultTableModel modeloTabela = (DefaultTableModel) janelaPrincipal.getTabelaCandidatosPresentesNaAbertura().getModel();
+                if (modeloTabela.getRowCount() != 0) {
+                    int count = 0, size = janelaPrincipal.getTabelaCandidatosPresentesNaAbertura().getRowCount();
+                    while (count < size) {
+                        nomes.add(String.valueOf(janelaPrincipal.getTabelaCandidatosPresentesNaAbertura().getValueAt(count, 0)));
+                        modeloTabela.removeRow(count);
+                        count++;
+                    }
+                }
+                for (int count = 0; count < nomes.size(); count++) {
+                    janelaPrincipal.getjComboBoxCandidatosTotais().addItem(nomes.get(count));
                 }
             }
         });
-        janelaPrincipal.getBtnAddCandidatoAbertura().addActionListener(new ActionListener() {
+        janelaPrincipal.getBtnSalvarCandPresente().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int indice = janelaPrincipal.getjListCandidatosTotais().getSelectedIndex();
-                String nomeDoCandidato = String.valueOf(janelaPrincipal.getjListCandidatosTotais().getSelectedValue());
+                if (janelaPrincipal.getTabelaCandidatosPresentesNaAbertura().getRowCount() != 0) {
+                    Candidato candidato = new Candidato();
 
-                DefaultListModel listModel = new DefaultListModel();
-
-                if (nomeDoCandidato != null) {
-                    janelaPrincipal.getjListCandidatosTotais().remove(indice);
-//                    DefaultListModel modelo2 = new DefaultListModel();
-//                    modelo2.addElement(nomeDoCandidato);
-//                    janelaPrincipal.getjListCandidatosTotais1().setModel(modelo2);
-                    listModel.addElement(nomeDoCandidato);
-                    janelaPrincipal.getjListCandidatosTotais().setModel(listModel);
-                    janelaPrincipal.getjListCandidatosTotais1().repaint();
+                    for (int count1 = 0; count1 < janelaPrincipal.getTabelaCandidatosPresentesNaAbertura().getRowCount(); count1++) {
+                        candidato.editar(String.valueOf(janelaPrincipal.getTabelaCandidatosPresentesNaAbertura().getValueAt(count1, 0)));
+                    }
+                    GeradorDeMensagens.exibirMensagemDeInformacao("A presença foi registrada com sucesso!", "Alerta ao Usuário");
+                } else {
+                    GeradorDeMensagens.exibirMensagemDeInformacao("Não foi possível realizar essa operação, realize-a novamente!", "Alerta ao Usuário");
                 }
             }
         });
-        janelaPrincipal.getBtnRemoveCandidatodaPresenca().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int indice = janelaPrincipal.getjListCandidatosTotais1().getSelectedIndex();
-                DefaultListModel modelo = new DefaultListModel();
-                String nomeDoCandidato = String.valueOf(modelo.get(indice));
-
-                if (nomeDoCandidato != null) {
-                    DefaultListModel modelo1 = new DefaultListModel();
-                    janelaPrincipal.getjListCandidatosTotais().setModel(modelo1);
-                    modelo1.addElement(nomeDoCandidato);
-                }
-            }
-        });
-        janelaPrincipal.getBtnAddCandidatoAbertura1().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                DefaultListModel modelo = new DefaultListModel();
-                janelaPrincipal.getjListCandidatosTotais().setModel(modelo);
-
-                DefaultListModel modelo2 = new DefaultListModel();
-                janelaPrincipal.getjListCandidatosTotais1().setModel(modelo2);
-
-                for (int count = 0; count < modelo.size(); count++) {
-                    modelo2.addElement(String.valueOf(modelo.get(count)));
-                    modelo.remove(count);
-                }
-            }
-        });
-        janelaPrincipal.getBtnRemoveCandidatodaPresenca1().addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                DefaultListModel modelo = new DefaultListModel();
-                janelaPrincipal.getjListCandidatosTotais1().setModel(modelo);
-
-                DefaultListModel modelo2 = new DefaultListModel();
-                janelaPrincipal.getjListCandidatosTotais().setModel(modelo2);
-
-                for (int count = 0; count < modelo.size(); count++) {
-                    modelo2.addElement(String.valueOf(modelo.get(count)));
-                    modelo.remove(count);
-                }
-            }
-        });
-
-        janelaPrincipal.getBtnRemoveCandidatodaPresenca().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int indice = janelaPrincipal.getjListCandidatosTotais1().getSelectedIndex();
-                DefaultListModel modelo = new DefaultListModel();
-                String nomeDoCandidato = String.valueOf(modelo.get(indice));
-
-                if (nomeDoCandidato != null) {
-                    DefaultListModel modelo1 = new DefaultListModel();
-                    janelaPrincipal.getjListCandidatosTotais().setModel(modelo1);
-                    modelo1.addElement(nomeDoCandidato);
-                }
-            }
-        });
-
-    }
-
-    private void enviarDadosJaArmazenados(JanelaPrincipal janelaPrincipal) {
-        SessaoDeAbertura sessao = new SessaoDeAbertura();
-        ArrayList<String> dados = (ArrayList<String>) sessao.buscar(Concurso.getMyInstance().recuperarIDSessao());
-        if (dados != null) {
-            janelaPrincipal.getTxtHoraInicioSessaoInstalacao().setText(dados.get(0));
-            janelaPrincipal.getTxtLocalSessaoInstalacao().setText(dados.get(1));
-            janelaPrincipal.getTxtPortariaNomeacaoDaBanca().setText(dados.get(2));
-            janelaPrincipal.getTxtEmissor().setText(dados.get(3));
-            janelaPrincipal.getjPaneInstalacaoSessaoAbertura().revalidate();
-        }
-
-        Cronograma cronograma = new Cronograma();
-        ArrayList<String> dados2 = (ArrayList<String>) cronograma.buscar(SessaoDeAbertura.ID);
-
-        DefaultTableModel modelo1 = (DefaultTableModel) janelaPrincipal.getjTableCronograma().getModel();
-
-        int sizeCronograma = (int) dados2.size() / 4;
-        for (int count = 0; count < sizeCronograma; count++) {
-            modelo1.addRow(new Object[]{dados2.get(count), dados2.get(count + 1), dados2.get(count + 2),
-                dados.get(count + 3)});
-            count+=3;
-        }
     }
 
 }

@@ -23,6 +23,8 @@ public class JanelaInicial extends javax.swing.JFrame {
     public JanelaInicial() {
         initComponents();
         lookAndfeel();
+        ConfigurarFrame.configurarJanelaPadrao(this, 340, 373);
+
         setTitle("Sistema Gerenciador de Concurso");
     }
 

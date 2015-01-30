@@ -19,6 +19,7 @@ public class JanelaCriarConcurso extends javax.swing.JFrame {
     public JanelaCriarConcurso() {
         initComponents();
         setTitle("Criar Concurso");
+                ConfigurarFrame.configurarJanelaPadrao(this, 950, 600);
         panelCriarConcurso1.getPanelDadosGerais().setVisible(true);
         panelCriarConcurso1.getPanelBanca().setVisible(false);
         panelCriarConcurso1.getPaneCandidatosInscritos().setVisible(false);

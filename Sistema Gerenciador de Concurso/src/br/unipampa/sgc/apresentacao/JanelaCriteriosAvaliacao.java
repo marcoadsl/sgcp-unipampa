@@ -21,7 +21,8 @@ public class JanelaCriteriosAvaliacao extends javax.swing.JFrame {
      */
     public JanelaCriteriosAvaliacao() {
         initComponents();
-      this.modeloTableCriterios = (DefaultTableModel) this.jTableCriterios.getModel();
+        ConfigurarFrame.configurarJanelaPadrao(this, 950, 600);
+        this.modeloTableCriterios = (DefaultTableModel) this.jTableCriterios.getModel();
     }
 
     /**
@@ -227,7 +228,7 @@ public class JanelaCriteriosAvaliacao extends javax.swing.JFrame {
     private javax.swing.JTextField txtNomeCriterio;
     private javax.swing.JTextField txtPesoCriterio;
     // End of variables declaration//GEN-END:variables
-   
+
     public LinkedList<String> recuperarDadosPanelCandidatos() {
         LinkedList<String> dados = new LinkedList<>();
         for (int row = 0; row < this.modeloTableCriterios.getRowCount(); row++) {
@@ -243,8 +244,7 @@ public class JanelaCriteriosAvaliacao extends javax.swing.JFrame {
         }
         return dados;
     }
-    
-    
+
     /**
      * @return the jLabel1
      */

@@ -17,11 +17,23 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author GabrielBMoro
  */
-public class ControleAbrirConcurso {
+public class ControleAbrirConcurso extends Controle{
 
     private ControlePrincipal controlePrincipal;
+    private JFrameAbrirConcurso frameAbrirConcurso;
 
     public ControleAbrirConcurso(JFrameAbrirConcurso frameAbrirConcurso) {
+        this.frameAbrirConcurso= frameAbrirConcurso;
+        registrarListeners();
+    }
+
+    @Override
+    public void inicializarComponentes() {
+        
+    }
+
+    @Override
+    public void registrarListeners() {
         frameAbrirConcurso.addWindowListener(new TrataListenerDaJanela());
         ArrayList<Object> dados = Concurso.getMyInstance().buscarTodosConcursos();
         DefaultTableModel modelo = (DefaultTableModel) frameAbrirConcurso.getjTableConcurso().getModel();
@@ -54,4 +66,5 @@ public class ControleAbrirConcurso {
             }
         });
     }
+    
 }

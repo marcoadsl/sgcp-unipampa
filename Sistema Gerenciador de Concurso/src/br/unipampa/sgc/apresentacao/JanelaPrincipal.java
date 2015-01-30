@@ -6,11 +6,17 @@
 package br.unipampa.sgc.apresentacao;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JRadioButtonMenuItem;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -71,16 +77,15 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         btnRemoverAtividadeCronograma = new javax.swing.JButton();
         jPanelAberturaSessaoAbertura = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jListCandidatosTotais = new javax.swing.JList();
-        btnAddCandidatoAbertura = new javax.swing.JButton();
-        btnRemoveCandidatodaPresenca = new javax.swing.JButton();
-        btnRemoveCandidatodaPresenca1 = new javax.swing.JButton();
-        btnAddCandidatoAbertura1 = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jListCandidatosTotais1 = new javax.swing.JList();
         btnSalvarCandPresente = new javax.swing.JButton();
         btnExportarAtaDeDefesa = new javax.swing.JButton();
+        jComboBoxCandidatosTotais = new javax.swing.JComboBox();
+        btnAdicionarCandidato = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tabelaCandidatosPresentesNaAbertura = new javax.swing.JTable();
+        btnRemoverCandidato = new javax.swing.JButton();
+        btnAdicionarTodosCandidatos = new javax.swing.JButton();
+        btnRemoverTodosCandidatos = new javax.swing.JButton();
         jPanelPesosDasProvas = new javax.swing.JPanel();
         botaoSalvar = new javax.swing.JButton();
         textEscrita = new javax.swing.JLabel();
@@ -303,34 +308,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
 
         jPanelInternoSessaoAbertura.add(jPanelCronograma);
 
-        jLabel5.setText("Marque os candidatos presentes na sessão de abertura do concurso:");
-
-        jScrollPane2.setViewportView(jListCandidatosTotais);
-
-        btnAddCandidatoAbertura.setText(">");
-        btnAddCandidatoAbertura.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddCandidatoAberturaActionPerformed(evt);
-            }
-        });
-
-        btnRemoveCandidatodaPresenca.setText("<");
-        btnRemoveCandidatodaPresenca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoveCandidatodaPresencaActionPerformed(evt);
-            }
-        });
-
-        btnRemoveCandidatodaPresenca1.setText("<<");
-        btnRemoveCandidatodaPresenca1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoveCandidatodaPresenca1ActionPerformed(evt);
-            }
-        });
-
-        btnAddCandidatoAbertura1.setText(">>");
-
-        jScrollPane3.setViewportView(jListCandidatosTotais1);
+        jLabel5.setText("Selecione os candidatos presentes na sessão de abertura do concurso:");
 
         btnSalvarCandPresente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/salvar.png"))); // NOI18N
         btnSalvarCandPresente.setToolTipText("Salvar Registro de Instalação");
@@ -343,6 +321,48 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         btnExportarAtaDeDefesa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/exportar.png"))); // NOI18N
         btnExportarAtaDeDefesa.setToolTipText("Gerar Ata de Instalação");
 
+        btnAdicionarCandidato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/incluir.png"))); // NOI18N
+        btnAdicionarCandidato.setToolTipText("Adicionar Candidato");
+
+        tabelaCandidatosPresentesNaAbertura.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nome do Candidato Presente"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(tabelaCandidatosPresentesNaAbertura);
+
+        btnRemoverCandidato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/remover.png"))); // NOI18N
+        btnRemoverCandidato.setToolTipText("Remover Candidato");
+
+        btnAdicionarTodosCandidatos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/incluir.png"))); // NOI18N
+        btnAdicionarTodosCandidatos.setText("Adicionar Todos");
+        btnAdicionarTodosCandidatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionarTodosCandidatosActionPerformed(evt);
+            }
+        });
+
+        btnRemoverTodosCandidatos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/remover.png"))); // NOI18N
+        btnRemoverTodosCandidatos.setText("Remover Todos");
+
         javax.swing.GroupLayout jPanelAberturaSessaoAberturaLayout = new javax.swing.GroupLayout(jPanelAberturaSessaoAbertura);
         jPanelAberturaSessaoAbertura.setLayout(jPanelAberturaSessaoAberturaLayout);
         jPanelAberturaSessaoAberturaLayout.setHorizontalGroup(
@@ -351,47 +371,50 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelAberturaSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelAberturaSessaoAberturaLayout.createSequentialGroup()
-                        .addComponent(btnSalvarCandPresente, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnExportarAtaDeDefesa, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelAberturaSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanelAberturaSessaoAberturaLayout.createSequentialGroup()
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addGroup(jPanelAberturaSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btnAddCandidatoAbertura1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnRemoveCandidatodaPresenca1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnRemoveCandidatodaPresenca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnAddCandidatoAbertura, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(27, Short.MAX_VALUE))
+                        .addGroup(jPanelAberturaSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelAberturaSessaoAberturaLayout.createSequentialGroup()
+                                .addComponent(btnSalvarCandPresente, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnExportarAtaDeDefesa, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel5)
+                            .addGroup(jPanelAberturaSessaoAberturaLayout.createSequentialGroup()
+                                .addComponent(jComboBoxCandidatosTotais, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnAdicionarCandidato, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanelAberturaSessaoAberturaLayout.createSequentialGroup()
+                        .addGroup(jPanelAberturaSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanelAberturaSessaoAberturaLayout.createSequentialGroup()
+                                .addComponent(btnAdicionarTodosCandidatos)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnRemoverTodosCandidatos))
+                            .addGroup(jPanelAberturaSessaoAberturaLayout.createSequentialGroup()
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnRemoverCandidato, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 76, Short.MAX_VALUE))))
         );
         jPanelAberturaSessaoAberturaLayout.setVerticalGroup(
             jPanelAberturaSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelAberturaSessaoAberturaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5)
+                .addGap(33, 33, 33)
+                .addGroup(jPanelAberturaSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBoxCandidatosTotais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAdicionarCandidato))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelAberturaSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelAberturaSessaoAberturaLayout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(btnAddCandidatoAbertura)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnRemoveCandidatodaPresenca)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAddCandidatoAbertura1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnRemoveCandidatodaPresenca1))
-                    .addGroup(jPanelAberturaSessaoAberturaLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanelAberturaSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addGroup(jPanelAberturaSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnSalvarCandPresente)
-                    .addComponent(btnExportarAtaDeDefesa, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRemoverCandidato))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelAberturaSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAdicionarTodosCandidatos)
+                    .addComponent(btnRemoverTodosCandidatos))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addGroup(jPanelAberturaSessaoAberturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSalvarCandPresente, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnExportarAtaDeDefesa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jPanelInternoSessaoAbertura.add(jPanelAberturaSessaoAbertura);
@@ -654,14 +677,6 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnExportarCronogramaActionPerformed
 
-    private void btnRemoveCandidatodaPresencaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveCandidatodaPresencaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRemoveCandidatodaPresencaActionPerformed
-
-    private void btnAddCandidatoAberturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCandidatoAberturaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddCandidatoAberturaActionPerformed
-
     private void btnSalvarCandPresenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarCandPresenteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalvarCandPresenteActionPerformed
@@ -682,36 +697,35 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTituloActionPerformed
 
-    private void btnRemoveCandidatodaPresenca1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveCandidatodaPresenca1ActionPerformed
+    private void btnAdicionarTodosCandidatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarTodosCandidatosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnRemoveCandidatodaPresenca1ActionPerformed
+    }//GEN-LAST:event_btnAdicionarTodosCandidatosActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoSalvar;
     private javax.swing.JButton btnAbertura;
     private javax.swing.JButton btnAddAtividadeCronograma;
-    private javax.swing.JButton btnAddCandidatoAbertura;
-    private javax.swing.JButton btnAddCandidatoAbertura1;
+    private javax.swing.JButton btnAdicionarCandidato;
+    private javax.swing.JButton btnAdicionarTodosCandidatos;
     private javax.swing.JButton btnCronograma;
     private javax.swing.JButton btnExportarAtaDeDefesa;
     private javax.swing.JButton btnExportarCronograma;
     private javax.swing.JButton btnGerarAtaInstalacaoSessaoAbertura;
     private javax.swing.JButton btnInstalacao;
     private javax.swing.JButton btnPeso;
-    private javax.swing.JButton btnRemoveCandidatodaPresenca;
-    private javax.swing.JButton btnRemoveCandidatodaPresenca1;
     private javax.swing.JButton btnRemoverAtividadeCronograma;
+    private javax.swing.JButton btnRemoverCandidato;
+    private javax.swing.JButton btnRemoverTodosCandidatos;
     private javax.swing.JButton btnSalvarCandPresente;
     private javax.swing.JButton btnSalvarCronograma;
     private javax.swing.JButton btnSalvarInstalacaoSessao;
+    private javax.swing.JComboBox jComboBoxCandidatosTotais;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JList jListCandidatosTotais;
-    private javax.swing.JList jListCandidatosTotais1;
     private javax.swing.JMenu jMenuAcoes;
     private javax.swing.JMenuBar jMenuBarPrincipal;
     private javax.swing.JMenuItem jMenuItemFaleConosco;
@@ -733,10 +747,10 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelSessaoDeAbertura;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPaneInternoDinamico;
     private javax.swing.JTable jTableCronograma;
+    private javax.swing.JTable tabelaCandidatosPresentesNaAbertura;
     private javax.swing.JLabel texDidática;
     private javax.swing.JLabel textEntrevista;
     private javax.swing.JLabel textEscrita;
@@ -761,13 +775,6 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         return btnAbertura;
     }
 
-    public JButton getBtnAddCandidatoAbertura() {
-        return btnAddCandidatoAbertura;
-    }
-
-    public JButton getBtnAddCandidatoAbertura1() {
-        return btnAddCandidatoAbertura1;
-    }
 
     public JButton getBtnCronograma() {
         return btnCronograma;
@@ -793,14 +800,6 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         return btnPeso;
     }
 
-    public JButton getBtnRemoveCandidatodaPresenca() {
-        return btnRemoveCandidatodaPresenca;
-    }
-
-    public JButton getBtnRemoveCandidatodaPresenca1() {
-        return btnRemoveCandidatodaPresenca1;
-    }
-
     public JButton getBtnSalvarCandPresente() {
         return btnSalvarCandPresente;
     }
@@ -811,14 +810,6 @@ public class JanelaPrincipal extends javax.swing.JFrame {
 
     public JButton getBtnSalvarInstalacaoSessao() {
         return btnSalvarInstalacaoSessao;
-    }
-
-    public JList getjListCandidatosTotais() {
-        return jListCandidatosTotais;
-    }
-
-    public JList getjListCandidatosTotais1() {
-        return jListCandidatosTotais1;
     }
 
     public JMenuItem getjMenuItemFaleConosco() {
@@ -935,6 +926,98 @@ public class JanelaPrincipal extends javax.swing.JFrame {
 
     public JButton getBtnRemoverAtividadeCronograma() {
         return btnRemoverAtividadeCronograma;
+    }
+
+    public JButton getBtnAdicionarCandidato() {
+        return btnAdicionarCandidato;
+    }
+
+    public JButton getBtnAdicionarTodosCandidatos() {
+        return btnAdicionarTodosCandidatos;
+    }
+
+    public JButton getBtnRemoverCandidato() {
+        return btnRemoverCandidato;
+    }
+
+    public JButton getBtnRemoverTodosCandidatos() {
+        return btnRemoverTodosCandidatos;
+    }
+
+    public JComboBox getjComboBoxCandidatosTotais() {
+        return jComboBoxCandidatosTotais;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    public JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    public JLabel getjLabel5() {
+        return jLabel5;
+    }
+
+    public JLabel getjLabel7() {
+        return jLabel7;
+    }
+
+    public JMenu getjMenuAcoes() {
+        return jMenuAcoes;
+    }
+
+    public JMenuBar getjMenuBarPrincipal() {
+        return jMenuBarPrincipal;
+    }
+
+    public JRadioButtonMenuItem getjRadioButtonMenuItem1() {
+        return jRadioButtonMenuItem1;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public JScrollPane getjScrollPane3() {
+        return jScrollPane3;
+    }
+
+    public JTabbedPane getjTabbedPaneInternoDinamico() {
+        return jTabbedPaneInternoDinamico;
+    }
+
+    public JTable getTabelaCandidatosPresentesNaAbertura() {
+        return tabelaCandidatosPresentesNaAbertura;
+    }
+
+    public JLabel getTexDidática() {
+        return texDidática;
+    }
+
+    public JLabel getTextEntrevista() {
+        return textEntrevista;
+    }
+
+    public JLabel getTextEscrita() {
+        return textEscrita;
+    }
+
+    public JLabel getTextMemorial() {
+        return textMemorial;
+    }
+
+    public JLabel getTextTitulos() {
+        return textTitulos;
     }
     
 }

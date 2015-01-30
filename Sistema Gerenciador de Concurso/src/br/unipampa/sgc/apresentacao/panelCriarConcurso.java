@@ -151,7 +151,7 @@ public class panelCriarConcurso extends javax.swing.JPanel {
         btnProximo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unipampa/sgc/apresentacao/icones/proximo.png"))); // NOI18N
         btnProximo.setToolTipText("Próximo");
 
-        txtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+        txtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.MEDIUM))));
 
         javax.swing.GroupLayout panelDadosGeraisLayout = new javax.swing.GroupLayout(panelDadosGerais);
         panelDadosGerais.setLayout(panelDadosGeraisLayout);
@@ -511,7 +511,7 @@ public class panelCriarConcurso extends javax.swing.JPanel {
 
         panelDataNascimentoCand.setBorder(javax.swing.BorderFactory.createTitledBorder("Data de Nascimento"));
 
-        jDataNascimentoCandidatos.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+        jDataNascimentoCandidatos.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.MEDIUM))));
 
         javax.swing.GroupLayout panelDataNascimentoCandLayout = new javax.swing.GroupLayout(panelDataNascimentoCand);
         panelDataNascimentoCand.setLayout(panelDataNascimentoCandLayout);

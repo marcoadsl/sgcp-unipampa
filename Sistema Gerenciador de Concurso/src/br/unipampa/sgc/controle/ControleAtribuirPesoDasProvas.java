@@ -11,7 +11,7 @@ import br.unipampa.sgc.apresentacao.JanelaAtribuirPeso;
  *
  * @author GabrielBMoro
  */
-public class ControleAtribuirPesoDasProvas {
+public class ControleAtribuirPesoDasProvas extends Controle{
 
     public ControleAtribuirPesoDasProvas(JanelaAtribuirPeso janelaAtribuirPeso) {
 //        janelaAtribuirPeso.addWindowListener(new TrataListenerDaJanela());
@@ -55,5 +55,13 @@ public class ControleAtribuirPesoDasProvas {
 //            }
 //        }
 //        );
+    }
+
+    @Override
+    public void inicializarComponentes() {
+    }
+
+    @Override
+    public void registrarListeners() {
     }
 }
