@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e55a19af-f20c-45df-915a-3b4818bd212c">
+	<property name="ireport.zoom" value="1.3310000000000004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FILTRO_ID" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     aluno.`idaluno` AS aluno_idaluno,
+     aluno.`nome` AS aluno_nome,
+     aluno.`matricula` AS aluno_matricula,
+     aluno.`email` AS aluno_email,
+     aluno.`senha` AS aluno_senha,
+     aluno.`tcc_idtcc` AS aluno_tcc_idtcc,
+     aluno.`tcc_idtcc1` AS aluno_tcc_idtcc1,
+     tcc.`idtcc` AS tcc_idtcc,
+     tcc.`tema` AS tcc_tema,
+     tcc.`proposta` AS tcc_proposta,
+     tcc.`orientador_professor` AS tcc_orientador_professor,
+     tcc.`corientador_professor` AS tcc_corientador_professor,
+     banca.`banca1_membroExterno` AS banca_banca1_membroExterno,
+     banca.`banca2_membroExterno` AS banca_banca2_membroExterno,
+     banca.`banca3_membroExterno` AS banca_banca3_membroExterno,
+     defesa.`data` AS defesa_data,
+     defesa.`hora` AS defesa_hora,
+     defesa.`local` AS defesa_local,
+     membroexterno.`nome` AS membroexterno_nome
+FROM
+     `aluno` aluno INNER JOIN `tcc` tcc ON aluno.`tcc_idtcc` = tcc.`idtcc`
+     INNER JOIN `defesa` defesa ON aluno.`idaluno` = defesa.`aluno_idaluno`
+     INNER JOIN `banca` banca ON defesa.`banca_idbanca` = banca.`idbanca`
+     INNER JOIN `membroexterno` membroexterno ON banca.`banca1_membroExterno` = membroexterno.`idmembroexterno`
+     AND membroexterno.`idmembroexterno` = banca.`banca3_membroExterno`
+     AND membroexterno.`idmembroexterno` = banca.`banca2_membroExterno`
+WHERE
+     idaluno = $P{FILTRO_ID}]]>
+	</queryString>
+	<field name="aluno_idaluno" class="java.lang.Integer"/>
+	<field name="aluno_nome" class="java.lang.String"/>
+	<field name="aluno_matricula" class="java.lang.String"/>
+	<field name="aluno_email" class="java.lang.String"/>
+	<field name="aluno_senha" class="java.lang.String"/>
+	<field name="aluno_tcc_idtcc" class="java.lang.Integer"/>
+	<field name="aluno_tcc_idtcc1" class="java.lang.Integer"/>
+	<field name="tcc_idtcc" class="java.lang.Integer"/>
+	<field name="tcc_tema" class="java.lang.String"/>
+	<field name="tcc_proposta" class="java.lang.String"/>
+	<field name="tcc_orientador_professor" class="java.lang.Integer"/>
+	<field name="tcc_corientador_professor" class="java.lang.Integer"/>
+	<field name="banca_banca1_membroExterno" class="java.lang.Integer"/>
+	<field name="banca_banca2_membroExterno" class="java.lang.Integer"/>
+	<field name="banca_banca3_membroExterno" class="java.lang.Integer"/>
+	<field name="defesa_data" class="java.lang.String"/>
+	<field name="defesa_hora" class="java.lang.String"/>
+	<field name="defesa_local" class="java.lang.String"/>
+	<field name="membroexterno_nome" class="java.lang.String"/>
+	<group name="aluno_idaluno">
+		<groupExpression><![CDATA[$F{aluno_idaluno}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="739" splitType="Stretch">
+			<staticText>
+				<reportElement x="141" y="23" width="268" height="18" uuid="97c854e9-39f8-4b3e-89cc-de984cd24f32"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[MINISTÉRIO DA EDUCAÇÃO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="221" y="57" width="100" height="20" uuid="533c7264-fca8-4ea2-bed0-3d07103284e2"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{campus}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="151" y="150" width="317" height="20" uuid="ff40328d-f731-48b1-a046-064179afa97e"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[-Sessão pública de divulgação da nota da prova didática ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="394" y="77" width="74" height="20" uuid="038dce0b-000d-4d95-9374-4df8021c0d97"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{professor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="33" y="150" width="55" height="20" uuid="85f7fa6f-6b00-426f-ad9d-9c90c6f6558d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ATA Nro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="141" y="77" width="253" height="20" uuid="064a89de-0a96-49ab-9c11-db20d2ca82f2"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[CONCURSO PUBLICO PARA PROFESSOR ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="141" y="57" width="80" height="20" uuid="5d669b0a-951e-451d-8911-f399fd8b3c4b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="12" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[CAMPUS]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="88" y="150" width="58" height="20" uuid="15ef8f49-3873-41b4-af30-7b7fa2a8c7dc"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="10" y="10" width="121" height="87" uuid="7e740b46-d7cf-415b-ad0e-3fdcef83e507"/>
+				<imageExpression><![CDATA["C:\\Users\\Rodrigo\\Desktop\\uni.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="141" y="97" width="42" height="20" uuid="4d037a20-8c01-4d8d-91d8-0f72d1da7734"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ÀREA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="141" y="41" width="307" height="16" uuid="c0affb26-00c4-4866-beaf-fcf3a456ca75"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ FUNDAÇÃO UNIVERSIDADE FEDERAL DO PAMPA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="277" y="609" width="100" height="15" uuid="870fb9a4-c4ae-414b-81c9-4d7b33799e03"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{examinador2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="589" width="555" height="20" uuid="ad324f00-abd0-4963-95b5-af208ea4068a"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[_____________________]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="445" y="461" width="100" height="20" uuid="b23b5397-82db-4c53-8d6f-c90b9183efab"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{data}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="277" y="667" width="100" height="20" uuid="b6a556d0-59c1-490d-b3bb-d69888002748"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{professor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="217" y="667" width="56" height="21" uuid="0df0c992-ad41-4588-877f-381b27787b36"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Prof. DR.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="647" width="555" height="20" uuid="e142591c-7ab2-4591-81ac-ee5498bb22e6"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[_____________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="169" y="537" width="117" height="21" uuid="992925ff-cf1d-4fbc-94ca-8b2d4adbf4e5"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Presidente Prof. Dr.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="217" y="609" width="60" height="15" uuid="a8b7d85b-a533-48d4-8ad0-594ec9a0af1b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Prof. DR.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="283" y="537" width="100" height="20" uuid="95d00c18-c431-409e-b463-8de27f219a77"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{examinador1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="517" width="555" height="20" uuid="4750c754-0d26-4b7f-b103-0a86014445cd"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[_____________________]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="345" y="461" width="100" height="20" uuid="8634ff3b-1dd6-4f95-8cce-78f392835435"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cidade}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="33" y="202" width="484" height="189" uuid="ef8c065d-0363-434a-a4e3-ae504fb5cc74"/>
+				<textElement textAlignment="Justified">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Aos                                                                     , à                                    , na , reuniu-se a Comissão Examinadora do Concurso Público para Professor                                       para o campus                                        na área de                                                                para a sessão pública de divulgação da nota da prova didática do Concurso Público. Iniciada a Sessão, o presidente da Comissão Examinadora explicou os procedimentos que seriam adotados para a divulgação das notas. A seguir, cada examinador fez a abertura dos envelopes lacrados e rubricados que continham as notas de cada candidato. As notas dos candidatos foram lidas e lançadas em uma planilha eletrônica demonstrativa. Essa planilha podia ser vista por todos os presentes através de equipamento áudio-visual. O cálculo das médias obedeceu a                                                                   . Completadas todas as planilhas demonstrativas, constatou-se                                                                                                                                                          ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="59" y="202" width="218" height="16" uuid="c67865f8-2f72-476c-b02e-50f68a1f183a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{data}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="309" y="202" width="100" height="15" uuid="5e01748f-4adb-4cc9-b241-d0100839dfa7"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="359" y="218" width="109" height="15" uuid="2898a5cd-a72c-4071-b192-b771a0047626"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{professor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="78" y="233" width="121" height="16" uuid="e0a37fb8-32ac-4fec-a158-bcb46ae40b95"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{campus}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="273" y="234" width="195" height="15" uuid="5a3637f8-3b58-488a-ab1b-640222b3da16"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{area}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="146" y="339" width="231" height="15" uuid="cc2bb2aa-0fb3-4f0d-b7a7-e9a7ca1fb66f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Resolucao]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="191" y="354" width="326" height="16" uuid="5616e5b8-0604-4726-af64-9a300ff8734a"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Resultado]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="33" y="370" width="198" height="17" uuid="95165d63-f3f1-4370-ac1e-ed2ce1eea0c7"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="241" y="370" width="227" height="17" uuid="794c73b9-37b7-4db0-ac98-4b4bd17f89b5"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nota}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="34" y="391" width="483" height="35" uuid="f1f6d23e-19c9-4877-837b-26ad549a7939"/>
+				<textElement textAlignment="Justified">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Após o encerramento dos trabalhos, que transcorreram sem anormalidades, lavrou-se a presente ata.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="481" y="57" width="64" height="55" uuid="bbbcf6e5-d309-43b2-a787-3a43d547e548"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Uso exclusivo divisão de concursos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="481" y="37" width="58" height="20" uuid="53f614cf-7fcf-41d2-85ea-8405dc12d4d4"/>
+				<text><![CDATA[Rúbrica:___]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="186" y="101" width="100" height="16" uuid="3a1c664d-5d41-4ccb-8005-828df55d4583"/>
+				<textFieldExpression><![CDATA[$F{area}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="481" y="17" width="58" height="20" uuid="c9803cd7-0693-4ca7-9f19-9d92f65cb96b"/>
+				<text><![CDATA[Folha nº:___]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

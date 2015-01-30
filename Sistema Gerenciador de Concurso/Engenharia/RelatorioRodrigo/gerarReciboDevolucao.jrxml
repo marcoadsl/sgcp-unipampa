@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Ata_NÃO_IMPEDIMENTO" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="477b963d-82f5-4d08-a6af-44974fafb847">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="28"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="117" splitType="Stretch">
+			<staticText>
+				<reportElement x="150" y="23" width="218" height="18" uuid="27e10412-6156-4aec-92cf-4f86495143c1"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[MINISTÉRIO DA EDUCAÇÃO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="231" y="57" width="100" height="20" uuid="9106afa0-4063-4ff2-a4e2-b8f40d9a8117"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{campus}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="409" y="77" width="146" height="20" uuid="deda1d8c-0147-4bff-943a-cdf9eb5d2513"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{professor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="150" y="77" width="253" height="20" uuid="536ff10e-184b-473f-897f-328be9e07b33"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[CONCURSO PUBLICO PARA PROFESSOR ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="151" y="57" width="80" height="20" uuid="80b99854-4bfc-4a27-b548-977f536078b6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="12" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[CAMPUS]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="193" y="97" width="100" height="20" uuid="e0efaec6-fcff-4b06-81cf-c2e349ee5f05"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{area}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="10" y="10" width="121" height="87" uuid="d07ff61b-070f-4330-9f64-1b4c0189fbdb"/>
+				<imageExpression><![CDATA["C:\\Users\\Rodrigo\\Desktop\\uni.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="151" y="97" width="42" height="20" uuid="c6847e04-f062-4d10-bd26-c8a3d82eaedb"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ÀREA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="150" y="41" width="306" height="16" uuid="22a19409-22dd-4de3-97ae-faea3264619c"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ FUNDAÇÃO UNIVERSIDADE FEDERAL DO PAMPA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="497" y="10" width="58" height="20" uuid="45d5b8ad-2ba2-4326-a065-a472bc66a0ce"/>
+				<text><![CDATA[Folha nº:___]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="497" y="50" width="64" height="55" uuid="70e5dbdf-bf6a-40ab-89b3-56eed443339e"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Uso exclusivo divisão de concursos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="497" y="30" width="58" height="20" uuid="65619d47-0d1c-48c5-8f9d-a830e1370875"/>
+				<text><![CDATA[Rúbrica:___]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="263" splitType="Stretch">
+			<staticText>
+				<reportElement x="121" y="47" width="322" height="22" uuid="dd90dc50-d049-409a-b589-ca5542d29da4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RECIBO DE DEVOLUÇÃO DE DOCUMENTAÇÃO ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="103" width="531" height="82" uuid="8a6d4ae7-2225-488a-b24b-cffa18b54f12"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Recebi da banca examinadora a devolução da documentação comprobatória da minha prova de títulos composta por ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="121" y="148" width="434" height="20" uuid="65edd775-3f0a-4796-a659-48107d937fb4"/>
+				<text><![CDATA[_______________________________________________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="168" width="545" height="20" uuid="8ceda0e8-eb90-4e46-858b-4e1ed426fa23"/>
+				<text><![CDATA[_______________________________________________________________________________________________________________________________________________]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<textField>
+				<reportElement x="377" y="12" width="64" height="20" uuid="7a233aaf-b4c5-430f-bccb-96a499cfb11e"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="441" y="12" width="100" height="20" uuid="39ad1115-664b-4bad-8bb5-05d32a35b502"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{data}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<staticText>
+				<reportElement x="209" y="52" width="168" height="30" uuid="d9bea8c0-f074-4679-840a-ac46d508d8ab"/>
+				<text><![CDATA[______________________________
+Assinatura do Membro da Comissão
+]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
